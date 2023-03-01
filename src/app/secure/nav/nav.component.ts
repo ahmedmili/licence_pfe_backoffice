@@ -8,12 +8,18 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  user: User | null = null;
+user!:User;
   constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
-    this.authService.user$.subscribe((user) => {
+    this.authService.user().subscribe(user => {
       this.user = user;
+    });
+  }
+
+  logout(): void {
+    this.authService.logout().subscribe(() => {
+      console.log('success');
     });
   }
 

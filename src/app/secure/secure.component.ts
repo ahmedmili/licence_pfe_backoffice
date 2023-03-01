@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from '../interfaces/user';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -7,10 +9,10 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./secure.component.css']
 })
 export class SecureComponent implements OnInit {
-
-  constructor() { }
+  
+  constructor(private authService:AuthService,private router: Router) { }
 
   ngOnInit(): void {
+   
   }
-
 }
