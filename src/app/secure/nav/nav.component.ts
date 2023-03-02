@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Emitters } from 'src/app/emitters/emitters';
 import { User } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -12,15 +13,18 @@ user!:User;
   constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
-    this.authService.user().subscribe(user => {
-      this.user = user;
-    });
+    Emitters.userEmitter.subscribe(
+      user=>{
+        this.user=user;
+      }
+    );
+    
   }
 
   logout(): void {
-    this.authService.logout().subscribe(() => {
-      console.log('success');
-    });
-  }
+    this.authService.logout()
+      .subscribe(() => {
+        localStorage.removeItem('token');
+      });}
 
 }

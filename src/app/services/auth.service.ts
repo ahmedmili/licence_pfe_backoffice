@@ -11,21 +11,17 @@ export class AuthService {
  
 
   private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem('token')
-    })
+    headers : new HttpHeaders({'Content-Type': 'application/json', 'Authorization':'Bearer ' + localStorage.getItem('token')})
   };
 
+   
 
   constructor(protected http: HttpClient) {
   }
 
   login(data: any): Observable<any> {
-    return this.http.post(`${environment.api}/login`, data);
+   return this.http.post<any>(`${environment.api}/login`, data, { observe: 'response' })
   }
-
-
 
   register(data: any): Observable<User> {
     return this.http.post<User>(`${environment.api}/register`, data);
@@ -36,14 +32,14 @@ export class AuthService {
   }
 
   logout(): Observable<void> {
-    return this.http.post<void>(`${environment.api}/logout`, {});
+    return this.http.post<void>(`${environment.api}/logout`,{});
   }
 
   updateInfo(data:any): Observable<User> {
-    return this.http.put<User>(`${environment.api}/users/info`, data);
+    return this.http.put<User>(`${environment.api}/users/info`, data,this.httpOptions);
   }
 
   updatePassword(data:any): Observable<User> {
-    return this.http.put<User>(`${environment.api}/users/password`, data);
+    return this.http.put<User>(`${environment.api}/users/password`, data,this.httpOptions);
   }
 }
