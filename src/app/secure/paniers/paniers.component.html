@@ -52,7 +52,7 @@
     <th mat-header-cell *matHeaderCellDef>Action</th>
     <td mat-cell *matCellDef="let panier">
         <a class="btn btn-sm btn-outline-secondary" [routerLink]="['/paniers',panier.id,'edit']">Edit</a>
-        
+        <a class="btn btn-sm btn-outline-secondary" (click)="delete(panier.id)">Delete</a>
     </td>
   </ng-container>
 

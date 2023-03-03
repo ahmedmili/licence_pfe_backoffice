@@ -16,6 +16,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { PaniersComponent } from './paniers/paniers.component';
 import { PanierCreateComponent } from './paniers/panier-create/panier-create.component';
+import { PanierEditComponent } from './paniers/panier-edit/panier-edit.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { PanierCreateComponent } from './paniers/panier-create/panier-create.com
     ProfileComponent,
     UsersComponent,
     PaniersComponent,
-    PanierCreateComponent
+    PanierCreateComponent,
+    PanierEditComponent
     
   ],
   imports: [

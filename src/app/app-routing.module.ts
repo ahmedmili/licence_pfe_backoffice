@@ -9,6 +9,7 @@ import { ProfileComponent } from './secure/profile/profile.component';
 import { UsersComponent } from './secure/users/users.component';
 import { PaniersComponent } from './secure/paniers/paniers.component';
 import { PanierCreateComponent } from './secure/paniers/panier-create/panier-create.component';
+import { PanierEditComponent } from './secure/paniers/panier-edit/panier-edit.component';
 const routes: Routes = [
   {
     path: '',
@@ -19,7 +20,8 @@ const routes: Routes = [
      {path:'profile',component:ProfileComponent},
      {path:'users',component:UsersComponent},
      {path:'paniers',component:PaniersComponent},
-     {path: 'paniers/create', component: PanierCreateComponent}
+     {path: 'paniers/create', component: PanierCreateComponent},
+     {path: 'paniers/:id/edit', component: PanierEditComponent},
     ]
   },
   {
