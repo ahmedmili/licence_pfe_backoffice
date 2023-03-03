@@ -34,4 +34,6 @@ export class PanierCreateComponent implements OnInit {
     .subscribe(() => this.router.navigate(['/paniers']));
   }
 
+  
+
 }

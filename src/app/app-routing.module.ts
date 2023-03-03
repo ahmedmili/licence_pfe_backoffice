@@ -10,6 +10,8 @@ import { UsersComponent } from './secure/users/users.component';
 import { PaniersComponent } from './secure/paniers/paniers.component';
 import { PanierCreateComponent } from './secure/paniers/panier-create/panier-create.component';
 import { PanierEditComponent } from './secure/paniers/panier-edit/panier-edit.component';
+import { UserCreateComponent } from './secure/users/user-create/user-create.component';
+import { UserEditComponent } from './secure/users/user-edit/user-edit.component';
 const routes: Routes = [
   {
     path: '',
@@ -19,6 +21,8 @@ const routes: Routes = [
     //  {path:'',pathMatch:'full',redirectTo:'/users'},
      {path:'profile',component:ProfileComponent},
      {path:'users',component:UsersComponent},
+     {path: 'users/create', component: UserCreateComponent},
+     {path: 'users/:id/edit', component: UserEditComponent},
      {path:'paniers',component:PaniersComponent},
      {path: 'paniers/create', component: PanierCreateComponent},
      {path: 'paniers/:id/edit', component: PanierEditComponent},

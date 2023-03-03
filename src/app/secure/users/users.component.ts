@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UsersComponent implements OnInit,AfterViewInit{
 users:User[]=[];
-columns = ['ID','name', 'email','phone','actions'];
+columns = ['id','name', 'email','phone','actions'];
 dataSource = new MatTableDataSource();
 @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(private userService:UserService) { }

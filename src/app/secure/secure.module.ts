@@ -6,7 +6,7 @@ import {SecureComponent} from './secure.component';
 import {RouterModule} from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './users/users.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule} from '@angular/material/button';
@@ -17,6 +17,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { PaniersComponent } from './paniers/paniers.component';
 import { PanierCreateComponent } from './paniers/panier-create/panier-create.component';
 import { PanierEditComponent } from './paniers/panier-edit/panier-edit.component';
+import { UserCreateComponent } from './users/user-create/user-create.component';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { PanierEditComponent } from './paniers/panier-edit/panier-edit.component
     UsersComponent,
     PaniersComponent,
     PanierCreateComponent,
-    PanierEditComponent
+    PanierEditComponent,
+    UserCreateComponent,
+    UserEditComponent
     
   ],
   imports: [
@@ -41,7 +45,8 @@ import { PanierEditComponent } from './paniers/panier-edit/panier-edit.component
     MatFormFieldModule,
     MatInputModule,
     MatButtonToggleModule,
-    MatExpansionModule
+    MatExpansionModule,
+    FormsModule,
 
   ]
 })

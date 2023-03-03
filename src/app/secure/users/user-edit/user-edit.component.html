@@ -1,0 +1,21 @@
+<h3 class="mt-4">Add Box :</h3>
+ <form (ngSubmit)="submit()" >
+    <!-- <div class="form-group">
+        <label>Name</label>
+    <input  class="form-control" name="name"  [(ngModel)]="user.name">
+    </div> -->
+    <div class="form-group">
+        <label for="email">Email</label>
+       <input class="text form-control" type="email" id="email" name="email" [(ngModel)]="user.email">
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone</label>
+       <input class="text form-control" type="number" id="phone" name="phone" [(ngModel)]="user.phone">
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+       <input  class="text form-control" type="password" id="password" name="password">
+    </div>
+    <button class="btn btn-dark btn -sm mt-4">Save</button>
+</form>
+  

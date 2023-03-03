@@ -1,6 +1,9 @@
+<div class="pt-3 pb-2 mb-3 border-bottom">
+  <a routerLink="/users/create" class="btn btn-sm btn-outline-secondary">Add</a>
+</div>
 <table mat-table [dataSource]="dataSource" class="table table-striped table-sm mat-elevation-z8">
 
-  <ng-container matColumnDef="ID">
+  <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>#</th>
     <td mat-cell *matCellDef="let user"> {{user.id}} </td>
   </ng-container>
@@ -22,12 +25,13 @@
   </ng-container>
 
   <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
     <td mat-cell *matCellDef="let user">
-      <a   mat-stroked-button color="primary">View</a>
+        <a class="btn btn-sm btn-outline-secondary" [routerLink]="['/users',user.id,'edit']">Edit</a>
+        <!-- <a class="btn btn-sm btn-outline-secondary" (click)="delete(panier.id)">Delete</a> -->
     </td>
-   
   </ng-container>
+
 
   <tr mat-header-row *matHeaderRowDef="columns"></tr>
   <tr mat-row *matRowDef="let row; columns:columns;"></tr>
