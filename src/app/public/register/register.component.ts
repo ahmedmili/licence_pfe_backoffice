@@ -24,16 +24,13 @@ export class RegisterComponent implements OnInit {
     this.form=this.formBuilder.group({
       name :'',
       email :'',
+      phone:'',
       password :'',
     });
   }
 
   submit(): void {
-    // this.authService.register({
-    //   name: this.name,
-    //   email: this.email,
-    //   password: this.password,
-    // }).subscribe(() => this.router.navigate(['/login']));
+
     this.authService.register(this.form.getRawValue())
     .subscribe(()=>this.router.navigate(['/login']));
   }

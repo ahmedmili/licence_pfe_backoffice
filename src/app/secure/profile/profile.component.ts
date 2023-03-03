@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
     this.infoForm=this.formBuilder.group({
       name:'',
       email:'',
+      phone:'',
     });
     this.passwordForm=this.formBuilder.group({
       password:'',
@@ -24,7 +25,9 @@ export class ProfileComponent implements OnInit {
 
     Emitters.userEmitter.subscribe(
       user=>{
+        console.log(this.infoForm);
         this.infoForm.patchValue(user);
+        
       }
     );
   }

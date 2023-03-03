@@ -14,6 +14,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { PaniersComponent } from './paniers/paniers.component';
+import { PanierCreateComponent } from './paniers/panier-create/panier-create.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
     NavComponent,
     MenuComponent,
     ProfileComponent,
-    UsersComponent
+    UsersComponent,
+    PaniersComponent,
+    PanierCreateComponent
     
   ],
   imports: [
