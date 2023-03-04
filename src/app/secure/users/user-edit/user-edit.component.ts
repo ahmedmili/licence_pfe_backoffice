@@ -10,29 +10,30 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-edit.component.css']
 })
 export class UserEditComponent implements OnInit {
-  data!:any;
+  form!: FormGroup;
   id!: number;
-  user!: User;
   constructor(
+    private formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router,
     private route: ActivatedRoute) { }
 
     ngOnInit(): void {
-      console.log(this.route.snapshot.params['id']);
+      this.form=this.formBuilder.group({
+        name:'',
+        email:'',
+        phone:'',
+      });
+
       this.id = this.route.snapshot.params['id'];
-      this.getData();
+
+      this.userService.get(this.id).subscribe(
+        user => this.form.patchValue(user)
+      );
     }
-  getData(){
-    this.userService.getuserById(this.id).subscribe(
-      res => {
-        this.data = res;
-        this.user = this.data;
-      }
-    )
-  }
+ 
     submit(): void {
-      this.userService.update(this.id, this.user)
+      this.userService.update(this.id, this.form.getRawValue())
         .subscribe(() => this.router.navigate(['/users']));
     }
 

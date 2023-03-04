@@ -28,7 +28,7 @@
     <th mat-header-cell *matHeaderCellDef>Actions</th>
     <td mat-cell *matCellDef="let user">
         <a class="btn btn-sm btn-outline-secondary" [routerLink]="['/users',user.id,'edit']">Edit</a>
-        <!-- <a class="btn btn-sm btn-outline-secondary" (click)="delete(panier.id)">Delete</a> -->
+        <a class="btn btn-sm btn-outline-secondary" (click)="delete(user.id)">Delete</a>
     </td>
   </ng-container>
 

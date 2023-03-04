@@ -36,7 +36,4 @@ export class UserService {
     return this.http.delete<void>(`${this.endpoint}/${id}`,this.httpOptions);
   }
 
-  getuserById(id: number){
-    return this.http.get(`${this.endpoint}/${id}`,this.httpOptions);
-  }
 }
