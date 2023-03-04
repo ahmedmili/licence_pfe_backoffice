@@ -12,6 +12,9 @@ import { PanierCreateComponent } from './secure/paniers/panier-create/panier-cre
 import { PanierEditComponent } from './secure/paniers/panier-edit/panier-edit.component';
 import { UserCreateComponent } from './secure/users/user-create/user-create.component';
 import { UserEditComponent } from './secure/users/user-edit/user-edit.component';
+import { OrdersComponent } from './secure/orders/orders.component';
+import { OrderCreateComponent } from './secure/orders/order-create/order-create.component';
+import { OrderEditComponent } from './secure/orders/order-edit/order-edit.component';
 const routes: Routes = [
   {
     path: '',
@@ -26,6 +29,9 @@ const routes: Routes = [
      {path:'paniers',component:PaniersComponent},
      {path: 'paniers/create', component: PanierCreateComponent},
      {path: 'paniers/:id/edit', component: PanierEditComponent},
+     {path:'orders',component:OrdersComponent},
+     {path: 'orders/create', component: OrderCreateComponent},
+     {path: 'orders/:id/edit', component: OrderEditComponent},
     ]
   },
   {

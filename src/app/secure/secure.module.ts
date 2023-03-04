@@ -19,6 +19,9 @@ import { PanierCreateComponent } from './paniers/panier-create/panier-create.com
 import { PanierEditComponent } from './paniers/panier-edit/panier-edit.component';
 import { UserCreateComponent } from './users/user-create/user-create.component';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderCreateComponent } from './orders/order-create/order-create.component';
+import { OrderEditComponent } from './orders/order-edit/order-edit.component';
 
 
 @NgModule({
@@ -32,7 +35,10 @@ import { UserEditComponent } from './users/user-edit/user-edit.component';
     PanierCreateComponent,
     PanierEditComponent,
     UserCreateComponent,
-    UserEditComponent
+    UserEditComponent,
+    OrdersComponent,
+    OrderCreateComponent,
+    OrderEditComponent
     
   ],
   imports: [
