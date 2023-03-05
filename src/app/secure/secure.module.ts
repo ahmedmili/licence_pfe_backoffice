@@ -22,6 +22,8 @@ import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrderCreateComponent } from './orders/order-create/order-create.component';
 import { OrderEditComponent } from './orders/order-edit/order-edit.component';
+import { OrderDetailsComponent } from './orders/order-details/order-details.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { OrderEditComponent } from './orders/order-edit/order-edit.component';
     UserEditComponent,
     OrdersComponent,
     OrderCreateComponent,
-    OrderEditComponent
+    OrderEditComponent,
+    OrderDetailsComponent
     
   ],
   imports: [
@@ -53,6 +56,7 @@ import { OrderEditComponent } from './orders/order-edit/order-edit.component';
     MatButtonToggleModule,
     MatExpansionModule,
     FormsModule,
+    MatCardModule,
 
   ]
 })

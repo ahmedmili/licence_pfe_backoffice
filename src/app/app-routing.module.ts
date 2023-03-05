@@ -15,6 +15,7 @@ import { UserEditComponent } from './secure/users/user-edit/user-edit.component'
 import { OrdersComponent } from './secure/orders/orders.component';
 import { OrderCreateComponent } from './secure/orders/order-create/order-create.component';
 import { OrderEditComponent } from './secure/orders/order-edit/order-edit.component';
+import { OrderDetailsComponent } from './secure/orders/order-details/order-details.component';
 const routes: Routes = [
   {
     path: '',
@@ -32,6 +33,7 @@ const routes: Routes = [
      {path:'orders',component:OrdersComponent},
      {path: 'orders/create', component: OrderCreateComponent},
      {path: 'orders/:id/edit', component: OrderEditComponent},
+     {path: 'orders/:id/details', component: OrderDetailsComponent},
     ]
   },
   {

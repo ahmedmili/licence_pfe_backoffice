@@ -33,4 +33,9 @@ export class OrderService {
     return this.http.put<Order>(`${this.endpoint}/updateorder/${id}`,data,this.httpOptions);
   }
 
+
+  getdetails(id: number): Observable<Order>{
+    return this.http.get<Order>(`${this.endpoint}/orderdetails/${id}`,this.httpOptions);
+  }
+
 }
