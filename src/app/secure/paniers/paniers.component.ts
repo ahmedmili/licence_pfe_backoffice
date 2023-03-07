@@ -10,7 +10,7 @@ import { PanierService } from 'src/app/services/panier.service';
   styleUrls: ['./paniers.component.css']
 })
 export class PaniersComponent implements OnInit {
-  columns = ['ID','title', 'description','ancien_prix','nouveau_prix','date_dispo','quantite','image','categorie','actions'];
+  columns = ['ID','title', 'description','ancien_prix','nouveau_prix','date_debut','date_fin','quantity','remaining_quantity','image','categorie','status','actions'];
   dataSource = new MatTableDataSource();
  
   constructor(private panierService:PanierService, private router:Router) { }

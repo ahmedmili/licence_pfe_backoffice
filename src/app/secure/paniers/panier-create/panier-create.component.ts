@@ -20,16 +20,19 @@ export class PanierCreateComponent implements OnInit {
       description:'',
       ancien_prix:'',
       nouveau_prix:'',
-      date_dispo:'',
-      quantite:'',
+      date_debut:'',
+      date_fin:'',
+      quantity:'',
       image:'',
       categorie:'',
+      status:'',
     });
   }
 
   submit():void{
     const formValue = this.form.getRawValue();
-  formValue.date_dispo = formatDate(formValue.date_dispo, 'yyyy-MM-dd', 'en-US');
+    formValue.date_debut = formatDate(formValue.date_debut, 'yyyy-MM-dd HH:mm:ss', 'en-US');
+    formValue.date_fin = formatDate(formValue.date_fin, 'yyyy-MM-dd HH:mm:ss', 'en-US');
   this.panierService.create(formValue)
     .subscribe(() => this.router.navigate(['/paniers']));
   }

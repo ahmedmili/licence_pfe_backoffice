@@ -17,12 +17,16 @@
        <input formControlName="nouveau_prix" class="text form-control" type="number" id="nouveau_prix" name="nouveau_prix">
     </div>
     <div class="form-group">
-        <label for="date_dispo">Availability Date</label>
-        <input formControlName="date_dispo" class="text form-control" type="date" id="date_dispo" name="date_dispo">
+        <label for="date_debut">Available From</label>
+        <input formControlName="date_debut" class="text form-control" type="datetime-local" id="date_debut" name="date_debut">
+      </div>
+      <div class="form-group">
+        <label for="date_fin">Until</label>
+        <input formControlName="date_fin" class="text form-control" type="datetime-local" id="date_fin" name="date_fin">
       </div>
     <div class="form-group">
-        <label for="quantite">quantity</label>
-       <input formControlName="quantite" class="text form-control" type="number" id="quantite" name="quantite">
+        <label for="quantity">quantity</label>
+       <input formControlName="quantity" class="text form-control" type="number" id="quantity" name="quantity">
     </div>
     <div class="form-group">
         <label for="image">Image</label>
@@ -31,15 +35,23 @@
     <div class="form-group">
         <label for="categorie">Category</label>
         <select formControlName="categorie" class="text form-control" id="categorie" name="categorie">
-            <option value="Fruits_Légumes">Fruits et légumes</option>
-            <option value="Viande">Viande</option>
-            <option value="Pâtisserie">Pâtisserie</option>
-            <option value="Poisson">Poisson</option>
-            <option value="Produits_Laitiers">Produits laitiers</option>
-            <option value="Plas_Préparés">Plats préparés</option>
-            <option value="Sucreries">Sucreries</option>
-            <option value="Boissons">Boissons</option>
-            <option value="Végétarien">Végétarien</option>
+            <option value="Fruits and vegetables">Fruits and vegetables</option>
+            <option value="Meat">Meat</option>
+            <option value="Pastry">Pastry</option>
+            <option value="Fish">Fish</option>
+            <option value="Dairy products">Dairy products</option>
+            <option value="Prepared dishes">Prepared dishes</option>
+            <option value="Sweets">Sweets</option>
+            <option value="Drinks">Drinks</option>
+            <option value="Vegetarian">Vegetarian</option>
+          </select>
+    </div>
+    <div class="form-group">
+        <label for="status">Status</label>
+        <select formControlName="status" class="text form-control" id="status" name="status">
+            <option value="PENDING">PENDING</option>
+            <option value="ACCEPTED">ACCEPTED</option>
+            <option value="REJECTED">REJECTED</option>
           </select>
     </div>
     <button class="btn btn-dark btn -sm mt-4">Save</button>

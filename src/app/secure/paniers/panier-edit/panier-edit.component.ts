@@ -22,10 +22,12 @@ export class PanierEditComponent implements OnInit {
       description:'',
       ancien_prix:'',
       nouveau_prix:'',
-      date_dispo:'',
-      quantite:'',
+      date_debut:'',
+      date_fin:'',
+      quantity:'',
       image:'',
       categorie:'',
+      status:'',
     });
 
     this.id = this.route.snapshot.params['id'];
