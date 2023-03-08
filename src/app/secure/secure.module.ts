@@ -14,9 +14,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { PaniersComponent } from './paniers/paniers.component';
-import { PanierCreateComponent } from './paniers/panier-create/panier-create.component';
-import { PanierEditComponent } from './paniers/panier-edit/panier-edit.component';
 import { UserCreateComponent } from './users/user-create/user-create.component';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { OrdersComponent } from './orders/orders.component';
@@ -24,6 +21,9 @@ import { OrderCreateComponent } from './orders/order-create/order-create.compone
 import { OrderEditComponent } from './orders/order-edit/order-edit.component';
 import { OrderDetailsComponent } from './orders/order-details/order-details.component';
 import { MatCardModule } from '@angular/material/card';
+import { BoxEditComponent } from './boxs/box-edit/box-edit.component';
+import { BoxCreateComponent } from './boxs/box-create/box-create.component';
+import { BoxsComponent } from './boxs/boxs.component';
 
 
 @NgModule({
@@ -33,15 +33,15 @@ import { MatCardModule } from '@angular/material/card';
     MenuComponent,
     ProfileComponent,
     UsersComponent,
-    PaniersComponent,
-    PanierCreateComponent,
-    PanierEditComponent,
     UserCreateComponent,
     UserEditComponent,
     OrdersComponent,
     OrderCreateComponent,
     OrderEditComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    BoxsComponent,
+    BoxCreateComponent,
+    BoxEditComponent,
     
   ],
   imports: [

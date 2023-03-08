@@ -1,78 +1,78 @@
 
 <div class="col-md-12 mb-4 input-group">
-  <input type="text" class="form-control" placeholder="Search" (keyup)="onSearch($any($event).target.value)">
+  <input type="text" class="form-control" placeholder="Search">
 </div>
 
 <div class="pt-3 pb-2 mb-3 border-bottom">
-  <a routerLink="/paniers/create" class="btn btn-sm btn-outline-secondary">Add</a>
+  <a routerLink="/boxs/create" class="btn btn-sm btn-outline-secondary">Add</a>
 </div>
 <table mat-table [dataSource]="dataSource" class="table table-striped table-sm mat-elevation-z8">
 
   <ng-container matColumnDef="ID">
     <th mat-header-cell *matHeaderCellDef>#</th>
-    <td mat-cell *matCellDef="let panier"> {{panier.id}} </td>
+    <td mat-cell *matCellDef="let box"> {{box.id}} </td>
   </ng-container>
 
   <ng-container matColumnDef="title">
     <th mat-header-cell *matHeaderCellDef>Title</th>
-    <td mat-cell *matCellDef="let panier"> {{panier.title}} </td>
+    <td mat-cell *matCellDef="let box"> {{box.title}} </td>
   </ng-container>
 
   <ng-container matColumnDef="description">
     <th mat-header-cell *matHeaderCellDef>Description</th>
-    <td mat-cell *matCellDef="let panier"> {{panier.description}} </td>
+    <td mat-cell *matCellDef="let box"> {{box.description}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="ancien_prix">
+  <ng-container matColumnDef="oldprice">
     <th mat-header-cell *matHeaderCellDef>Old Price</th>
-    <td mat-cell *matCellDef="let panier"> {{panier.ancien_prix}} </td>
+    <td mat-cell *matCellDef="let box"> {{box.oldprice}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="nouveau_prix">
+  <ng-container matColumnDef="newprice">
     <th mat-header-cell *matHeaderCellDef>New Price</th>
-    <td mat-cell *matCellDef="let panier"> {{panier.nouveau_prix}} </td>
+    <td mat-cell *matCellDef="let box"> {{box.newprice}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="date_debut">
+  <ng-container matColumnDef="startdate">
     <th mat-header-cell *matHeaderCellDef>Start Availability</th>
-    <td mat-cell *matCellDef="let panier"> {{panier.date_debut}} </td>
+    <td mat-cell *matCellDef="let box"> {{box.startdate}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="date_fin">
+  <ng-container matColumnDef="enddate">
     <th mat-header-cell *matHeaderCellDef>End Of Availability</th>
-    <td mat-cell *matCellDef="let panier"> {{panier.date_fin}} </td>
+    <td mat-cell *matCellDef="let box"> {{box.enddate}} </td>
   </ng-container>
 
   <ng-container matColumnDef="quantity">
     <th mat-header-cell *matHeaderCellDef>Quantity</th>
-    <td mat-cell *matCellDef="let panier"> {{panier.quantity}} </td>
+    <td mat-cell *matCellDef="let box"> {{box.quantity}} </td>
   </ng-container>
 
   <ng-container matColumnDef="remaining_quantity">
     <th mat-header-cell *matHeaderCellDef>Remaining Quantity</th>
-    <td mat-cell *matCellDef="let panier"> {{panier.remaining_quantity}} </td>
+    <td mat-cell *matCellDef="let box"> {{box.remaining_quantity}} </td>
   </ng-container>
 
   <ng-container matColumnDef="image">
     <th mat-header-cell *matHeaderCellDef>Image</th>
-    <td mat-cell *matCellDef="let product"><img [src]="product.image" height="50"/></td>
+    <td mat-cell *matCellDef="let box"><img [src]="box.image" height="50"/></td>
   </ng-container>
 
-  <ng-container matColumnDef="categorie">
+  <ng-container matColumnDef="category">
     <th mat-header-cell *matHeaderCellDef>Category</th>
-    <td mat-cell *matCellDef="let panier"> {{panier.categorie}} </td>
+    <td mat-cell *matCellDef="let box"> {{box.category}} </td>
   </ng-container>
 
   <ng-container matColumnDef="status">
     <th mat-header-cell *matHeaderCellDef>Status</th>
-    <td mat-cell *matCellDef="let panier"> {{panier.status}} </td>
+    <td mat-cell *matCellDef="let box"> {{box.status}} </td>
   </ng-container>
 
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef>Actions</th>
-    <td mat-cell *matCellDef="let panier">
-        <a class="btn btn-sm btn-outline-secondary" [routerLink]="['/paniers',panier.id,'edit']">Edit</a>
-        <a class="btn btn-sm btn-outline-secondary" (click)="delete(panier.id)">Delete</a>
+    <td mat-cell *matCellDef="let box">
+        <a class="btn btn-sm btn-outline-secondary" [routerLink]="['/boxs',box.id,'edit']">Edit</a>
+        <a class="btn btn-sm btn-outline-secondary" (click)="delete(box.id)">Delete</a>
     </td>
   </ng-container>
 
