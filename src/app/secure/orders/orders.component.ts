@@ -1,8 +1,10 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Order } from 'src/app/interfaces/order';
 import { OrderService } from 'src/app/services/order.service';
+
 
 
 @Component({
@@ -13,16 +15,22 @@ import { OrderService } from 'src/app/services/order.service';
 export class OrdersComponent implements OnInit {
   columns = ['id','created_at','status','price','actions','show details'];
   dataSource = new MatTableDataSource();
-  constructor(private orderService:OrderService, private router:Router) { }
+
+  constructor(private orderService: OrderService, private router: Router, public datePipe: DatePipe) { }
+
+
+
+  
 
   ngOnInit(): void {
     this.orderService.all().subscribe(
-        orders=> {
-            this.dataSource.data = orders 
-        },
+      orders => {
        
+        this.dataSource.data = orders;
+      }
     );
-}
+  }
+
 
 
 

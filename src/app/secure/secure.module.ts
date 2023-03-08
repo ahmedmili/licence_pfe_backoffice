@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import {NavComponent} from './nav/nav.component';
 import {MenuComponent} from './menu/menu.component';
 import {SecureComponent} from './secure.component';
@@ -24,6 +24,8 @@ import { MatCardModule } from '@angular/material/card';
 import { BoxEditComponent } from './boxs/box-edit/box-edit.component';
 import { BoxCreateComponent } from './boxs/box-create/box-create.component';
 import { BoxsComponent } from './boxs/boxs.component';
+
+
 
 
 @NgModule({
@@ -58,6 +60,7 @@ import { BoxsComponent } from './boxs/boxs.component';
     FormsModule,
     MatCardModule,
 
-  ]
+  ],
+  providers: [DatePipe],
 })
 export class SecureModule { }

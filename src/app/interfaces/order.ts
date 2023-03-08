@@ -5,7 +5,7 @@ export interface Order {
     user_id: number;
     price: number;
     status: 'PENDING'| 'AUTHORIZED'|'REJECTED'|'SUCCESS';
-    created_at: string;
-    command_panier:OrderBoxs[];
+    created_at: Date;
+    box_command:OrderBoxs[];
   }
   

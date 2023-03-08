@@ -1,29 +1,13 @@
 <h3 class="mt-4">Edit Order :</h3>
  <form [formGroup]="form" (submit)="submit()">
-    <div class="form-group">
-        <label for="date_cmd">Order Date</label>
-        <input formControlName="date_cmd" class="text form-control" type="date" id="date_cmd" name="date_cmd">
-      </div>
-      <div class="form-group">
-        <label for="heure_cmd">Order Time</label>
-        <input formControlName="heure_cmd" class="form-control" type="time" id="heure_cmd" name="heure_cmd">
-    </div>
-    <div class="form-group">
-        <label for="user_id">User Id</label>
-       <input formControlName="user_id" class="text form-control" type="number" id="user_id" name="user_id">
-    </div>
-    <div class="form-group">
-        <label for="total_prix">Total Price</label>
-       <input formControlName="total_prix" class="text form-control" type="number" id="total_prix" name="total_prix">
-    </div>
    
     <div class="form-group">
-        <label for="statut">Status</label>
-        <select formControlName="statut" class="text form-control" id="statut" name="statut">
-            <option value="En_attente">En_attente</option>
-            <option value="Validée">Validée</option>
-            <option value="Annulée">Annulée</option>
-            <option value="Récupéré">Récupéré</option>
+        <label for="status">Status</label>
+        <select formControlName="status" class="text form-control" id="status" name="status">
+            <option value="PENDING">PENDING</option>
+            <option value="AUTHORIZED">AUTHORIZED</option>
+            <option value="REJECTED">REJECTED</option>
+            <option value="SUCCESS">SUCCESS</option>
           </select>
     </div>
     <button class="btn btn-dark btn -sm mt-4">Save</button>
