@@ -11,7 +11,7 @@ import { OrderService } from 'src/app/services/order.service';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-  columns = ['ID','date_cmd', 'heure_cmd','total_prix','statut','actions','show details'];
+  columns = ['id','created_at','status','price','actions','show details'];
   dataSource = new MatTableDataSource();
   constructor(private orderService:OrderService, private router:Router) { }
 
@@ -23,6 +23,8 @@ export class OrdersComponent implements OnInit {
        
     );
 }
+
+
 
 delete(id: number): void{
   if(confirm('Are you sure ?')){

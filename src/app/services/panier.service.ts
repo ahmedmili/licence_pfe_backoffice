@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -36,4 +36,10 @@ export class PanierService {
     delete(id: number): Observable<void>{
       return this.http.delete<void>(`${this.endpoint}/${id}`,this.httpOptions);
     }
+
+     
+  searchPaniers(search: string): Observable<Panier[]> {
+    return this.http.get<Panier[]>(`${environment.api}/searchPaniers?search=${search}`,this.httpOptions);
+  }
+
 }

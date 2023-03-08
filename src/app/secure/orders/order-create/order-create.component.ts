@@ -15,19 +15,18 @@ export class OrderCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.form=this.formBuilder.group({
-      date_cmd:'',
-      heure_cmd:'',
       user_id:'',
-      total_prix:'',
-      statut:'',
+      panier_id:'',
+      quantity:'',
+      status:'',
     });
   }
 
+  
+
+
   submit(): void {
-    const formValue = this.form.getRawValue();
-    formValue.date_cmd = formatDate(formValue.date_cmd, 'yyyy-MM-dd', 'en-US');
-    formValue.heure_cmd = formValue.heure_cmd + ':00'; // ajout des secondes à l'heure saisie
-    this.orderService.create(formValue)
+    this.orderService.create(this.form.getRawValue())
       .subscribe(() => this.router.navigate(['/orders']));
   }
   
