@@ -9,31 +9,34 @@ import { User } from '../interfaces/user';
 })
 export class UserService {
   private httpOptions = {
-    headers : new HttpHeaders({'Content-Type': 'application/json', 'Authorization':'Bearer ' + localStorage.getItem('token')})
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    })
   };
   endpoint = `${environment.api}/users`;
-  constructor(private http:HttpClient) { 
-   
+  constructor(private http: HttpClient) {
+
   }
 
-  all(): Observable<User[]>{
-    return this.http.get<User[]>(this.endpoint,this.httpOptions);
+  all(): Observable<User[]> {
+    return this.http.get<User[]>(this.endpoint, this.httpOptions);
   }
 
-  create(data:any):Observable<User>{
-    return this.http.post<User>(this.endpoint,data,this.httpOptions);
+  create(data: any): Observable<User> {
+    return this.http.post<User>(this.endpoint, data, this.httpOptions);
   }
 
-  get(id: number): Observable<User>{
-    return this.http.get<User>(`${this.endpoint}/${id}`,this.httpOptions);
+  get(id: number): Observable<User> {
+    return this.http.get<User>(`${this.endpoint}/${id}`, this.httpOptions);
   }
 
-  update(id: number,data: any): Observable<User>{
-    return this.http.put<User>(`${this.endpoint}/${id}`,data,this.httpOptions);
+  update(id: number, data: any): Observable<User> {
+    return this.http.put<User>(`${this.endpoint}/${id}`, data, this.httpOptions);
   }
 
-  delete(id: number): Observable<void>{
-    return this.http.delete<void>(`${this.endpoint}/${id}`,this.httpOptions);
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.endpoint}/${id}`, this.httpOptions);
   }
 
 }

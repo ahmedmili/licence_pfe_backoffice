@@ -31,8 +31,8 @@ export class AuthService {
     return this.http.get<User>(`${environment.api}/user`, this.httpOptions);
   }
 
-  logout(): Observable<void> {
-    return this.http.post<void>(`${environment.api}/logout`,{});
+  logout() {
+    localStorage.removeItem("token");
   }
 
   updateInfo(data:any): Observable<User> {
