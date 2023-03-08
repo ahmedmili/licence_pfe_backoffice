@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Emitters } from 'src/app/emitters/emitters';
 import { User } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,9 +11,13 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavComponent implements OnInit {
 user!:User;
-  constructor(private authService:AuthService) { }
+  constructor(
+    private authService:AuthService,
+    private sneackbarService: SnackbarService
+    ) { }
 
   ngOnInit(): void {
+    // this.sneackbarService.openSnackBar("hello", "");
     Emitters.userEmitter.subscribe(
       user=>{
         this.user=user;
@@ -22,9 +27,8 @@ user!:User;
   }
 
   logout(): void {
-    this.authService.logout()
-      .subscribe(() => {
-        localStorage.removeItem('token');
-      });}
+    this.authService.logout();
+
+  }
 
 }
