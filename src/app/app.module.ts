@@ -7,6 +7,10 @@ import { PublicModule } from './public/public.module';
 import { SecureModule } from './secure/secure.module';
 import { CredentialInterceptor } from './interceptors/credential.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 @NgModule({
@@ -21,6 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PublicModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatSnackBarModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
