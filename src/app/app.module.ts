@@ -4,9 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { PublicModule } from './public/public.module';
-import { CredentialInterceptor } from './interceptors/credential.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SecureModule } from './secure/secure.module';
+import { CommonModule, DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -15,6 +15,7 @@ import { SecureModule } from './secure/secure.module';
     
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     SecureModule,
@@ -22,13 +23,7 @@ import { SecureModule } from './secure/secure.module';
     HttpClientModule,
     BrowserAnimationsModule,
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: CredentialInterceptor,
-      multi: true
-    }
-  ],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -18,11 +18,7 @@ export class OrderEditComponent implements OnInit {
 
     ngOnInit(): void {
       this.form=this.formBuilder.group({
-        date_cmd:'',
-        heure_cmd:'',
-        user_id:'',
-        total_prix:'',
-        statut:'',
+        status:'',
       });
 
       this.id = this.route.snapshot.params['id'];

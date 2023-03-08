@@ -16,7 +16,7 @@ export class OrderCreateComponent implements OnInit {
   ngOnInit(): void {
     this.form=this.formBuilder.group({
       user_id:'',
-      panier_id:'',
+      box_id:'',
       quantity:'',
       status:'',
     });
