@@ -1,0 +1,59 @@
+<h3 class="mt-4">Add User :</h3>
+ <form [formGroup]="form" (submit)="submit()">
+    <div class="form-group">
+        <label for="name">Name</label>
+       <input formControlName="name" class="text form-control" type="text" id="name" name="name">
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+       <input formControlName="description" class="text form-control" type="text" id="description" name="description" >
+    </div> 
+
+    <div class="form-group">
+        <label for="email">Email</label>
+       <input formControlName="email" class="text form-control" type="email" id="email" name="email" >
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone</label>
+       <input formControlName="phone" class="text form-control" type="number" id="phone" name="phone">
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+       <input formControlName="password" class="text form-control" type="password" id="password" name="password">
+    </div>
+
+    <div class="form-group">
+        <label for="image">Image</label>
+       <input formControlName="image" class="text form-control" type="text" id="image" name="image">
+    </div>
+
+    <div class="form-group">
+        <label for="category">Category</label>
+        <select formControlName="category" class="text form-control" id="category" name="category">
+            <option value="SUPERMARKET">Supermarket</option>
+            <option value="BAKERY">Bakery</option>
+            <option value="PASTRIES">Pastries</option>
+            <option value="RESTAURANT">Restaurant</option>
+            <option value="COFFEE SHOP">Coffee Shop</option>
+            <option value="HOTEL">Hotel</option>
+            <option value="CATERER">Caterer</option>
+            <option value="LOCAL PRODUCERS">Local Producers</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+        <label for="openingtime">Opening Time</label>
+        <input formControlName="openingtime" class="form-control" type="time" id="openingtime" name="openingtime">
+      </div>
+
+      <div class="form-group">
+        <label for="closingtime">Closing Time</label>
+        <input formControlName="closingtime" class="form-control" type="time" id="closingtime" name="closingtime">
+      </div>
+
+
+    <button class="btn btn-dark btn -sm mt-4">Save</button>
+</form>
+  

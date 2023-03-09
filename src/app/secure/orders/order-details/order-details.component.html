@@ -1,39 +1,3 @@
-<!-- <mat-expansion-panel hideToggle *ngIf="order">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{ order.id}} {{order.user_id}}
-      </mat-panel-title>
-      <mat-panel-description>
-        {{order.total_prix}} DT
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <table class="table table-striped table-sm">
-      <thead>
-        <tr>
-        <th>#</th>
-        <th>Product Title</th>
-        <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let orderBox of order.commande_paniers">
-            <td>{{ orderBox.id }}</td>
-             <td>{{item.product_title}}</td>
-            <td>{{item.price}}</td> -->
-      
-            <!-- <tbody>
-      </tbody>
-    </table>
-  </mat-expansion-panel> --> 
-
-
-
-
-
-
-
-
- 
 <mat-card *ngIf="order">
     <mat-card-title>Order Details</mat-card-title>
     <mat-card-content>
@@ -56,9 +20,7 @@
         <tbody>
           <tr *ngFor="let orderBox of order.box_command">
             <td>{{ orderBox.box_id }}</td>
-            <!-- <td>{{ orderBox.title }}</td>
-            <td>{{ orderBox.Quantity }}</td>
-            <td>{{ orderBox.prix }}</td> -->
+            <td>{{ orderBox.quantity}}</td>
           </tr>
         </tbody>
       </table>

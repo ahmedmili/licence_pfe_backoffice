@@ -24,6 +24,9 @@ import { MatCardModule } from '@angular/material/card';
 import { BoxEditComponent } from './boxs/box-edit/box-edit.component';
 import { BoxCreateComponent } from './boxs/box-create/box-create.component';
 import { BoxsComponent } from './boxs/boxs.component';
+import { PartnersComponent } from './partners/partners.component';
+import { PartnerCreateComponent } from './partners/partner-create/partner-create.component';
+import { PartnerEditComponent } from './partners/partner-edit/partner-edit.component';
 
 
 
@@ -44,6 +47,9 @@ import { BoxsComponent } from './boxs/boxs.component';
     BoxsComponent,
     BoxCreateComponent,
     BoxEditComponent,
+    PartnersComponent,
+    PartnerCreateComponent,
+    PartnerEditComponent,
     
   ],
   imports: [
