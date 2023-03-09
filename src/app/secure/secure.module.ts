@@ -27,6 +27,7 @@ import { BoxsComponent } from './boxs/boxs.component';
 import { PartnersComponent } from './partners/partners.component';
 import { PartnerCreateComponent } from './partners/partner-create/partner-create.component';
 import { PartnerEditComponent } from './partners/partner-edit/partner-edit.component';
+import { PartnerDetailsComponent } from './partners/partner-details/partner-details.component';
 
 
 
@@ -50,6 +51,7 @@ import { PartnerEditComponent } from './partners/partner-edit/partner-edit.compo
     PartnersComponent,
     PartnerCreateComponent,
     PartnerEditComponent,
+    PartnerDetailsComponent,
     
   ],
   imports: [

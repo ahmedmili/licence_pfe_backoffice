@@ -56,6 +56,13 @@
           <a class="btn btn-sm btn-outline-secondary" (click)="delete(partner.id)">Delete</a>
       </td>
     </ng-container>
+
+    <ng-container matColumnDef="show details">
+      <th mat-header-cell *matHeaderCellDef>Show Details </th>
+      <td mat-cell *matCellDef="let partner">
+        <a [routerLink]="['/partners',partner.id,'details']" class="btn btn-sm btn-outline-secondary">Show</a>
+      </td>
+    </ng-container>
   
   
     <tr mat-header-row *matHeaderRowDef="columns"></tr>

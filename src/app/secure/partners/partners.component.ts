@@ -12,7 +12,7 @@ import { PartnerService } from 'src/app/services/partner.service';
 })
 export class PartnersComponent implements OnInit {
   partners:Partner[]=[];
-  columns = ['id','name', 'description', 'email', 'phone', 'image', 'category', 'openingtime', 'closingtime','actions'];
+  columns = ['id','name', 'description', 'email', 'phone', 'image', 'category', 'openingtime', 'closingtime','actions','show details'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(private partnerService:PartnerService, private router:Router) { }

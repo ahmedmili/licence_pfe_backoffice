@@ -5,7 +5,7 @@ export interface Box {
         oldprice: number;
         newprice: number;
         startdate: Date;
-        anddate: Date;
+        enddate: Date;
         quantity: number;
         remaining_quantity: number;
         image: string;

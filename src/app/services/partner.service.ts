@@ -34,4 +34,8 @@ export class PartnerService {
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.endpoint}/${id}`, this.httpOptions);
   }
+
+  getdetails(id: number): Observable<Partner>{
+    return this.http.get<Partner>(`${this.endpoint}/partnerdetails/${id}`,this.httpOptions);
+  }
 }

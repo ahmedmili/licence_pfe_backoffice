@@ -1,0 +1,55 @@
+<mat-card *ngIf="partner">
+    <mat-card-title>Partner Boxs :</mat-card-title>
+    <mat-card-content>
+      <!-- <p>Date And Time: {{ order.created_at }}</p>
+      <p>User Id: {{ order.user_id}}</p>
+      <p>Total Price: {{ order.price}}</p>
+      <p>Status: {{ order.status }}</p> -->
+      <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th>#</th>
+            
+            <th>Title</th>
+
+            <th>Description</th>
+
+            <th>Old Price</th>
+
+            <th>New Price</th>
+
+            <th>Start Availability</th>
+
+            <th>End Of Availability</th>
+            
+            <th>Quantity</th>
+
+            <th>Remaining Quantity</th>
+            
+            <th>Image</th>
+
+            <th>Category</th>
+
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Boxs of partner.boxs">
+            <td>{{ Boxs.id }}</td>
+            <td>{{ Boxs.title}}</td>
+            <td>{{ Boxs.description}}</td>
+            <td>{{ Boxs.oldprice}}</td>
+            <td>{{ Boxs.newprice}}</td>
+            <td>{{ Boxs.startdate}}</td>
+            <td>{{ Boxs.enddate}}</td>
+            <td>{{ Boxs.quantity}}</td>
+            <td>{{ Boxs.remaining_quantity}}</td>
+            <td>{{ Boxs.image}}</td>
+            <td>{{ Boxs.category}}</td>
+            <td>{{ Boxs.status}}</td>
+      
+          </tr>
+        </tbody>
+      </table>
+    </mat-card-content>
+  </mat-card> 

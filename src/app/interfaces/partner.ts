@@ -1,3 +1,5 @@
+import { Box } from "./Box";
+
 export interface Partner {
     id:number,
     name:string,
@@ -8,5 +10,6 @@ export interface Partner {
     image:string,
     category:'SUPERMARKET'|'BAKERY'| 'PASTRIES'| 'RESTAURANT'| 'COFFEE SHOP'|'HOTEL'|'CATERER'| 'LOCAL PRODUCERS',
     openingtime:string,
-    closingtime:string
+    closingtime:string,
+    boxs:Box[];
 }
