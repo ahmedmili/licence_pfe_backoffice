@@ -10,20 +10,25 @@ import { SnackbarService } from '../../services/snackbar.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-user!:User;
+  user: User = {
+       id: 0,
+    name: "user",
+    email: "user@use.user",
+    phone:10000
+  };
   constructor(
-    private authService:AuthService,
+    private authService: AuthService,
     private sneackbarService: SnackbarService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
-    // this.sneackbarService.openSnackBar("hello", "");
     Emitters.userEmitter.subscribe(
-      user=>{
-        this.user=user;
+      user => {
+        this.user = user;
+        // console.log(this.user)
       }
     );
-    
+
   }
 
   logout(): void {

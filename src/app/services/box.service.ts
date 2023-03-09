@@ -21,7 +21,7 @@ export class BoxService {
       return this.http.get<Box[]>(this.endpoint,this.httpOptions);
     }
 
-    create(data:any):Observable<Box>{
+    create(data:any):Observable<any>{
       return this.http.post<Box>(this.endpoint,data,this.httpOptions);
     }
 

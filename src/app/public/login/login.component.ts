@@ -32,14 +32,12 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.form.getRawValue())
       .subscribe((response:any) => {
         if(response.body.status == 400){
-          console.log(response.body[0].email);
-          response.body[0].email ? this.responseMessage = response.body[0].email : this.responseMessage = response.body[0].passworde;
-          
+          response.body[0].email ? this.responseMessage = response.body[0].email : this.responseMessage = response.body[0].passworde;       
         }else if(response.body.status == 200){
           localStorage.setItem('token',response.body!.token!);
           this.router.navigate(['/']);
         }else if(response.body.status == 401){
-          // console.log(response.body);
+ 
           this.responseMessage = response.body.message;
         }
         this.sneackbarService.openSnackBar(this.responseMessage,GlobalConstants.err)

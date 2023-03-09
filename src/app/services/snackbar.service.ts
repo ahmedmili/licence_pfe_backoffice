@@ -13,7 +13,7 @@ export class SnackbarService {
     if (action === 'error') {
       this.snackbar.open(msg, "", {
         horizontalPosition: 'center',
-        verticalPosition: "top",
+        verticalPosition: "bottom",
         duration: 2000,
         panelClass: ['black-snackbar']
       })
