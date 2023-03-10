@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { PartnerService } from 'src/app/services/partner.service';
   templateUrl: './partners.component.html',
   styleUrls: ['./partners.component.css']
 })
-export class PartnersComponent implements OnInit {
+export class PartnersComponent implements OnInit, AfterViewInit {
   partners:Partner[]=[];
   columns = ['id','name', 'description', 'email', 'phone', 'image', 'category', 'openingtime', 'closingtime','actions','show details'];
   dataSource = new MatTableDataSource();

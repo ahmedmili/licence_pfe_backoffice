@@ -37,10 +37,14 @@
   <tr mat-row *matRowDef="let row; columns:columns;"></tr>
 </table>
 
-<mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                 showFirstLastButtons 
-                 aria-label="Select page of periodic elements">
+<ng-container *ngIf="dataSource.data.length > 5">
+  <mat-paginator 
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons 
+    aria-label="Select page of periodic elements"
+    [length]="dataSource.data.length">
   </mat-paginator>
+</ng-container>
 
 
 

@@ -10,7 +10,7 @@ import { MatPaginator } from '@angular/material/paginator';
   templateUrl: './boxs.component.html',
   styleUrls: ['./boxs.component.css']
 })
-export class BoxsComponent implements OnInit {
+export class BoxsComponent implements OnInit, AfterViewInit {
 
   columns = ['ID','title', 'description','oldprice','newprice','startdate','enddate','quantity','remaining_quantity','image','category','status','actions','show details'];
 
@@ -45,6 +45,10 @@ export class BoxsComponent implements OnInit {
   //     this.dataSource2 = new MatTableDataSource<Panier>(this.paniers);
   //   });
   // }
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator; 
+}
+
 
 
 
@@ -66,8 +70,5 @@ export class BoxsComponent implements OnInit {
     }
   }
 
-//   ngAfterViewInit(): void {
-//     this.dataSource.paginator = this.paginator; 
-// }
 
 }

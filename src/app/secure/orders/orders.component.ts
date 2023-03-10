@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Order } from 'src/app/interfaces/order';
@@ -12,15 +13,11 @@ import { OrderService } from 'src/app/services/order.service';
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css']
 })
-export class OrdersComponent implements OnInit {
+export class OrdersComponent implements OnInit, AfterViewInit {
   columns = ['id','created_at','status','price','actions','show details'];
   dataSource = new MatTableDataSource();
-
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(private orderService: OrderService, private router: Router, public datePipe: DatePipe) { }
-
-
-
-  
 
   ngOnInit(): void {
     this.orderService.all().subscribe(
@@ -32,6 +29,9 @@ export class OrdersComponent implements OnInit {
   }
 
 
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+  }
 
 
 delete(id: number): void{
