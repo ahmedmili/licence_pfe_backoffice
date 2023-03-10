@@ -1,3 +1,5 @@
+import { Partner } from "./partner";
+
 export interface Box {
         id: number;
         title: string;
@@ -11,4 +13,5 @@ export interface Box {
         image: string;
         category: 'FRUITS AND VEGETABLES'| 'MEAT'| 'PASTRY'|'FISH'| 'DAIRY PRODUCTS'| 'PREPARED DISHES'| 'SWEETS'| 'DRINKS'| 'VEGETARIAN';
         status: 'PENDING'| 'ACCEPTED'| 'REJECTED';
+        partner_id: number
 }

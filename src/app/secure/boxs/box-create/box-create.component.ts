@@ -2,6 +2,7 @@ import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Partner } from 'src/app/interfaces/partner';
 import { BoxService } from 'src/app/services/box.service';
 import { GlobalConstants } from 'src/app/shared/global-constants';
 import { SnackbarService } from '../../../services/snackbar.service';
@@ -13,6 +14,7 @@ import { SnackbarService } from '../../../services/snackbar.service';
 })
 export class BoxCreateComponent implements OnInit {
   form!: FormGroup;
+
   constructor(
     private formBuilder: FormBuilder,
     private boxService: BoxService,
@@ -22,6 +24,7 @@ export class BoxCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
+
       title: ["",[Validators.required]],
       description: ["",[Validators.required]],
       oldprice: ["",[Validators.required]],
@@ -32,6 +35,7 @@ export class BoxCreateComponent implements OnInit {
       image: ["",[Validators.required]],
       category: ["",[Validators.required]],
       status: ["",[Validators.required]],
+      partner_id: ["",[Validators.required]]
     });
   }
 
@@ -49,13 +53,11 @@ export class BoxCreateComponent implements OnInit {
           }else if (response.status == 400){
             this.responseMessage = response.error
           }
+          // this.router.navigate(['/boxs']);
           this.snackbar.openSnackBar(this.responseMessage,"error");
           // console.log(response);
         }
       )
 
   }
-
-
-
 }
