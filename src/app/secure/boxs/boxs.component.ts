@@ -11,11 +11,9 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./boxs.component.css']
 })
 export class BoxsComponent implements OnInit {
-<<<<<<< HEAD
+
   columns = ['ID','title', 'description','oldprice','newprice','startdate','enddate','quantity','remaining_quantity','image','category','status','actions','show details'];
-=======
-  columns = ['ID', 'title', 'description', 'oldprice', 'newprice', 'startdate', 'enddate', 'quantity', 'remaining_quantity', 'image', 'category', 'status', 'actions'];
->>>>>>> 8487058ed02264f60c495f30a7b36982473d515c
+
   dataSource = new MatTableDataSource();
   boxs: Box[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;

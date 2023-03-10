@@ -22,7 +22,9 @@ export class OrderDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.orderService.getdetails(this.id).subscribe(
+      
       data => {
+        console.log(data.boxs)
         this.order = data;
       },
       error => {
