@@ -15,7 +15,8 @@ export class BoxsComponent implements OnInit, AfterViewInit {
   columns = ['ID','title', 'description','oldprice','newprice','startdate','enddate','quantity','remaining_quantity','image','category','status','actions','show details'];
 
   dataSource = new MatTableDataSource();
-  boxs: Box[] = [];
+  boxs: Box[]| boolean = false;
+  loaded = false;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
@@ -25,9 +26,13 @@ export class BoxsComponent implements OnInit, AfterViewInit {
   ) { }
   ngOnInit(): void {
     // this.loadPaniers();
+  
     this.boxService.all().subscribe(
-      boxs =>
-        this.dataSource.data = boxs
+      boxs =>{
+        this.dataSource.data = boxs;
+        this.loaded = true;
+      }
+        
     );
 
   }

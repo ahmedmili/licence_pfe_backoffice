@@ -15,12 +15,14 @@ export class PartnersComponent implements OnInit, AfterViewInit {
   columns = ['id','name', 'description', 'email', 'phone', 'image', 'category', 'openingtime', 'closingtime','actions','show details'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  loaded = false;
   constructor(private partnerService:PartnerService, private router:Router) { }
 
   ngOnInit(): void {
     this.partnerService.all().subscribe(
 partners=>{
   this.dataSource.data=partners;
+  this.loaded = true;
 }
     );
   }

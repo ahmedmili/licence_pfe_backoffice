@@ -17,6 +17,7 @@ export class OrdersComponent implements OnInit, AfterViewInit {
   columns = ['id','created_at','status','price','actions','show details'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  loaded = false;
   constructor(private orderService: OrderService, private router: Router, public datePipe: DatePipe) { }
 
   ngOnInit(): void {
@@ -24,6 +25,7 @@ export class OrdersComponent implements OnInit, AfterViewInit {
       orders => {
        
         this.dataSource.data = orders;
+        this.loaded = true;
       }
     );
   }

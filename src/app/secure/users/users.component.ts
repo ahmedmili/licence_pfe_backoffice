@@ -14,6 +14,7 @@ export class UsersComponent implements OnInit, AfterViewInit {
   users: User[] = [];
   columns = ['id', 'name', 'email', 'phone', 'actions'];
   dataSource = new MatTableDataSource();
+  loaded = false;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(
     private userService: UserService,
@@ -23,6 +24,7 @@ export class UsersComponent implements OnInit, AfterViewInit {
     this.userService.all().subscribe(
       users => {
         this.dataSource.data = users;
+        this.loaded = true;
       }
     );  
   }
