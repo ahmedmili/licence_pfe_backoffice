@@ -2,6 +2,7 @@ import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Partner } from 'src/app/interfaces/partner';
 import { BoxService } from 'src/app/services/box.service';
 import { SnackbarService } from '../../../services/snackbar.service';
 
@@ -12,6 +13,7 @@ import { SnackbarService } from '../../../services/snackbar.service';
 })
 export class BoxCreateComponent implements OnInit {
   form!: FormGroup;
+
   constructor(
     private formBuilder: FormBuilder,
     private boxService: BoxService,
@@ -31,6 +33,7 @@ export class BoxCreateComponent implements OnInit {
       image: '',
       category: '',
       status: '',
+      partner_id:''
     });
   }
 
@@ -39,22 +42,19 @@ export class BoxCreateComponent implements OnInit {
     const formValue = this.form.getRawValue();
     formValue.startdate = formatDate(formValue.startdate, 'yyyy-MM-dd HH:mm:ss', 'en-US');
     formValue.enddate = formatDate(formValue.enddate, 'yyyy-MM-dd HH:mm:ss', 'en-US');
-    this.boxService.create(formValue)
-      .subscribe(
-        (response) => {
-          if (response.status == 201) {
-            this.router.navigate(['/boxs']);
-            this.responseMessage = response.error
-          }else if (response.status == 400){
-            this.responseMessage = response.error
-          }
-          this.snackbar.openSnackBar(this.responseMessage,"error");
-          console.log(response.error);
+
+    this.boxService.create(formValue).subscribe(
+      (response) => {
+        if (response.status == 201) {
+          this.router.navigate(['/boxs']);
+          this.responseMessage = response.error
+        } else if (response.status == 400) {
+          this.responseMessage = response.error
         }
-      )
-
+        this.snackbar.openSnackBar(this.responseMessage, "error");
+        console.log(response);
+        this.router.navigate(['/boxs']);
+      }
+    )
   }
-
-
-
 }
