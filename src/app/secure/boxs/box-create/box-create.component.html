@@ -1,65 +1,64 @@
 <h3 class="mt-4">Add Box :</h3>
- <form [formGroup]="form" (submit)="submit()">
-    <div class="form-group">
-        <label for="title">Title</label>
-       <input formControlName="title" class="text form-control" type="text" id="title" name="title">
-    </div>
-    <div class="form-group">
-        <label for="description">Description</label>
-       <input formControlName="description" class="text form-control" type="text" id="description" name="description" >
-    </div>
-    <div class="form-group">
-        <label for="oldprice">Old Price</label>
-       <input formControlName="oldprice" class="text form-control" type="number" id="oldprice" name="oldprice">
-    </div>
-    <div class="form-group">
-        <label for="newprice">New Price</label>
-       <input formControlName="newprice" class="text form-control" type="number" id="newprice" name="newprice">
-    </div>
-    <div class="form-group">
-        <label for="startdate">Available From</label>
-        <input formControlName="startdate" class="text form-control" type="datetime-local" id="startdate" name="startdate">
-      </div>
-      <div class="form-group">
-        <label for="enddate">Until</label>
-        <input formControlName="enddate" class="text form-control" type="datetime-local" id="enddate" name="enddate">
-      </div>
-    <div class="form-group">
-        <label for="quantity">quantity</label>
-       <input formControlName="quantity" class="text form-control" type="number" id="quantity" name="quantity">
-    </div>
-    <div class="form-group">
-        <label for="image">Image</label>
-       <input formControlName="image" class="text form-control" type="text" id="image" name="image">
-    </div>
-    <div class="form-group">
-        <label for="category">Category</label>
-        <select formControlName="category" class="text form-control" id="category" name="category">
-            <option value="FRUITS AND VEGETABLES">Fruits and vegetables</option>
-            <option value="MEAT">Meat</option>
-            <option value="PASTRY">Pastry</option>
-            <option value="FISH">Fish</option>
-            <option value="Dairy products">Dairy products</option>
-            <option value="PREPARED DISHES">Prepared dishes</option>
-            <option value="SWEETS">Sweets</option>
-            <option value="DRINKS">Drinks</option>
-            <option value="VEGETARIAN">Vegetarian</option>
-          </select>
-    </div>
-    <div class="form-group">
-        <label for="status">Status</label>
-        <select formControlName="status" class="text form-control" id="status" name="status">
-            <option value="PENDING">PENDING</option>
-            <option value="ACCEPTED">ACCEPTED</option>
-            <option value="REJECTED">REJECTED</option>
-          </select>
-    </div>
-    <div class="form-group">
-      <label for="partner_id">partner_id</label>
-     <input formControlName="partner_id" class="text form-control" type="partner_id" id="partner_id" name="partner_id">
+<form [formGroup]="form" (submit)="submit()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input formControlName="title" class="text form-control" type="text" id="title" name="title">
   </div>
-  
-  
-    <button class="btn btn-dark btn -sm mt-4">Save</button>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input formControlName="description" class="text form-control" type="text" id="description" name="description">
+  </div>
+  <div class="form-group">
+    <label for="oldprice">Old Price</label>
+    <input formControlName="oldprice" class="text form-control" type="number" id="oldprice" name="oldprice">
+  </div>
+  <div class="form-group">
+    <label for="newprice">New Price</label>
+    <input formControlName="newprice" class="text form-control" type="number" id="newprice" name="newprice">
+  </div>
+  <div class="form-group">
+    <label for="startdate">Available From</label>
+    <input formControlName="startdate" class="text form-control" type="datetime-local" id="startdate" name="startdate">
+  </div>
+  <div class="form-group">
+    <label for="enddate">Until</label>
+    <input formControlName="enddate" class="text form-control" type="datetime-local" id="enddate" name="enddate">
+  </div>
+  <div class="form-group">
+    <label for="quantity">quantity</label>
+    <input formControlName="quantity" class="text form-control" type="number" id="quantity" name="quantity">
+  </div>
+  <div class="form-group">
+    <label for="image">Image</label>
+    <input formControlName="image" class="text form-control" type="text" id="image" name="image">
+  </div>
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select formControlName="category" class="text form-control" id="category" name="category">
+      <option value="FRUITS AND VEGETABLES">Fruits and vegetables</option>
+      <option value="MEAT">Meat</option>
+      <option value="PASTRY">Pastry</option>
+      <option value="FISH">Fish</option>
+      <option value="Dairy products">Dairy products</option>
+      <option value="PREPARED DISHES">Prepared dishes</option>
+      <option value="SWEETS">Sweets</option>
+      <option value="DRINKS">Drinks</option>
+      <option value="VEGETARIAN">Vegetarian</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="status">Status</label>
+    <select formControlName="status" class="text form-control" id="status" name="status">
+      <option value="PENDING">PENDING</option>
+      <option value="ACCEPTED">ACCEPTED</option>
+      <option value="REJECTED">REJECTED</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="partner_id">partner_id</label>
+    <input formControlName="partner_id" class="text form-control" type="partner_id" id="partner_id" name="partner_id">
+  </div>
+
+  <button [disabled]="!(form.valid && form.dirty)" class="btn btn-dark btn -sm mt-4">Save</button>
 </form>
-  

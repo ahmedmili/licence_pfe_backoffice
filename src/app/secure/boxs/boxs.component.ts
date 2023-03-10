@@ -11,21 +11,29 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./boxs.component.css']
 })
 export class BoxsComponent implements OnInit {
+<<<<<<< HEAD
   columns = ['ID','title', 'description','oldprice','newprice','startdate','enddate','quantity','remaining_quantity','image','category','status','actions','show details'];
+=======
+  columns = ['ID', 'title', 'description', 'oldprice', 'newprice', 'startdate', 'enddate', 'quantity', 'remaining_quantity', 'image', 'category', 'status', 'actions'];
+>>>>>>> 8487058ed02264f60c495f30a7b36982473d515c
   dataSource = new MatTableDataSource();
   boxs: Box[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private boxService:BoxService, private router:Router,private route: ActivatedRoute,) { }
+  constructor(
+    private boxService: BoxService,
+    private router: Router,
+    private route: ActivatedRoute,
+  ) { }
   ngOnInit(): void {
     // this.loadPaniers();
     this.boxService.all().subscribe(
-      boxs=>
-      this.dataSource.data=boxs
+      boxs =>
+        this.dataSource.data = boxs
     );
-   
+
   }
-  
+
   // loadPaniers() {
   //   this.boxService.all().subscribe((data: Panier[]) => {
   //     this.paniers = data;
@@ -39,11 +47,11 @@ export class BoxsComponent implements OnInit {
   //     this.dataSource2 = new MatTableDataSource<Panier>(this.paniers);
   //   });
   // }
- 
-  
 
-  delete(id: number): void{
-    if(confirm('Are you sure ?')){
+
+
+  delete(id: number): void {
+    if (confirm('Are you sure ?')) {
       this.boxService.delete(id).subscribe(() => {
         const newData: Box[] = [];
         this.dataSource.data.forEach((p: unknown) => {
@@ -56,7 +64,7 @@ export class BoxsComponent implements OnInit {
         this.router.navigate(['/boxs']);
       });
 
-      
+
     }
   }
 

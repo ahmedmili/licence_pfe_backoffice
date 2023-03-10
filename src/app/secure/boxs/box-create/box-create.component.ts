@@ -1,9 +1,10 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Partner } from 'src/app/interfaces/partner';
 import { BoxService } from 'src/app/services/box.service';
+import { GlobalConstants } from 'src/app/shared/global-constants';
 import { SnackbarService } from '../../../services/snackbar.service';
 
 @Component({
@@ -23,17 +24,18 @@ export class BoxCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      title: '',
-      description: '',
-      oldprice: '',
-      newprice: '',
-      startdate: '',
-      enddate: '',
-      quantity: '',
-      image: '',
-      category: '',
-      status: '',
-      partner_id:''
+
+      title: ["",[Validators.required]],
+      description: ["",[Validators.required]],
+      oldprice: ["",[Validators.required]],
+      newprice: ["",[Validators.required]],
+      startdate: ["",[Validators.required]],
+      enddate: ["",[Validators.required]],
+      quantity: ["",[Validators.required]],
+      image: ["",[Validators.required]],
+      category: ["",[Validators.required]],
+      status: ["",[Validators.required]],
+      partner_id: ["",[Validators.required]]
     });
   }
 
@@ -42,19 +44,20 @@ export class BoxCreateComponent implements OnInit {
     const formValue = this.form.getRawValue();
     formValue.startdate = formatDate(formValue.startdate, 'yyyy-MM-dd HH:mm:ss', 'en-US');
     formValue.enddate = formatDate(formValue.enddate, 'yyyy-MM-dd HH:mm:ss', 'en-US');
-
-    this.boxService.create(formValue).subscribe(
-      (response) => {
-        if (response.status == 201) {
-          this.router.navigate(['/boxs']);
-          this.responseMessage = response.error
-        } else if (response.status == 400) {
-          this.responseMessage = response.error
+    this.boxService.create(formValue)
+      .subscribe(
+        (response) => {
+          if (response.status == 201) {
+            this.router.navigate(['/boxs']);
+            this.responseMessage = response.message
+          }else if (response.status == 400){
+            this.responseMessage = response.error
+          }
+          // this.router.navigate(['/boxs']);
+          this.snackbar.openSnackBar(this.responseMessage,"error");
+          // console.log(response);
         }
-        this.snackbar.openSnackBar(this.responseMessage, "error");
-        console.log(response);
-        this.router.navigate(['/boxs']);
-      }
-    )
+      )
+
   }
 }
