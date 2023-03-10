@@ -54,6 +54,6 @@
             <option value="REJECTED">REJECTED</option>
           </select>
     </div>
-    <button class="btn btn-dark btn -sm mt-4">Save</button>
+    <button  [disabled]="!(form.valid && form.dirty)"  class="btn btn-dark btn -sm mt-4">Save</button>
 </form>
   

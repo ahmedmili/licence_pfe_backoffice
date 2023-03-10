@@ -1,8 +1,9 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BoxService } from 'src/app/services/box.service';
+import { GlobalConstants } from 'src/app/shared/global-constants';
 import { SnackbarService } from '../../../services/snackbar.service';
 
 @Component({
@@ -21,16 +22,16 @@ export class BoxCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      title: '',
-      description: '',
-      oldprice: '',
-      newprice: '',
-      startdate: '',
-      enddate: '',
-      quantity: '',
-      image: '',
-      category: '',
-      status: '',
+      title: ["",[Validators.required]],
+      description: ["",[Validators.required]],
+      oldprice: ["",[Validators.required]],
+      newprice: ["",[Validators.required]],
+      startdate: ["",[Validators.required]],
+      enddate: ["",[Validators.required]],
+      quantity: ["",[Validators.required]],
+      image: ["",[Validators.required]],
+      category: ["",[Validators.required]],
+      status: ["",[Validators.required]],
     });
   }
 
@@ -44,12 +45,12 @@ export class BoxCreateComponent implements OnInit {
         (response) => {
           if (response.status == 201) {
             this.router.navigate(['/boxs']);
-            this.responseMessage = response.error
+            this.responseMessage = response.message
           }else if (response.status == 400){
             this.responseMessage = response.error
           }
           this.snackbar.openSnackBar(this.responseMessage,"error");
-          console.log(response.error);
+          // console.log(response);
         }
       )
 

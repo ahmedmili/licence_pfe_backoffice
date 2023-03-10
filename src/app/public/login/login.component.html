@@ -12,6 +12,6 @@
       <div style="color: red;"  *ngIf="form.controls['password'].touched && form.controls['password'].invalid " for="email">
         <span *ngIf="form.controls['password'].errors!['required']">This Field Is Mandatory</span>
       </div>
-    <button [disabled]="!(form.valid && form.dirty)"class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
+    <button [disabled]="!(form.valid && form.dirty)" class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
   </form>
 </main>
