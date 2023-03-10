@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Box } from '../interfaces/Box';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -37,6 +38,12 @@ export class BoxService {
       return this.http.delete<void>(`${this.endpoint}/${id}`,this.httpOptions);
     }
 
+
+    getdetails(id: number): Observable<Box>{
+      return this.http.get<Box>(`${this.endpoint}/boxdetails/${id}`,this.httpOptions);
+    }
+
+   
      
   // searchPaniers(search: string): Observable<Panier[]> {
   //   return this.http.get<Panier[]>(`${environment.api}/searchboxs?search=${search}`,this.httpOptions);

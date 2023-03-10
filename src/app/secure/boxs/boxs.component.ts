@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Box } from 'src/app/interfaces/Box';
@@ -11,9 +11,9 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./boxs.component.css']
 })
 export class BoxsComponent implements OnInit {
-  columns = ['ID','title', 'description','oldprice','newprice','startdate','enddate','quantity','remaining_quantity','image','category','status','actions'];
+  columns = ['ID','title', 'description','oldprice','newprice','startdate','enddate','quantity','remaining_quantity','image','category','status','actions','show details'];
   dataSource = new MatTableDataSource();
-  paniers: Box[] = [];
+  boxs: Box[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private boxService:BoxService, private router:Router,private route: ActivatedRoute,) { }
@@ -59,5 +59,9 @@ export class BoxsComponent implements OnInit {
       
     }
   }
+
+//   ngAfterViewInit(): void {
+//     this.dataSource.paginator = this.paginator; 
+// }
 
 }

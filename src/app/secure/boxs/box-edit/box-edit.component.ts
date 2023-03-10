@@ -28,6 +28,7 @@ export class BoxEditComponent implements OnInit {
       image:'',
       category:'',
       status:'',
+      partner_id:''
     });
 
     this.id = this.route.snapshot.params['id'];

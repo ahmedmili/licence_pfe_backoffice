@@ -19,6 +19,7 @@ import { PartnersComponent } from './secure/partners/partners.component';
 import { PartnerCreateComponent } from './secure/partners/partner-create/partner-create.component';
 import { PartnerEditComponent } from './secure/partners/partner-edit/partner-edit.component';
 import { PartnerDetailsComponent } from './secure/partners/partner-details/partner-details.component';
+import { BoxDetailsComponent } from './secure/boxs/box-details/box-details.component';
 const routes: Routes = [
   {
     path: '',
@@ -33,6 +34,7 @@ const routes: Routes = [
      {path:'boxs',component:BoxsComponent},
      {path: 'boxs/create', component: BoxCreateComponent},
      {path: 'boxs/:id/edit', component: BoxEditComponent},
+     {path: 'boxs/:id/details', component: BoxDetailsComponent},
      {path:'orders',component:OrdersComponent},
      {path: 'orders/create', component: OrderCreateComponent},
      {path: 'orders/:id/edit', component: OrderEditComponent},

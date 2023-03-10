@@ -1,7 +1,7 @@
 import { Partner } from "./partner";
 
 export interface Box {
-        id: number;
+        id: number ;
         title: string;
         description: string | null;
         oldprice: number;
@@ -13,5 +13,6 @@ export interface Box {
         image: string;
         category: 'FRUITS AND VEGETABLES'| 'MEAT'| 'PASTRY'|'FISH'| 'DAIRY PRODUCTS'| 'PREPARED DISHES'| 'SWEETS'| 'DRINKS'| 'VEGETARIAN';
         status: 'PENDING'| 'ACCEPTED'| 'REJECTED';
-        partner_id: number
+        partner_id: number,
+        partner:Partner
 }

@@ -28,6 +28,7 @@ import { PartnersComponent } from './partners/partners.component';
 import { PartnerCreateComponent } from './partners/partner-create/partner-create.component';
 import { PartnerEditComponent } from './partners/partner-edit/partner-edit.component';
 import { PartnerDetailsComponent } from './partners/partner-details/partner-details.component';
+import { BoxDetailsComponent } from './boxs/box-details/box-details.component';
 
 
 
@@ -52,6 +53,7 @@ import { PartnerDetailsComponent } from './partners/partner-details/partner-deta
     PartnerCreateComponent,
     PartnerEditComponent,
     PartnerDetailsComponent,
+    BoxDetailsComponent,
     
   ],
   imports: [

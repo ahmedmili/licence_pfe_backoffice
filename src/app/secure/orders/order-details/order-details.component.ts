@@ -12,6 +12,7 @@ import { OrderService } from 'src/app/services/order.service';
 export class OrderDetailsComponent implements OnInit {
   id!: number;
   order!: Order;
+ 
   constructor(private orderService:OrderService,
     private router: Router,
     private route: ActivatedRoute) { }
