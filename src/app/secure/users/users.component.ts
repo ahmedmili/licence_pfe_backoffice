@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UsersComponent implements OnInit, AfterViewInit {
   users: User[] = [];
-  columns = ['id', 'name', 'email', 'phone','status','actions'];
+  columns = ['id', 'name', 'email', 'phone','status','actions','show details'];
   dataSource = new MatTableDataSource();
   loaded = false;
   @ViewChild(MatPaginator) paginator!: MatPaginator;

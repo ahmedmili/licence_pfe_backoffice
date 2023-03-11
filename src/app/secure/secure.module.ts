@@ -30,6 +30,7 @@ import { PartnerEditComponent } from './partners/partner-edit/partner-edit.compo
 import { PartnerDetailsComponent } from './partners/partner-details/partner-details.component';
 import { BoxDetailsComponent } from './boxs/box-details/box-details.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { UserDetailsComponent } from './users/user-details/user-details.component';
 
 
 
@@ -55,6 +56,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     PartnerEditComponent,
     PartnerDetailsComponent,
     BoxDetailsComponent,
+    UserDetailsComponent,
     
   ],
   imports: [

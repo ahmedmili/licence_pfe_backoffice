@@ -42,4 +42,10 @@ export class UserService {
   updateUserStatus(id: number, newStatus: string) {
     return this.http.put<User>(`${this.endpoint}/status/${id}`, { status: newStatus }, this.httpOptions);
   }
+
+  getdetails(id: number): Observable<any>{
+    return this.http.get(`${this.endpoint}/userdetails/${id}`,this.httpOptions);
+  }
+
+ 
 }
