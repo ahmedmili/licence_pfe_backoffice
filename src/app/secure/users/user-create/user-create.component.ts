@@ -17,6 +17,7 @@ export class UserCreateComponent implements OnInit {
       name:'',
       email:'',
       phone:'',
+      status:'',
       password:'',
     });
   }

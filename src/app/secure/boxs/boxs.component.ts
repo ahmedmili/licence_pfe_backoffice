@@ -24,6 +24,9 @@ export class BoxsComponent implements OnInit, AfterViewInit {
     private router: Router,
     private route: ActivatedRoute,
   ) { }
+
+
+
   ngOnInit(): void {
     // this.loadPaniers();
   
@@ -36,6 +39,12 @@ export class BoxsComponent implements OnInit, AfterViewInit {
     );
 
   }
+
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator; 
+}
+
+
 
   // loadPaniers() {
   //   this.boxService.all().subscribe((data: Panier[]) => {
@@ -50,9 +59,6 @@ export class BoxsComponent implements OnInit, AfterViewInit {
   //     this.dataSource2 = new MatTableDataSource<Panier>(this.paniers);
   //   });
   // }
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator; 
-}
 
 
 

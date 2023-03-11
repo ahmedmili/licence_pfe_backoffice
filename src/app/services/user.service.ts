@@ -39,4 +39,7 @@ export class UserService {
     return this.http.delete<void>(`${this.endpoint}/${id}`, this.httpOptions);
   }
 
+  updateUserStatus(id: number, newStatus: string) {
+    return this.http.put<User>(`${this.endpoint}/status/${id}`, { status: newStatus }, this.httpOptions);
+  }
 }

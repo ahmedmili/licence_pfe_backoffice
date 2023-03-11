@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UsersComponent implements OnInit, AfterViewInit {
   users: User[] = [];
-  columns = ['id', 'name', 'email', 'phone', 'actions'];
+  columns = ['id', 'name', 'email', 'phone','status','actions'];
   dataSource = new MatTableDataSource();
   loaded = false;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -28,6 +28,23 @@ export class UsersComponent implements OnInit, AfterViewInit {
       }
     );  
   }
+
+  toggleStatus(user: User) {
+    if(user.status === 'ACTIVE') {
+      user.status = 'INACTIVE';
+    } else if(user.status === 'INACTIVE') {
+      user.status = 'ACTIVE';
+    }
+    this.userService.updateUserStatus(user.id, user.status).subscribe(
+      user => {
+        console.log(user);
+        user;
+      }
+    );
+  }
+  
+
+  
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
