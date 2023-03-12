@@ -60,3 +60,8 @@
   .slider.round:before {
     border-radius: 50%;
   }
+
+  
+.select-width {
+  width: 150px; /* change this value as per your requirement */
+}

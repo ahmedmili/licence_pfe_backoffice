@@ -15,6 +15,7 @@ export class UserService {
     })
   };
   endpoint = `${environment.api}/users`;
+  apiUrl=`${environment.api}/searchUser`;
   constructor(private http: HttpClient) {
 
   }
@@ -47,5 +48,20 @@ export class UserService {
     return this.http.get(`${this.endpoint}/userdetails/${id}`,this.httpOptions);
   }
 
- 
+  //Search function
+  getUsers(search?: string): Observable<User[]> {
+    let apiUrl = this.apiUrl;
+    let httpOptions = this.httpOptions;
+    if (search) {
+      apiUrl += `?search=${search}&search_fields=email,phone`;
+    }
+    return this.http.get<User[]>(apiUrl, httpOptions); 
+  }
+
+  getFilteredUsers(status: string): Observable<User[]> {
+    const url = `${environment.api}/filterusers?status=${status}`;
+    return this.http.get<User[]>(url,this.httpOptions);
+  }
+
+
 }

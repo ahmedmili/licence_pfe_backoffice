@@ -37,14 +37,12 @@ partners=>{
 SearchPartner() {
   this.partnerService.getPartners(this.search).subscribe(partners => {
       this.dataSource.data = partners; 
-      console.log(partners);
   });
 }
 
 filterPartners(category: string): void {
   this.partnerService.getFilteredPartners(category).subscribe(partners => {
     this.dataSource.data = partners; 
-    console.log(partners);
 });
 }
 
