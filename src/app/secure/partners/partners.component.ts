@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Partner } from 'src/app/interfaces/partner';
 import { PartnerService } from 'src/app/services/partner.service';
 
@@ -15,6 +16,7 @@ export class PartnersComponent implements OnInit, AfterViewInit {
   columns = ['id','name', 'description', 'email', 'phone', 'image', 'category', 'openingtime', 'closingtime','actions','show details'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  search: string = '';
   loaded = false;
   constructor(private partnerService:PartnerService, private router:Router) { }
 
@@ -29,6 +31,21 @@ partners=>{
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator; 
+}
+
+
+SearchPartner() {
+  this.partnerService.getPartners(this.search).subscribe(partners => {
+      this.dataSource.data = partners; 
+      console.log(partners);
+  });
+}
+
+filterPartners(category: string): void {
+  this.partnerService.getFilteredPartners(category).subscribe(partners => {
+    this.dataSource.data = partners; 
+    console.log(partners);
+});
 }
 
 delete(id: number): void{
