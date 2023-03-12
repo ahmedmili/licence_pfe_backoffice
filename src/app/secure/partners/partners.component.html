@@ -1,26 +1,25 @@
 <br>
-<div class="col-md-12 mb-4 input-group">
-  <input type="text" class="form-control" placeholder="Search by email and phone" [(ngModel)]="search" (keyup.enter)="SearchPartner()">
-  <button class="btn btn-primary" type="button" (click)="SearchPartner()">Search</button>
-</div>
-
-
-<div class="col-md-6 mb-4 input-group">
-  <div class="input-group-prepend">
-    <label class="input-group-text" for="category-select">Category</label>
+<div class="row">
+  <div class="col-md-10 mb-4">
+    <input type="text" class="form-control" placeholder="Search by email and phone" [(ngModel)]="search" (keyup.enter)="SearchPartner()">
   </div>
-  <select class="custom-select" id="category-select" (change)="filterPartners($any($event).target.value)">
-    <option value="">All</option>
-    <option value="SUPERMARKET">Supermarket</option>
-    <option value="BAKERY">Bakery</option>
-    <option value="PASTRIES">Pastries</option>
-    <option value="RESTAURANT">Restaurant</option>
-    <option value="COFFEE SHOP">Coffee Shop</option>
-    <option value="HOTEL">Hotel</option>
-    <option value="CATERER">Caterer</option>
-    <option value="LOCAL PRODUCERS">Local Producers</option>
-  </select>
+  <div class="col-md-2 mb-4">
+    <div class="input-group-append">
+      <select class="form-select select-width" id="category-select" (change)="filterPartners($any($event).target.value)">
+        <option value="">Select</option>
+        <option value="SUPERMARKET">Supermarket</option>
+        <option value="BAKERY">Bakery</option>
+        <option value="PASTRIES">Pastries</option>
+        <option value="RESTAURANT">Restaurant</option>
+        <option value="COFFEE SHOP">Coffee Shop</option>
+        <option value="HOTEL">Hotel</option>
+        <option value="CATERER">Caterer</option>
+        <option value="LOCAL PRODUCERS">Local Producers</option>
+      </select>
+    </div>
+  </div>
 </div>
+
 
 <div class="pt-3 pb-2 mb-3 border-bottom">
     <a routerLink="/partners/create" class="btn btn-sm btn-outline-secondary">Add</a>
