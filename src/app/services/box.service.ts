@@ -12,6 +12,10 @@ export class BoxService {
   private httpOptions = {
     headers : new HttpHeaders({'Content-Type': 'application/json', 'Authorization':'Bearer ' + localStorage.getItem('token')})
   };
+  private httpOptions2 = {
+    headers : new HttpHeaders({'Content-Type': 'multipart/form-data', 'Authorization':'Bearer ' + localStorage.getItem('token')})
+  };
+  
     endpoint = `${environment.api}/boxs`;
 
     constructor(private http:HttpClient) { 
@@ -23,7 +27,12 @@ export class BoxService {
     }
 
     create(data:any):Observable<any>{
-      return this.http.post<Box>(this.endpoint,data,this.httpOptions);
+      return this.http.post<Box>(this.endpoint,data,{
+        headers : new HttpHeaders({
+         // 'Content-Type': "multipart/form-data; charset=utf-8; boundary=" + Math.random().toString().substr(2),
+          'Authorization':'Bearer ' + localStorage.getItem('token')})
+      });
+      
     }
 
     get(id: number): Observable<Box>{
