@@ -12,8 +12,11 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UsersComponent implements OnInit, AfterViewInit {
   users: User[] = [];
-  columns = ['id', 'name', 'email', 'phone', 'actions'];
+  columns = ['id', 'name', 'email', 'phone','status','actions','show details'];
   dataSource = new MatTableDataSource();
+  loaded = false;
+  search: string = '';
+  status!: string;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(
     private userService: UserService,
@@ -23,9 +26,40 @@ export class UsersComponent implements OnInit, AfterViewInit {
     this.userService.all().subscribe(
       users => {
         this.dataSource.data = users;
+        this.loaded = true;
       }
     );  
   }
+
+
+  toggleStatus(user: User) {
+    if(user.status === 'ACTIVE') {
+      user.status = 'INACTIVE';
+    } else if(user.status === 'INACTIVE') {
+      user.status = 'ACTIVE';
+    }
+    this.userService.updateUserStatus(user.id, user.status).subscribe(
+      user => {
+        user;
+      }
+    );
+  }
+
+  SearchUser() {
+    this.userService.getUsers(this.search).subscribe(users => {
+        this.dataSource.data = users; 
+        console.log(users);
+    });
+  }
+  
+  filterUsers(status: string): void {
+    this.userService.getFilteredUsers(status).subscribe(users => {
+      this.dataSource.data = users; 
+      console.log(users);
+  });
+  }
+
+ 
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;

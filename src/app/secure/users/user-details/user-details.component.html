@@ -1,0 +1,29 @@
+
+<mat-card >
+    <mat-card-title>Commands Of This User :</mat-card-title>
+    <mat-card-content>
+      <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th>#</th>
+            
+            <th>Total Price</th>
+            
+            <th>Status</th>
+            
+            <th>Creation Date</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td> {{order.id}} </td>
+            <td> {{order.price}} </td>
+            <td> {{order.status}} </td>
+            <td> {{ datePipe.transform(order.created_at, 'yyyy-MM-dd HH:mm:ss') }}  </td>
+           
+          </tr>
+        </tbody>
+      </table>
+    </mat-card-content>
+  </mat-card> 

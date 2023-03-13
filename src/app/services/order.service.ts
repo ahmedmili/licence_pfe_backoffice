@@ -12,6 +12,7 @@ export class OrderService {
     headers : new HttpHeaders({'Content-Type': 'application/json', 'Authorization':'Bearer ' + localStorage.getItem('token')})
   };
   endpoint = `${environment.api}/orders`;
+  apiUrl=`${environment.api}/searchOrder`;
   constructor(private http: HttpClient) { }
 
   all(): Observable<Order[]>{
@@ -36,6 +37,21 @@ export class OrderService {
 
   getdetails(id: number): Observable<Order>{
     return this.http.get<Order>(`${this.endpoint}/orderdetails/${id}`,this.httpOptions);
+  }
+
+    //Search function
+  getOrders(search?: string): Observable<Order[]> {
+    let apiUrl = this.apiUrl;
+    let httpOptions = this.httpOptions;
+      if (search) {
+        apiUrl += `?search=${search}&search_fields=id,user_id`;
+      }
+      return this.http.get<Order[]>(apiUrl, httpOptions); 
+    }
+  
+  getFilteredOrders(status: string): Observable<Order[]> {
+    const url = `${environment.api}/filterorders?status=${status}`;
+    return this.http.get<Order[]>(url,this.httpOptions);
   }
 
 }

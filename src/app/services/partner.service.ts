@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -12,6 +12,7 @@ export class PartnerService {
     headers : new HttpHeaders({'Content-Type': 'application/json', 'Authorization':'Bearer ' + localStorage.getItem('token')})
   };
   endpoint = `${environment.api}/partners`;
+  apiUrl=`${environment.api}/searchPartner`;
 
   constructor(private http: HttpClient) { }
 
@@ -38,4 +39,23 @@ export class PartnerService {
   getdetails(id: number): Observable<Partner>{
     return this.http.get<Partner>(`${this.endpoint}/partnerdetails/${id}`,this.httpOptions);
   }
+
+
+  //Search function
+  getPartners(search?: string): Observable<Partner[]> {
+    let apiUrl = this.apiUrl;
+    let httpOptions = this.httpOptions;
+    if (search) {
+      apiUrl += `?search=${search}&search_fields=email,phone`;
+    }
+    return this.http.get<Partner[]>(apiUrl, httpOptions); 
+  }
+
+
+  getFilteredPartners(category: string): Observable<Partner[]> {
+    const url = `${environment.api}/filter?category=${category}`;
+    return this.http.get<Partner[]>(url,this.httpOptions);
+  }
+
+
 }

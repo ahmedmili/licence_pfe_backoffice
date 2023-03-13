@@ -29,6 +29,8 @@ import { PartnerCreateComponent } from './partners/partner-create/partner-create
 import { PartnerEditComponent } from './partners/partner-edit/partner-edit.component';
 import { PartnerDetailsComponent } from './partners/partner-details/partner-details.component';
 import { BoxDetailsComponent } from './boxs/box-details/box-details.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { UserDetailsComponent } from './users/user-details/user-details.component';
 
 
 
@@ -54,6 +56,7 @@ import { BoxDetailsComponent } from './boxs/box-details/box-details.component';
     PartnerEditComponent,
     PartnerDetailsComponent,
     BoxDetailsComponent,
+    UserDetailsComponent,
     
   ],
   imports: [
@@ -69,6 +72,7 @@ import { BoxDetailsComponent } from './boxs/box-details/box-details.component';
     MatExpansionModule,
     FormsModule,
     MatCardModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [DatePipe],

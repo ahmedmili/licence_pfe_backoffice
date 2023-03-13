@@ -10,12 +10,15 @@ import { MatPaginator } from '@angular/material/paginator';
   templateUrl: './boxs.component.html',
   styleUrls: ['./boxs.component.css']
 })
-export class BoxsComponent implements OnInit {
+
+export class BoxsComponent implements OnInit, AfterViewInit {
 
   columns = ['ID','title', 'description','oldprice','newprice','startdate','enddate','quantity','remaining_quantity','image','category','status','actions','show details'];
   imageDirectoryPath = "http://localhost:8000/storage/boxs_imgs/";
+
   dataSource = new MatTableDataSource();
-  boxs: Box[] = [];
+  boxs: Box[]| boolean = false;
+  loaded = false;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
@@ -23,14 +26,27 @@ export class BoxsComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
   ) { }
+
+
+
   ngOnInit(): void {
     // this.loadPaniers();
+  
     this.boxService.all().subscribe(
-      boxs =>
-        this.dataSource.data = boxs
+      boxs =>{
+        this.dataSource.data = boxs;
+        this.loaded = true;
+      }
+        
     );
 
   }
+
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator; 
+}
+
+
 
   // loadPaniers() {
   //   this.boxService.all().subscribe((data: Panier[]) => {
@@ -45,6 +61,7 @@ export class BoxsComponent implements OnInit {
   //     this.dataSource2 = new MatTableDataSource<Panier>(this.paniers);
   //   });
   // }
+
 
 
 
@@ -66,8 +83,5 @@ export class BoxsComponent implements OnInit {
     }
   }
 
-//   ngAfterViewInit(): void {
-//     this.dataSource.paginator = this.paginator; 
-// }
 
 }

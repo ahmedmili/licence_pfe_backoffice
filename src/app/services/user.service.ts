@@ -15,6 +15,7 @@ export class UserService {
     })
   };
   endpoint = `${environment.api}/users`;
+  apiUrl=`${environment.api}/searchUser`;
   constructor(private http: HttpClient) {
 
   }
@@ -38,5 +39,29 @@ export class UserService {
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.endpoint}/${id}`, this.httpOptions);
   }
+
+  updateUserStatus(id: number, newStatus: string) {
+    return this.http.put<User>(`${this.endpoint}/status/${id}`, { status: newStatus }, this.httpOptions);
+  }
+
+  getdetails(id: number): Observable<any>{
+    return this.http.get(`${this.endpoint}/userdetails/${id}`,this.httpOptions);
+  }
+
+  //Search function
+  getUsers(search?: string): Observable<User[]> {
+    let apiUrl = this.apiUrl;
+    let httpOptions = this.httpOptions;
+    if (search) {
+      apiUrl += `?search=${search}&search_fields=email,phone`;
+    }
+    return this.http.get<User[]>(apiUrl, httpOptions); 
+  }
+
+  getFilteredUsers(status: string): Observable<User[]> {
+    const url = `${environment.api}/filterusers?status=${status}`;
+    return this.http.get<User[]>(url,this.httpOptions);
+  }
+
 
 }

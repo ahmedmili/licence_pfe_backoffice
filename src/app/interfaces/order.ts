@@ -1,4 +1,6 @@
+
 import { OrderBoxs } from "./order-boxs";
+import { User } from "./user";
 
 export interface Order {
     id: number;
@@ -6,6 +8,7 @@ export interface Order {
     price: number;
     status: 'PENDING'| 'AUTHORIZED'|'REJECTED'|'SUCCESS';
     created_at: Date;
-    box_command:OrderBoxs[];
+    user:User;
+    boxs:OrderBoxs[];
   }
   

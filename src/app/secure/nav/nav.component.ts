@@ -14,7 +14,8 @@ export class NavComponent implements OnInit {
        id: 0,
     name: "user",
     email: "user@use.user",
-    phone:10000
+    phone:10000,
+    status: "ACTIVE"
   };
   constructor(
     private authService: AuthService,

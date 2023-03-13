@@ -1,7 +1,38 @@
+<br>
+<div class="row">
+  <div class="col-md-10 mb-4">
+    <input type="text" class="form-control" placeholder="Search by email and phone" [(ngModel)]="search" (keyup.enter)="SearchPartner()">
+  </div>
+  <div class="col-md-2 mb-4">
+    <div class="input-group-append">
+      <select class="form-select select-width" id="category-select" (change)="filterPartners($any($event).target.value)">
+        <option value="">Select</option>
+        <option value="SUPERMARKET">Supermarket</option>
+        <option value="BAKERY">Bakery</option>
+        <option value="PASTRIES">Pastries</option>
+        <option value="RESTAURANT">Restaurant</option>
+        <option value="COFFEE SHOP">Coffee Shop</option>
+        <option value="HOTEL">Hotel</option>
+        <option value="CATERER">Caterer</option>
+        <option value="LOCAL PRODUCERS">Local Producers</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
 <div class="pt-3 pb-2 mb-3 border-bottom">
     <a routerLink="/partners/create" class="btn btn-sm btn-outline-secondary">Add</a>
   </div>
-  <table mat-table [dataSource]="dataSource" class="table table-striped table-sm mat-elevation-z8">
+  <div *ngIf="loaded && dataSource.data.length === 0" class="alert alert-warning">
+    No Data Found
+  </div>
+  <div class="spinner-container" *ngIf="!loaded">
+    <div class="spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+  <table mat-table *ngIf="dataSource.data.length >0 && loaded " [dataSource]="dataSource" class="table table-striped table-sm mat-elevation-z8">
   
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>#</th>
@@ -69,10 +100,14 @@
     <tr mat-row *matRowDef="let row; columns:columns;"></tr>
   </table>
   
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                   showFirstLastButtons 
-                   aria-label="Select page of periodic elements">
+  <ng-container *ngIf="dataSource.data.length > 5">
+    <mat-paginator 
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons 
+      aria-label="Select page of periodic elements"
+      [length]="dataSource.data.length">
     </mat-paginator>
+  </ng-container>
   
   
   
