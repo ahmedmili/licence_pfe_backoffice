@@ -17,6 +17,7 @@ export class BoxService {
   };
   
     endpoint = `${environment.api}/boxs`;
+    apiUrl=`${environment.api}/searchBox`;
 
     constructor(private http:HttpClient) { 
       
@@ -52,10 +53,15 @@ export class BoxService {
       return this.http.get<Box>(`${this.endpoint}/boxdetails/${id}`,this.httpOptions);
     }
 
-   
-     
-  // searchPaniers(search: string): Observable<Panier[]> {
-  //   return this.http.get<Panier[]>(`${environment.api}/searchboxs?search=${search}`,this.httpOptions);
-  // }
+   //Search function
+   getBoxs(search?: string): Observable<Box[]> {
+    let apiUrl = this.apiUrl;
+    let httpOptions = this.httpOptions;
+    if (search) {
+      apiUrl += `?search=${search}&search_fields=id,partner_id,title`;
+    }
+    return this.http.get<Box[]>(apiUrl, httpOptions); 
+  }
+
 
 }

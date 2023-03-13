@@ -20,7 +20,7 @@ export class BoxsComponent implements OnInit, AfterViewInit {
   boxs: Box[]| boolean = false;
   loaded = false;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-
+  search: string = '';
   constructor(
     private boxService: BoxService,
     private router: Router,
@@ -47,22 +47,11 @@ export class BoxsComponent implements OnInit, AfterViewInit {
 }
 
 
-
-  // loadPaniers() {
-  //   this.boxService.all().subscribe((data: Panier[]) => {
-  //     this.paniers = data;
-  //     this.dataSource2 = new MatTableDataSource<Panier>(this.paniers);
-  //   });
-  // }
-
-  // onSearch(searchValue: string) {
-  //   this.boxService.searchPaniers(searchValue).subscribe((data: Panier[]) => {
-  //     this.paniers = data;
-  //     this.dataSource2 = new MatTableDataSource<Panier>(this.paniers);
-  //   });
-  // }
-
-
+SearchBox() {
+  this.boxService.getBoxs(this.search).subscribe(boxs => {
+      this.dataSource.data = boxs; 
+  });
+}
 
 
   delete(id: number): void {
