@@ -3,6 +3,19 @@
   <div class="col-md-10 mb-4">
     <input type="text" class="form-control" placeholder="Search by Id, Partner Id or title" [(ngModel)]="search" (keyup.enter)="SearchBox()">
   </div>
+  <div class="col-md-2 mb-4">
+    <div class="input-group-append">
+      <select class="form-select select-width" id="status-select" (change)="getStatusInputValueBox($any($event).target.value)">
+        <option value="">Select</option>
+        <option value="PENDING">Pending</option>
+        <option value="ACCEPTED">Accepted</option>
+        <option value="REJECTED">Rejected</option>
+        <option value="FINISHED">Finished</option>
+        <option value="EXPIRED">Expired</option>
+      </select>
+    </div>
+  </div>
+</div>
 
 <div class="pt-3 pb-2 mb-3 border-bottom">
   <a routerLink="/boxs/create" class="btn btn-sm btn-outline-secondary">Add</a>

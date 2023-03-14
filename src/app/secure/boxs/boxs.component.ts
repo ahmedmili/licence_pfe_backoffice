@@ -21,6 +21,7 @@ export class BoxsComponent implements OnInit, AfterViewInit {
   loaded = false;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   search: string = '';
+  status!: string;
   constructor(
     private boxService: BoxService,
     private router: Router,
@@ -47,11 +48,18 @@ export class BoxsComponent implements OnInit, AfterViewInit {
 }
 
 
+getStatusInputValueBox(status:any){
+  this.status = status;
+  this.SearchBox();
+}
+
+
 SearchBox() {
-  this.boxService.getBoxs(this.search).subscribe(boxs => {
+  this.boxService.getBoxs(this.search,this.status).subscribe(boxs => {
       this.dataSource.data = boxs; 
   });
 }
+
 
 
   delete(id: number): void {

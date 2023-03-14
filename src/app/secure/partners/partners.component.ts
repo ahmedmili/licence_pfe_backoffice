@@ -48,8 +48,6 @@ SearchPartner() {
 }
 
 
-
-
 // filterPartners(category: string): void {
 //   this.partnerService.getFilteredPartners(category).subscribe(partners => {
 //     this.dataSource.data = partners; 
