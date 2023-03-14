@@ -42,14 +42,15 @@ export class PartnerService {
 
 
   //Search function
-  getPartners(search?: string): Observable<Partner[]> {
+  getPartners(search: string = "", category:string = ""): Observable<Partner[]> {
     let apiUrl = this.apiUrl;
     let httpOptions = this.httpOptions;
-    if (search) {
-      apiUrl += `?search=${search}&search_fields=email,phone`;
-    }
+  
+      apiUrl += `?search=${search}&category=${category}`;
+    
     return this.http.get<Partner[]>(apiUrl, httpOptions); 
   }
+
 
 
   getFilteredPartners(category: string): Observable<Partner[]> {

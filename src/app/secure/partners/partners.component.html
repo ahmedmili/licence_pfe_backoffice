@@ -5,7 +5,7 @@
   </div>
   <div class="col-md-2 mb-4">
     <div class="input-group-append">
-      <select class="form-select select-width" id="category-select" (change)="filterPartners($any($event).target.value)">
+      <select class="form-select select-width" id="category-select" (change)="getCategoryInputValue($any($event).target.value)">
         <option value="">Select</option>
         <option value="SUPERMARKET">Supermarket</option>
         <option value="BAKERY">Bakery</option>

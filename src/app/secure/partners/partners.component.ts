@@ -17,6 +17,7 @@ export class PartnersComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   search: string = '';
+  category!: string;
   loaded = false;
   constructor(private partnerService:PartnerService, private router:Router) { }
 
@@ -34,17 +35,26 @@ partners=>{
 }
 
 
+getCategoryInputValue(category:any){
+  this.category = category;
+  this.SearchPartner();
+}
+
+
 SearchPartner() {
-  this.partnerService.getPartners(this.search).subscribe(partners => {
+  this.partnerService.getPartners(this.search,this.category).subscribe(partners => {
       this.dataSource.data = partners; 
   });
 }
 
-filterPartners(category: string): void {
-  this.partnerService.getFilteredPartners(category).subscribe(partners => {
-    this.dataSource.data = partners; 
-});
-}
+
+
+
+// filterPartners(category: string): void {
+//   this.partnerService.getFilteredPartners(category).subscribe(partners => {
+//     this.dataSource.data = partners; 
+// });
+// }
 
 delete(id: number): void{
   if(confirm('Are you sure ?')){

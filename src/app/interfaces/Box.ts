@@ -12,7 +12,7 @@ export interface Box {
         remaining_quantity: number;
         image: string;
         category: 'FRUITS AND VEGETABLES'| 'MEAT'| 'PASTRY'|'FISH'| 'DAIRY PRODUCTS'| 'PREPARED DISHES'| 'SWEETS'| 'DRINKS'| 'VEGETARIAN';
-        status: 'PENDING'| 'ACCEPTED'| 'REJECTED'|'FINISHED';
+        status: 'PENDING'| 'ACCEPTED'| 'REJECTED'|'FINISHED'|'EXPIRED';
         partner_id: number,
         partner:Partner
 }
