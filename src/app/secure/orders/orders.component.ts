@@ -31,11 +31,11 @@ export class OrdersComponent implements OnInit, AfterViewInit {
       }
     );
   }
-
-
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
   }
+
+ 
 
   getStatusInputValue(status:any){
     this.status = status;
