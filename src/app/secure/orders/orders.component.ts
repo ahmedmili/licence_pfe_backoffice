@@ -19,6 +19,7 @@ export class OrdersComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   loaded = false;
   search: string = '';
+  status!: string;
   constructor(private orderService: OrderService, private router: Router, public datePipe: DatePipe) { }
 
   ngOnInit(): void {
@@ -30,17 +31,23 @@ export class OrdersComponent implements OnInit, AfterViewInit {
       }
     );
   }
-
-
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
   }
 
+ 
+
+  getStatusInputValue(status:any){
+    this.status = status;
+    this.SearchOrder();
+}
+
   SearchOrder() {
-    this.orderService.getOrders(this.search).subscribe(orders => {
+    this.orderService.getOrders(this.search,this.status).subscribe(orders => {
         this.dataSource.data = orders; 
     });
   }
+
 
   filterOrders(status: string): void {
     this.orderService.getFilteredOrders(status).subscribe(orders => {

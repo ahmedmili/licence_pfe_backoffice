@@ -53,15 +53,24 @@ export class BoxService {
       return this.http.get<Box>(`${this.endpoint}/boxdetails/${id}`,this.httpOptions);
     }
 
-   //Search function
-   getBoxs(search?: string): Observable<Box[]> {
+
+  //Search function
+  getBoxs(search: string = "", status:string = ""): Observable<Box[]> {
     let apiUrl = this.apiUrl;
     let httpOptions = this.httpOptions;
-    if (search) {
-      apiUrl += `?search=${search}&search_fields=id,partner_id,title`;
-    }
+  
+      apiUrl += `?search=${search}&status=${status}`;
+    
     return this.http.get<Box[]>(apiUrl, httpOptions); 
   }
+
+
+
+  getFilteredBoxs(status: string): Observable<Box[]> {
+    const url = `${environment.api}/filter?status=${status}`;
+    return this.http.get<Box[]>(url,this.httpOptions);
+  }
+
 
 
 }

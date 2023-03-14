@@ -40,14 +40,15 @@ export class OrderService {
   }
 
     //Search function
-  getOrders(search?: string): Observable<Order[]> {
+  getOrders(search: string = "", status:string = ""): Observable<Order[]> {
     let apiUrl = this.apiUrl;
     let httpOptions = this.httpOptions;
-      if (search) {
-        apiUrl += `?search=${search}&search_fields=id,user_id`;
-      }
+      
+        apiUrl += `?search=${search}&status=${status}`;
+      
       return this.http.get<Order[]>(apiUrl, httpOptions); 
     }
+
   
   getFilteredOrders(status: string): Observable<Order[]> {
     const url = `${environment.api}/filterorders?status=${status}`;

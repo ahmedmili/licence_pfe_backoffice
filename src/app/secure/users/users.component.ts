@@ -53,8 +53,6 @@ export class UsersComponent implements OnInit, AfterViewInit {
 
 
   SearchUser() {
-    console.log('status', this.status);
-    console.log('search',this.search);
     this.userService.getUsers(this.search,this.status).subscribe(users => {
         this.dataSource.data = users; 
         console.log(users);

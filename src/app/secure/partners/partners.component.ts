@@ -44,10 +44,9 @@ getCategoryInputValue(category:any){
 SearchPartner() {
   this.partnerService.getPartners(this.search,this.category).subscribe(partners => {
       this.dataSource.data = partners; 
+      console.log(partners);
   });
 }
-
-
 
 
 // filterPartners(category: string): void {
