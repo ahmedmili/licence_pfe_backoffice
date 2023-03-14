@@ -23,7 +23,7 @@ export class UsersComponent implements OnInit, AfterViewInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.userService.all().subscribe(
+    this.userService.getUsers().subscribe(
       users => {
         this.dataSource.data = users;
         this.loaded = true;
@@ -45,21 +45,22 @@ export class UsersComponent implements OnInit, AfterViewInit {
     );
   }
 
+
+  getStatusInputValue(status:any){
+      this.status = status;
+      this.SearchUser();
+  }
+
+
   SearchUser() {
-    this.userService.getUsers(this.search).subscribe(users => {
+    console.log('status', this.status);
+    console.log('search',this.search);
+    this.userService.getUsers(this.search,this.status).subscribe(users => {
         this.dataSource.data = users; 
         console.log(users);
     });
   }
   
-  filterUsers(status: string): void {
-    this.userService.getFilteredUsers(status).subscribe(users => {
-      this.dataSource.data = users; 
-      console.log(users);
-  });
-  }
-
- 
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;

@@ -49,12 +49,12 @@ export class UserService {
   }
 
   //Search function
-  getUsers(search?: string): Observable<User[]> {
+  getUsers(search: string = "", status:string = ""): Observable<User[]> {
     let apiUrl = this.apiUrl;
     let httpOptions = this.httpOptions;
-    if (search) {
-      apiUrl += `?search=${search}&search_fields=email,phone`;
-    }
+
+      apiUrl += `?search=${search}&status=${status}`;
+
     return this.http.get<User[]>(apiUrl, httpOptions); 
   }
 

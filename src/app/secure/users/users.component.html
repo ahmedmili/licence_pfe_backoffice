@@ -6,7 +6,7 @@
 
   <div class="col-md-2 mb-4">
     <div class="input-group-append">
-      <select class="form-select select-width" id="status-select" (change)="filterUsers($any($event).target.value)">
+      <select class="form-select select-width" id="status-select" (change)="getStatusInputValue($any($event).target.value)">
         <option value="">Select</option>
         <option value="ACTIVE">Active</option>
         <option value="INACTIVE">Inactive</option>
