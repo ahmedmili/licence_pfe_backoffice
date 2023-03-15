@@ -21,7 +21,10 @@ export class PartnerService {
   }
 
   create(data: any): Observable<Partner> {
-    return this.http.post<Partner>(this.endpoint, data, this.httpOptions);
+    return this.http.post<Partner>(this.endpoint, data, {
+      headers : new HttpHeaders({
+        'Authorization':'Bearer ' + localStorage.getItem('token')})
+    });
   }
 
   get(id: number): Observable<Partner> {
