@@ -43,7 +43,6 @@ export class BoxCreateComponent implements OnInit {
   }
   uploadImage(event: any) {
     this.files = event.target.files[0];
-    console.log(this.files);
   }
 
   submit(): void {
@@ -63,7 +62,6 @@ export class BoxCreateComponent implements OnInit {
     this.formData.append("status", formValue.status);
     this.formData.append("partner_id", formValue.partner_id);
     this.formData.append("image", this.files, this.files.name);
-    console.log((this.formData.get('image')));
     this.boxService.create(this.formData)
       .subscribe(
         (response) => {

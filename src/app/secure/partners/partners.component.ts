@@ -12,7 +12,9 @@ import { PartnerService } from 'src/app/services/partner.service';
   styleUrls: ['./partners.component.css']
 })
 export class PartnersComponent implements OnInit, AfterViewInit {
+
   partners:Partner[]=[];
+  imageDirectoryPath = "http://localhost:8000/storage/partner_imgs/";
   columns = ['id','name', 'description', 'email', 'phone', 'image', 'category', 'openingtime', 'closingtime','actions','show details'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -25,8 +27,7 @@ export class PartnersComponent implements OnInit, AfterViewInit {
     this.partnerService.all().subscribe(
 partners=>{
   this.dataSource.data=partners;
-  this.loaded = true;
-}
+  this.loaded = true;}
     );
   }
 
@@ -34,11 +35,14 @@ partners=>{
     this.dataSource.paginator = this.paginator; 
 }
 
+<<<<<<< HEAD
 shouldShowPaginator(): boolean {
   return this.dataSource.data.length > 5;
 }
 
 
+=======
+>>>>>>> 6d1dd8d42acbbd10a1ffce334e87329673d202ff
 getCategoryInputValue(category:any){
   this.category = category;
   this.SearchPartner();

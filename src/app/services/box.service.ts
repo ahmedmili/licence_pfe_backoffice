@@ -30,7 +30,6 @@ export class BoxService {
     create(data:any):Observable<any>{
       return this.http.post<Box>(this.endpoint,data,{
         headers : new HttpHeaders({
-         // 'Content-Type': "multipart/form-data; charset=utf-8; boundary=" + Math.random().toString().substr(2),
           'Authorization':'Bearer ' + localStorage.getItem('token')})
       });
       
