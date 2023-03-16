@@ -35,14 +35,9 @@ partners=>{
     this.dataSource.paginator = this.paginator; 
 }
 
-<<<<<<< HEAD
-shouldShowPaginator(): boolean {
-  return this.dataSource.data.length > 5;
-}
 
 
-=======
->>>>>>> 6d1dd8d42acbbd10a1ffce334e87329673d202ff
+
 getCategoryInputValue(category:any){
   this.category = category;
   this.SearchPartner();
