@@ -34,6 +34,10 @@ partners=>{
     this.dataSource.paginator = this.paginator; 
 }
 
+shouldShowPaginator(): boolean {
+  return this.dataSource.data.length > 5;
+}
+
 
 getCategoryInputValue(category:any){
   this.category = category;
