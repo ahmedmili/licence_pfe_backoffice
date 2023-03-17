@@ -5,6 +5,7 @@ import { Box } from 'src/app/interfaces/Box';
 import { BoxService } from 'src/app/services/box.service';
 import { MatPaginator } from '@angular/material/paginator';
 
+
 @Component({
   selector: 'app-boxs',
   templateUrl: './boxs.component.html',
@@ -73,7 +74,8 @@ SearchBox() {
           }
         });
         this.dataSource.data = newData;
-        this.router.navigate(['/boxs']);
+        // this.loaded = true;
+        // this.router.navigate(['/boxs']);
       });
 
 

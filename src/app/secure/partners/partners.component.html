@@ -83,15 +83,21 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef="let partner">
-          <a class="btn btn-sm btn-outline-secondary" [routerLink]="['/partners',partner.id,'edit']">Edit</a>
-          <a class="btn btn-sm btn-outline-secondary" (click)="delete(partner.id)">Delete</a>
+          <button mat-icon-button [routerLink]="['/partners',partner.id,'edit']">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="delete(partner.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="show details">
       <th mat-header-cell *matHeaderCellDef>Show Details </th>
       <td mat-cell *matCellDef="let partner">
-        <a [routerLink]="['/partners',partner.id,'details']" class="btn btn-sm btn-outline-secondary">Show</a>
+        <button [routerLink]="['/partners',partner.id,'details']" mat-icon-button >
+          <mat-icon>find_in_page</mat-icon>
+        </button>
       </td>
     </ng-container>
   

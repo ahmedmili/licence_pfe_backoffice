@@ -16,7 +16,9 @@
 </div>
 
 <div class="pt-3 pb-2 mb-3 border-bottom">
-  <a routerLink="/users/create" class="btn btn-sm btn-outline-secondary">Add</a>
+  <button class="add-btn" routerLink="/users/create" mat-icon-button >
+    <mat-icon class="add-icon">add</mat-icon>
+  </button>
 </div>
 <div *ngIf="loaded && dataSource.data.length === 0" class="alert alert-warning">
   No Data Found
@@ -63,8 +65,12 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef>Actions</th>
     <td mat-cell *matCellDef="let user">
-        <a class="btn btn-sm btn-outline-secondary" [routerLink]="['/users',user.id,'edit']">Edit</a>
-        <a class="btn btn-sm btn-outline-secondary" (click)="delete(user.id)">Delete</a>
+        <button mat-icon-button [routerLink]="['/users',user.id,'edit']">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="delete(user .id)">
+          <mat-icon>delete</mat-icon>
+        </button>
     </td>
   </ng-container>
 
@@ -72,7 +78,9 @@
   <ng-container matColumnDef="show details">
     <th mat-header-cell *matHeaderCellDef>Show Details </th>
     <td mat-cell *matCellDef="let user">
-      <a [routerLink]="['/users',user.id,'details']" class="btn btn-sm btn-outline-secondary">Show</a>
+      <button [routerLink]="['/users',user.id,'details']" mat-icon-button >
+        <mat-icon>find_in_page</mat-icon>
+      </button>
     </td>
   </ng-container>
  

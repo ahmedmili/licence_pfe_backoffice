@@ -31,6 +31,7 @@ import { PartnerDetailsComponent } from './partners/partner-details/partner-deta
 import { BoxDetailsComponent } from './boxs/box-details/box-details.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -72,7 +73,8 @@ import { UserDetailsComponent } from './users/user-details/user-details.componen
     MatExpansionModule,
     FormsModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatIconModule
 
   ],
   providers: [DatePipe],
