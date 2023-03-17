@@ -1,0 +1,140 @@
+  /* .side-menu {
+    top: -15px;
+    position: relative;
+    background: #2d6361;
+    width: 255px;
+    height: 130vh;
+    flex-direction: column;
+    display: inline-block;
+    padding: 10px;
+  }
+  
+  .side-menu li {
+    background: #2d6361;
+    color: #fff;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-right: 20px;
+  }
+  
+  .side-menu a.active {
+    background: #fff;
+    color: #2d6361;
+    border-radius: 8px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+   */
+
+   @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600&display=swap');
+
+   :root {
+       --main-color: #22BAA0;
+       --color-dark: #34425A;
+       --text-grey: #B0B0B0;
+   }
+   
+   * {
+       margin: 0;
+       padding: 0;
+       text-decoration: none;
+       list-style-type: none;
+       box-sizing: border-box;
+       font-family: 'Merriweather', sans-serif;
+   }
+   
+   #menu-toggle {
+       display: none;
+   }
+   
+   .sidebar {
+       position: fixed;
+       height: 100%;
+       width: 165px;
+       left: 0;
+       bottom: 0;
+       top: 0;
+       z-index: 100;
+       background: #34425A;
+       transition: left 300ms;
+   }
+   
+   .side-header {
+       box-shadow: 0px 5px 5px -5px rgb(0 0 0 /10%);
+       background: var(--main-color);
+       height: 60px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+   
+   .side-header h3, side-head span {
+       color: #fff;
+       font-weight: 400;
+   }
+   
+   .side-content {
+       height: calc(100vh - 60px);
+       overflow: auto;
+   }
+   
+   .side-menu ul {
+       text-align: center;
+   }
+   
+   .side-menu a {
+       display: block;
+       padding: 1.2rem 0rem;
+   }
+   
+   .side-menu a.active {
+       background: #2B384E;
+   }
+   
+   .side-menu a.active span, .side-menu a.active small {
+       color: #fff;
+   }
+   
+   .side-menu a span {
+       display: block;
+       text-align: center;
+       font-size: 1.7rem;
+   }
+   
+   .side-menu a span, .side-menu a small {
+       color: #899DC1;
+   }
+   
+   #menu-toggle:checked ~ .sidebar {
+       width: 60px;
+   }
+   
+   #menu-toggle:checked ~ .sidebar .side-header span {
+       display: none;
+   }
+   
+   #menu-toggle:checked ~ .main-content {
+       margin-left: 60px;
+       width: calc(100% - 60px);
+   }
+   
+   #menu-toggle:checked ~ .main-content header {
+       left: 60px;
+   }
+   
+   #menu-toggle:checked ~ .sidebar .profile,
+   #menu-toggle:checked ~ .sidebar .side-menu a small {
+       display: none;
+   }
+   
+   #menu-toggle:checked ~ .sidebar .side-menu a span {
+       font-size: 1.3rem;
+   }
+   
+   
+   
