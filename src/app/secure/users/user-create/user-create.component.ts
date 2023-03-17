@@ -19,6 +19,7 @@ export class UserCreateComponent implements OnInit {
       phone:'',
       status:'',
       password:'',
+  
     });
   }
   submit(): void {
