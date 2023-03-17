@@ -1,0 +1,9 @@
+.router-link{
+    display: flex;
+    justify-content: start;
+    place-items: center;
+    /* background-color: blue; */
+}
+.router-link:hover{
+    background-color: rgb(171, 171, 255);
+}
