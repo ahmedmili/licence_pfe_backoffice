@@ -90,13 +90,10 @@
 </table>
 
 
-<mat-paginator *ngIf="dataSource.data.length <= 5" 
-               [pageSizeOptions]="[5, 10, 20]"
-               showFirstLastButtons 
-               aria-label="Select page of periodic elements"
-               [length]="dataSource.data.length">
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+showFirstLastButtons 
+aria-label="Select page of periodic elements">
 </mat-paginator>
-
 
     
    
