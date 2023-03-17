@@ -10,6 +10,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SecureModule } from './secure/secure.module';
 import { CommonModule, DatePipe } from '@angular/common';
 
+import {MatIconModule} from '@angular/material/icon';
+
+
 
 
 @NgModule({
@@ -26,6 +29,7 @@ import { CommonModule, DatePipe } from '@angular/common';
     HttpClientModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
+    MatIconModule,
     ReactiveFormsModule
   ],
   providers: [DatePipe],
