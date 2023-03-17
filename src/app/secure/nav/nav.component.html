@@ -1,8 +1,30 @@
-<header class="navbar navbar-dark sticky-top  flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" routerLink="/">FOOD SAVER</a>
 
-  <nav class="my-2 my-md-0 mr-md-3">
-    <a routerLink="/profile" class="p-2 text-white text-decoration-none">{{ user.name }}</a>
-    <a routerLink="/login" class="p-2 text-white text-decoration-none" (click)="logout()">Sign out</a>
-  </nav>
+<header>
+   <div class="header-content">
+      <label for="menu-toggle">
+          <span class="las la-bars"></span>
+      </label> 
+      
+       <div class="header-menu">
+          <!-- <label for="">
+              <span class="las la-search"></span>
+          </label>
+          
+          <div class="notify-icon">
+              <span class="las la-envelope"></span>
+              <span class="notify">4</span>
+          </div>
+          
+          <div class="notify-icon">
+              <span class="las la-bell"></span>
+              <span class="notify">3</span>
+          </div>   -->
+          
+          <div class="user">
+            <span><a routerLink="/profile" class="p-2 text-white text-decoration-none"></a>{{ user.name }}</span>
+              <!-- <span class="las la-power-off"></span> -->
+              <span><a routerLink="/login" class="p-2 text-white text-decoration-none" (click)="logout()"></a>Logout</span>
+          </div>
+      </div>
+  </div>
 </header>
