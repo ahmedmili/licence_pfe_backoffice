@@ -35,6 +35,9 @@ partners=>{
     this.dataSource.paginator = this.paginator; 
 }
 
+
+
+
 getCategoryInputValue(category:any){
   this.category = category;
   this.SearchPartner();
