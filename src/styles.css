@@ -3,7 +3,8 @@
 
 body {
     font-size: .875rem;
-        font-family: poppins, Helvetica, sans-serif;
+    font-family: poppins, Helvetica, sans-serif;
+    
 
   }
   
@@ -104,7 +105,7 @@ body {
     box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
   }
   
-  html, body { height: 100%; }
+  html, body { height: 100%;margin-right: 130px; }
   body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   
 html, body { height: 100%; }

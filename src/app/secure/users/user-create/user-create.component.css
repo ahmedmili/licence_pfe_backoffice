@@ -60,3 +60,6 @@
   .slider.round:before {
     border-radius: 50%;
   }
+  button{
+    background: #34425A;
+}

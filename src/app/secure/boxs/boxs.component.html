@@ -21,9 +21,9 @@
 </div>
 
 
-<button class="add-btn" routerLink="/boxs/create" mat-icon-button >
-  <mat-icon class="add-icon">add</mat-icon>
-</button>
+<div class="pt-3 pb-2 mb-3 border-bottom">
+  <a routerLink="/boxs/create" class="btn btn-sm btn-outline-secondary">Add</a>
+</div>
 <div *ngIf=" loaded && dataSource.data.length == 0" class="alert alert-warning">
   No Data Found
 </div>

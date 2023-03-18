@@ -1,7 +1,4 @@
-<br>
-<br>
-<br>
-<br>
+<div style="margin-top: 62px;"></div>
 <div class="row">
   <div class="col-md-10 mb-4">
     <input type="text" class="form-control" placeholder="Search by Id and User Id" [(ngModel)]="search"
@@ -21,9 +18,9 @@
   </div>
 </div>
 
-<button class="add-btn" routerLink="/orders/create" mat-icon-button>
-  <mat-icon class="add-icon">add</mat-icon>
-</button>
+<div class="pt-3 pb-2 mb-3 border-bottom">
+  <a routerLink="/orders/create" class="btn btn-sm btn-outline-secondary">Add</a>
+</div>
 
 <div *ngIf="loaded && dataSource.data.length === 0" class="alert alert-warning">
   No Data Found
