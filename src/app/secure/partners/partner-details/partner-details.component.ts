@@ -9,6 +9,8 @@ import { PartnerService } from 'src/app/services/partner.service';
   styleUrls: ['./partner-details.component.css']
 })
 export class PartnerDetailsComponent implements OnInit {
+  imageDirectoryPath = "http://localhost:8000/storage/boxs_imgs/";
+
   id!: number;
   partner!: Partner;
   constructor(private partnerService:PartnerService,

@@ -42,7 +42,7 @@
             <td>{{ Boxs.enddate}}</td>
             <td>{{ Boxs.quantity}}</td>
             <td>{{ Boxs.remaining_quantity}}</td>
-            <td>{{ Boxs.image}}</td>
+            <img [src]="Boxs.image? imageDirectoryPath+Boxs.image : 'assets/images/noImg'" height="50" />
             <td>{{ Boxs.category}}</td>
             <td>{{ Boxs.status}}</td>
       
