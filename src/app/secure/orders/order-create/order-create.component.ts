@@ -10,25 +10,38 @@ import { OrderService } from 'src/app/services/order.service';
   styleUrls: ['./order-create.component.css']
 })
 export class OrderCreateComponent implements OnInit {
-  form!:FormGroup;
-  constructor(private formBuilder:FormBuilder,private orderService:OrderService,private router:Router) { }
+  form!: FormGroup;
+  constructor(private formBuilder: FormBuilder, private orderService: OrderService, private router: Router) { }
 
   ngOnInit(): void {
-    this.form=this.formBuilder.group({
-      user_id:'',
-      box_id:'',
-      quantity:'',
-      status:'',
+    this.form = this.formBuilder.group({
+      user_id: '',
+      box_id: '',
+      quantity: '',
+      status: '',
     });
   }
 
-  
+
 
 
   submit(): void {
     this.orderService.create(this.form.getRawValue())
-      .subscribe(() => this.router.navigate(['/orders']));
+
+      .subscribe(
+        (response) => {
+          if (response)
+          {
+            console.log(response)
+           this.router.navigate(['/orders'])
+
+          }
+        },
+     
+      )
   }
-  
 
 }
+
+
+

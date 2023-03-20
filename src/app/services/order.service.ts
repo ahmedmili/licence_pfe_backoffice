@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {  Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Order } from '../interfaces/order';
 
@@ -18,8 +19,18 @@ export class OrderService {
   all(): Observable<Order[]>{
     return this.http.get<Order[]>(this.endpoint,this.httpOptions);
   }
+  // create(data:any):Observable<Order>{
+    
+  //   return this.http.post<Order>(`${environment.api}/orders/addorder`,data,this.httpOptions);
+  // }
   create(data:any):Observable<Order>{
-    return this.http.post<Order>(`${environment.api}/orders/addorder`,data,this.httpOptions);
+
+    return this.http.post<Order>(`${environment.api}/orders/addorder`,data,this.httpOptions).pipe(
+      catchError((error:any) => {
+        console.log('Error:', error);
+        return throwError('Something went wrong!');
+      })
+      )
   }
 
   delete(id: number): Observable<void>{

@@ -51,13 +51,6 @@ SearchPartner() {
   });
 }
 
-
-// filterPartners(category: string): void {
-//   this.partnerService.getFilteredPartners(category).subscribe(partners => {
-//     this.dataSource.data = partners; 
-// });
-// }
-
 delete(id: number): void{
   if(confirm('Are you sure ?')){
     this.partnerService.delete(id).subscribe(() => {
