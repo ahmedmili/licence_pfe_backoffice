@@ -4,12 +4,15 @@ import { Box } from 'src/app/interfaces/Box';
 import { Partner } from 'src/app/interfaces/partner';
 import { BoxService } from 'src/app/services/box.service';
 
+
 @Component({
   selector: 'app-box-details',
   templateUrl: './box-details.component.html',
   styleUrls: ['./box-details.component.css']
 })
 export class BoxDetailsComponent implements OnInit {
+  imageDirectoryPath = "http://localhost:8000/storage/partner_imgs/";
+
   id!: number;
   box!: any;
   partner!: Partner;

@@ -7,7 +7,7 @@
       <p>Description: {{ box.description}}</p>
       <p>Email: {{ box.email }}</p>
       <p>Phone: {{ box.phone }}</p>
-      <p>Image: {{ box.image }}</p>
+      <img [src]="box.image? imageDirectoryPath+box.image : 'assets/images/noImg'" height="50" />
       <p>Category: {{ box.category }}</p>
       <p>Opening Time: {{ box.openingtime }}</p>
       <p>Closing Time: {{ box.closingtime }}</p>
