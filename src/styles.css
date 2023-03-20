@@ -4,8 +4,6 @@
 body {
     font-size: .875rem;
     font-family: poppins, Helvetica, sans-serif;
-    
-
   }
   
   .feather {
@@ -108,8 +106,7 @@ body {
   html, body { height: 100%;margin-right: 130px; }
   body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 
 /* Spinner style */
 .spinner-container {
@@ -130,3 +127,5 @@ mat-spinner {
   transform: translate(-50%, -50%);
   color: #34425A;
 }
+
+
