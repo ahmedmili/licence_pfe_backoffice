@@ -1,4 +1,3 @@
-import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -21,22 +20,15 @@ export class OrderCreateComponent implements OnInit {
       status: '',
     });
   }
-
-
-
-
   submit(): void {
     this.orderService.create(this.form.getRawValue())
-
-      .subscribe(
-        (response) => {
-          if (response)
-          {
-            console.log(response)
-           this.router.navigate(['/orders'])
-
+      .subscribe((response) => {
+          if(response.status == 200){
+             this.router.navigate(['/orders']);
+          }else if(response.status == 400){
+            console.log(response);
           }
-        },
+        }
      
       )
   }

@@ -19,18 +19,8 @@ export class OrderService {
   all(): Observable<Order[]>{
     return this.http.get<Order[]>(this.endpoint,this.httpOptions);
   }
-  // create(data:any):Observable<Order>{
-    
-  //   return this.http.post<Order>(`${environment.api}/orders/addorder`,data,this.httpOptions);
-  // }
-  create(data:any):Observable<Order>{
-
-    return this.http.post<Order>(`${environment.api}/orders/addorder`,data,this.httpOptions).pipe(
-      catchError((error:any) => {
-        console.log('Error:', error);
-        return throwError('Something went wrong!');
-      })
-      )
+  create(data:any):Observable<any>{
+    return this.http.post<Order>(`${environment.api}/orders/addorder`,data,this.httpOptions)
   }
 
   delete(id: number): Observable<void>{

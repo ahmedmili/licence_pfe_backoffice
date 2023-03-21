@@ -66,16 +66,9 @@ SearchBox() {
   delete(id: number): void {
     if (confirm('Are you sure ?')) {
       this.boxService.delete(id).subscribe(() => {
-        const newData: Box[] = [];
-        this.dataSource.data.forEach((p: unknown) => {
-          if ((p as Box).id !== id) {
-            let updatedData: Box[] = [];
-            updatedData.push(p as Box);
-          }
-        });
-        this.dataSource.data = newData;
-        // this.loaded = true;
-        // this.router.navigate(['/boxs']);
+      
+        this.dataSource.data = this.dataSource.data.filter((u:any) => u.id !== id);
+        this.router.navigate(['/boxs']);
       });
 
 

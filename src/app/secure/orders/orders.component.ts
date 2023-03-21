@@ -58,14 +58,7 @@ export class OrdersComponent implements OnInit, AfterViewInit {
   delete(id: number): void{
    if(confirm('Are you sure ?')){
     this.orderService.delete(id).subscribe(() => {
-      const newData: Order[] = [];
-      this.dataSource.data.forEach((p: unknown) => {
-        if ((p as Order).id !== id) {
-          let updatedData: Order[] = [];
-          updatedData.push(p as Order);
-        }
-      });
-      this.dataSource.data = newData;
+      this.dataSource.data = this.dataSource.data.filter((u:any) => u.id !== id);
       this.router.navigate(['/orders']);
     });
 
