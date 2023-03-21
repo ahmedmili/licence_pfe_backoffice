@@ -54,14 +54,7 @@ SearchPartner() {
 delete(id: number): void{
   if(confirm('Are you sure ?')){
     this.partnerService.delete(id).subscribe(() => {
-      const newData: Partner[] = [];
-      this.dataSource.data.forEach((p: unknown) => {
-        if ((p as Partner).id !== id) {
-          let updatedData: Partner[] = [];
-          updatedData.push(p as Partner);
-        }
-      });
-      this.dataSource.data = newData;
+      this.dataSource.data = this.dataSource.data.filter((u:any) => u.id !== id);
       this.router.navigate(['/partners']);
     });
   }
