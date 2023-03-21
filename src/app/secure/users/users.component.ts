@@ -66,19 +66,7 @@ export class UsersComponent implements OnInit, AfterViewInit {
 
   delete(id: number): void {
     if (confirm('Are you sure ?')) {
-      this.userService.delete(id).subscribe(() => {
-        const newData: User[] = [];
-        this.dataSource.data.forEach((p: unknown) => {
-          if ((p as User).id !== id) {
-            let updatedData: User[] = [];
-            updatedData.push(p as User);
-          }
-        });
-        this.dataSource.data = newData;
-        this.router.navigate(['/users']);
-      });
-
-
+      this.dataSource.data = this.dataSource.data.filter((u:any) => u.id !== id);
     }
   }
 

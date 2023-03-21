@@ -29,11 +29,19 @@ export class PartnerService {
   }
 
   get(id: number): Observable<Partner> {
-    return this.http.get<Partner>(`${this.endpoint}/${id}`, this.httpOptions);
+    return this.http.get<Partner>(`${this.endpoint}/${id}`, {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    });
   }
 
-  update(id: number, data: any): Observable<Partner> {
-    return this.http.post<Partner>(`${environment.api}/update/${id}`, data, this.httpOptions)
+  update(id: number, data: any): Observable<any> {
+    return this.http.post<Partner>(`${environment.api}/update/${id}`, data, {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    });
   }
 
   delete(id: number): Observable<void> {
