@@ -24,8 +24,13 @@ export class UserService {
     return this.http.get<User[]>(this.endpoint, this.httpOptions);
   }
 
+
   create(data: any): Observable<User> {
-    return this.http.post<User>(this.endpoint, data, this.httpOptions);
+    return this.http.post<User>(this.endpoint, data, {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    });
   }
 
   get(id: number): Observable<User> {
