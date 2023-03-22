@@ -13,7 +13,12 @@ export class BoxService {
     headers : new HttpHeaders({'Content-Type': 'application/json', 'Authorization':'Bearer ' + localStorage.getItem('token')})
   };
   private httpOptions2 = {
-    headers : new HttpHeaders({'Content-Type': 'multipart/form-data', 'Authorization':'Bearer ' + localStorage.getItem('token')})
+    headers : new HttpHeaders(
+      {
+        'Content-Type': 'multipart/form-data' ,
+                 'Authorization':'Bearer ' + localStorage.getItem('token')
+        }
+        )
   };
   
     endpoint = `${environment.api}/boxs`;
@@ -39,8 +44,15 @@ export class BoxService {
       return this.http.get<Box>(`${this.endpoint}/${id}`,this.httpOptions);
     }
   
-    update(id: number,data: any): Observable<Box>{
-      return this.http.put<Box>(`${this.endpoint}/${id}`,data,this.httpOptions);
+    update(id: number,data: any): Observable<any>{
+      return this.http.post<Box>(`${environment.api}/updateBox/${id}`,data,
+      {
+        headers : new HttpHeaders({
+          'Authorization':'Bearer ' + localStorage.getItem('token'),
+          // 'Content-Type': 'multipart/form-data' 
+      })
+    });
+     
     }
   
     delete(id: number): Observable<void>{
