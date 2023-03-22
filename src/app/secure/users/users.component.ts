@@ -66,7 +66,12 @@ export class UsersComponent implements OnInit, AfterViewInit {
 
   delete(id: number): void {
     if (confirm('Are you sure ?')) {
-      this.dataSource.data = this.dataSource.data.filter((u:any) => u.id !== id);
+      this.userService.delete(id).subscribe(() => {
+        this.dataSource.data = this.dataSource.data.filter((u:any) => u.id !== id);
+        this.router.navigate(['/users']);
+      });
+
+
     }
   }
 
