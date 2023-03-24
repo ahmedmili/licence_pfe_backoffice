@@ -25,7 +25,7 @@ export class UserService {
   }
 
 
-  create(data: any): Observable<User> {
+  create(data: any): Observable<any> {
     return this.http.post<User>(this.endpoint, data, {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -37,7 +37,7 @@ export class UserService {
     return this.http.get<User>(`${this.endpoint}/${id}`, this.httpOptions);
   }
 
-  update(id: number, data: any): Observable<User> {
+  update(id: number, data: any): Observable<any> {
     return this.http.put<User>(`${this.endpoint}/${id}`, data, this.httpOptions);
   }
 

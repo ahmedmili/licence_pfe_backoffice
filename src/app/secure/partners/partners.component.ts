@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Partner } from 'src/app/interfaces/partner';
 import { PartnerService } from 'src/app/services/partner.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-partners',
@@ -13,52 +14,57 @@ import { PartnerService } from 'src/app/services/partner.service';
 })
 export class PartnersComponent implements OnInit, AfterViewInit {
 
-  partners:Partner[]=[];
+  partners: Partner[] = [];
   imageDirectoryPath = "http://localhost:8000/storage/partner_imgs/";
-  columns = ['id','name', 'description', 'email', 'phone', 'image', 'category', 'openingtime', 'closingtime','actions','show details'];
+  columns = ['id', 'name', 'description', 'email', 'phone', 'image', 'category', 'openingtime', 'closingtime', 'actions', 'show details'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   search: string = '';
   category!: string;
   loaded = false;
-  constructor(private partnerService:PartnerService, private router:Router) { }
+  constructor(
+    private partnerService: PartnerService,
+     private router: Router,
+     private snackbarService: SnackbarService,
+     ) { }
 
   ngOnInit(): void {
     this.partnerService.all().subscribe(
-partners=>{
-  this.dataSource.data=partners;
-  this.loaded = true;}
+      partners => {
+        this.dataSource.data = partners;
+        this.loaded = true;
+      }
     );
   }
 
   ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator; 
-}
+    this.dataSource.paginator = this.paginator;
+  }
 
 
 
 
-getCategoryInputValue(category:any){
-  this.category = category;
-  this.SearchPartner();
-}
+  getCategoryInputValue(category: any) {
+    this.category = category;
+    this.SearchPartner();
+  }
 
 
-SearchPartner() {
-  this.partnerService.getPartners(this.search,this.category).subscribe(partners => {
-      this.dataSource.data = partners; 
+  SearchPartner() {
+    this.partnerService.getPartners(this.search, this.category).subscribe(partners => {
+      this.dataSource.data = partners;
       console.log(partners);
-  });
-}
-
-delete(id: number): void{
-  if(confirm('Are you sure ?')){
-    this.partnerService.delete(id).subscribe(() => {
-      this.dataSource.data = this.dataSource.data.filter((u:any) => u.id !== id);
-      this.router.navigate(['/partners']);
     });
   }
-}
+
+  delete(id: number): void {
+    if (confirm('Are you sure ?')) {
+      this.partnerService.delete(id).subscribe(() => {
+        this.dataSource.data = this.dataSource.data.filter((u: any) => u.id !== id);
+        this.snackbarService.openSnackBar("Id: "+id+ " Deleted With Success","Success");
+      });
+    }
+  }
 
 
 }

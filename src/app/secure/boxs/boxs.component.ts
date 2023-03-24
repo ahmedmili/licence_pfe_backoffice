@@ -2,8 +2,10 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Box } from 'src/app/interfaces/Box';
-import { BoxService } from 'src/app/services/box.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { BoxService } from 'src/app/services/box.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
+
 
 
 @Component({
@@ -27,6 +29,8 @@ export class BoxsComponent implements OnInit, AfterViewInit {
     private boxService: BoxService,
     private router: Router,
     private route: ActivatedRoute,
+    private snackbarService: SnackbarService,
+
   ) { }
 
 
@@ -68,7 +72,7 @@ SearchBox() {
       this.boxService.delete(id).subscribe(() => {
       
         this.dataSource.data = this.dataSource.data.filter((u:any) => u.id !== id);
-        this.router.navigate(['/boxs']);
+        this.snackbarService.openSnackBar("id"+id+"deleted with success","");
       });
 
 

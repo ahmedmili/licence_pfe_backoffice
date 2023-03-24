@@ -24,6 +24,6 @@
         <label for="password">Password</label>
        <input formControlName="password" class="text form-control" type="password" id="password" name="password">
     </div>
-    <button class="btn btn-dark btn -sm mt-4">Save</button>
+    <button [disabled]="!(form.valid && form.dirty)" class="btn btn-dark btn -sm mt-4">Save</button>
 </form>
   

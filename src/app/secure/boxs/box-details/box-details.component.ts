@@ -24,10 +24,7 @@ export class BoxDetailsComponent implements OnInit {
       this.id = this.route.snapshot.params['id'];
       this.boxService.getdetails(this.id).subscribe(
         data => {
-
           this.box = data;
-          console.log(data)
-         
         },
        
       );

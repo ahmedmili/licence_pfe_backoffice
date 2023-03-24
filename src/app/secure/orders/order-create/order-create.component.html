@@ -1,18 +1,18 @@
 <div style="margin-top: 62px;"></div>
 <h3 class="mt-4">Add Order :</h3>
- <form [formGroup]="form" (submit)="submit()">
-    
+<form [formGroup]="form" (submit)="submit()">
+
     <div class="form-group">
         <label for="user_id">User Id</label>
-       <input formControlName="user_id" class="text form-control" type="number" id="user_id" name="user_id">
+        <input formControlName="user_id" class="text form-control" type="number" id="user_id" name="user_id">
     </div>
     <div class="form-group">
         <label for="box_id">Box Id</label>
-       <input formControlName="box_id" class="text form-control" type="number" id="box_id" name="box_id">
+        <input formControlName="box_id" class="text form-control" type="number" id="box_id" name="box_id">
     </div>
     <div class="form-group">
         <label for="quantity">Quantity</label>
-       <input formControlName="quantity" class="text form-control" type="number" id="quantity" name="quantity">
+        <input formControlName="quantity" class="text form-control" type="number" id="quantity" name="quantity">
     </div>
     <div class="form-group">
         <label for="status">Status</label>
@@ -21,10 +21,9 @@
             <option value="AUTHORIZED">AUTHORIZED</option>
             <option value="REJECTED">REJECTED</option>
             <option value="SUCCESS">SUCCESS</option>
-          </select>
+        </select>
     </div>
-   
-   
-    <button class="btn btn-dark btn -sm mt-4">Save</button>
+
+
+    <button [disabled]="!(form.valid && form.dirty)" class="btn btn-dark btn -sm mt-4">Save</button>
 </form>
-  

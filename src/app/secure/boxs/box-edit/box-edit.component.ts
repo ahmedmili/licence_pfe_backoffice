@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BoxService } from 'src/app/services/box.service';
 import { SnackbarService } from 'src/app//services/snackbar.service';
@@ -25,17 +25,18 @@ export class BoxEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      title: '',
-      description: '',
-      oldprice: '',
-      newprice: '',
-      startdate: '',
-      enddate: '',
-      quantity: '',
-      image: '',
-      category: '',
-      status: '',
-      partner_id: ''
+      title: ["", [Validators.required]],
+      description: ["", [Validators.required]],
+      oldprice: ["", [Validators.required]],
+      newprice: ["", [Validators.required]],
+      startdate: ["", [Validators.required]],
+      enddate: ["", [Validators.required]],
+      quantity: ["", [Validators.required]],
+      image: ["", [Validators.required]],
+      category: ["", [Validators.required]],
+      status: ["", [Validators.required]],
+      partner_id: ["", [Validators.required]]
+      // description: ["", [Validators.required]],
     });
 
     this.id = this.route.snapshot.params['id'];

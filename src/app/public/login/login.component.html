@@ -1,26 +1,29 @@
 <section>
   <div class="form-box">
     <div class="form-value">
-  <form [formGroup]="form" (submit)="submit()">
-    <h2>Login Admin</h2>
-    <div class="inputbox">
-      <label for="">Email</label>
-    <input formControlName="email" name="email" type="email" class="form-control" placeholder="Email address" required>
-    <div style="color: red;"  *ngIf="form.controls['email'].touched && form.controls['email'].invalid " for="email">
-      <span *ngIf="form.controls['email'].errors!['required']">This Field Is Mandatory</span>
-      <span *ngIf="form.controls['email'].errors!['pattern']">This Field Is Invalid</span>
+      <form [formGroup]="form" (submit)="submit()">
+        <h2>Login Admin</h2>
+        <div class="inputbox">
+          <label for="">Email</label>
+          <input formControlName="email" name="email" type="email" class="form-control" placeholder="Email address"
+            required>
+          <div style="color: red;" *ngIf="form.controls['email'].touched && form.controls['email'].invalid "
+            for="email">
+            <span *ngIf="form.controls['email'].errors!['required']">This Field Is Mandatory</span>
+            <span *ngIf="form.controls['email'].errors!['pattern']">This Field Is Invalid</span>
+          </div>
+        </div>
+        <div class="inputbox">
+          <label for="">Password</label>
+          <input formControlName="password" name="password" type="password" class="form-control" placeholder="Password"
+            required>
+          <div style="color: red;" *ngIf="form.controls['password'].touched && form.controls['password'].invalid "
+            for="email">
+            <span *ngIf="form.controls['password'].errors!['required']">This Field Is Mandatory</span>
+          </div>
+        </div>
+        <button [disabled]="!(form.valid && form.dirty)" type="submit">Login</button>
+      </form>
     </div>
-    </div>
-    <div class="inputbox">
-      <label for="">Password</label>
-    <input formControlName="password" name="password" type="password" class="form-control" placeholder="Password"
-      required>
-      <div style="color: red;"  *ngIf="form.controls['password'].touched && form.controls['password'].invalid " for="email">
-        <span *ngIf="form.controls['password'].errors!['required']">This Field Is Mandatory</span>
-      </div>
-    </div>
-    <button [disabled]="!(form.valid && form.dirty)"  type="submit">Login</button>
-  </form>
   </div>
-</div>
 </section>
