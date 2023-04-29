@@ -16,7 +16,7 @@ export class PartnersComponent implements OnInit, AfterViewInit {
 
   partners: Partner[] = [];
   imageDirectoryPath = "http://localhost:8000/storage/partner_imgs/";
-  columns = ['id', 'name', 'description', 'email', 'phone', 'image', 'category', 'openingtime', 'closingtime', 'actions', 'show details'];
+  columns = ['id', 'name', 'description', 'email', 'phone', 'image', 'category', 'openingtime', 'closingtime','status', 'actions', 'show details'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   search: string = '';

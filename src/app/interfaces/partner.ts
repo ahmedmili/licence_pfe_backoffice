@@ -11,5 +11,6 @@ export interface Partner {
     category:'SUPERMARKET'|'BAKERY'| 'PASTRIES'| 'RESTAURANT'| 'COFFEE SHOP'|'HOTEL'|'CATERER'| 'LOCAL PRODUCERS',
     openingtime:string,
     closingtime:string,
+    status:'PENDING'|'ACTIVE'| 'INACTIVE',
     boxs:Box[];
 }
