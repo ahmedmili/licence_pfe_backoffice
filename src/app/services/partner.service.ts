@@ -48,6 +48,10 @@ export class PartnerService {
     return this.http.delete<void>(`${this.endpoint}/${id}`, this.httpOptions);
   }
 
+  updatePartnerStatus(id: number, newStatus: string) {
+    return this.http.put<Partner>(`${this.endpoint}/status/${id}`, { status: newStatus }, this.httpOptions);
+  }
+
   getdetails(id: number): Observable<Partner> {
     return this.http.get<Partner>(`${this.endpoint}/partnerdetails/${id}`, this.httpOptions);
   }

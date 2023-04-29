@@ -22,6 +22,7 @@ export class PartnersComponent implements OnInit, AfterViewInit {
   search: string = '';
   category!: string;
   loaded = false;
+  status!: string;
   constructor(
     private partnerService: PartnerService,
      private router: Router,
@@ -39,6 +40,23 @@ export class PartnersComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
+  }
+
+
+  toggleStatus(partner: Partner) {
+    // if (partner.status === 'ACTIVE') {
+    //   partner.status = 'INACTIVE';
+    // } 
+    // else if (partner.status === 'INACTIVE') {
+    //   partner.status = 'ACTIVE';
+    // } else if (partner.status === 'PENDING') {
+    //   partner.status = 'ACTIVE';
+    // }
+    this.partnerService.updatePartnerStatus(partner.id, partner.status).subscribe(
+      partner => {
+        console.log('Partner status updated successfully');
+      }
+    );
   }
 
 
