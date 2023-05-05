@@ -65,7 +65,13 @@ SearchBox() {
   });
 }
 
-
+toggleStatus(box: Box) {
+  this.boxService.updateBoxStatus(box.id,box.status).subscribe(
+    box => {
+      console.log('Box status updated successfully');
+    }
+  );
+}
 
   delete(id: number): void {
     if (confirm('Are you sure ?')) {

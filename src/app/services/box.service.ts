@@ -64,6 +64,9 @@ export class BoxService {
       return this.http.get<Box>(`${this.endpoint}/boxdetails/${id}`,this.httpOptions);
     }
 
+    updateBoxStatus(id: number, newStatus: string) {
+      return this.http.put<Box>(`${this.endpoint}/status/${id}`, { status: newStatus }, this.httpOptions);
+    }
 
   //Search function
   getBoxs(search: string = "", status:string = ""): Observable<Box[]> {
