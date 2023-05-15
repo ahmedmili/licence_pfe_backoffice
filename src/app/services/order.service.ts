@@ -35,6 +35,9 @@ export class OrderService {
     return this.http.put<Order>(`${this.endpoint}/updateorder/${id}`,data,this.httpOptions);
   }
 
+  updateOrderStatus(id: number, newStatus: string) {
+    return this.http.put<Order>(`${this.endpoint}/status/${id}`, { status: newStatus }, this.httpOptions);
+  }
 
   getdetails(id: number): Observable<Order>{
     return this.http.get<Order>(`${this.endpoint}/orderdetails/${id}`,this.httpOptions);

@@ -3,6 +3,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { Order } from 'src/app/interfaces/order';
 import { OrderService } from 'src/app/services/order.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 
@@ -54,6 +55,15 @@ export class OrdersComponent implements OnInit, AfterViewInit {
       this.dataSource.data = orders;
     });
   }
+
+  toggleStatus(order: Order) {
+    this.orderService.updateOrderStatus(order.id,order.status).subscribe(
+      order=> {
+        console.log('Order status updated successfully');
+      }
+    );
+  }
+  
 
 
   filterOrders(status: string): void {
