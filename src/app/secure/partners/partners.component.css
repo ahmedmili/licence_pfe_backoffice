@@ -4,7 +4,8 @@
 }
 
 mat-icon {
-  color: rgb(158, 158, 160);
+  
+  color: rgb(125, 125, 128);
 }
 
 mat-icon:hover {
@@ -13,6 +14,18 @@ mat-icon:hover {
 
 .custom-table {
   border: 1px solid rgb(158, 158, 160); /* Remplacez #000 par la couleur de bordure de votre choix */
+}
+
+.delete-button mat-icon {
+  color: red !important;
+}
+
+.edit-button mat-icon {
+  color: #34425A !important;
+}
+
+.show-button mat-icon {
+  color: green !important;
 }
 
 
