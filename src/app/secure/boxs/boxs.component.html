@@ -32,11 +32,12 @@
     <mat-spinner></mat-spinner>
   </div>
 </div>
-<table mat-table *ngIf="dataSource.data.length >0 && loaded" [dataSource]="dataSource" class="table table-striped table-sm mat-elevation-z8">
+
+<table mat-table *ngIf="dataSource.data.length >0 && loaded" [dataSource]="dataSource" class="table table-striped mat-elevation-z8">
 
   <ng-container matColumnDef="ID">
     <th mat-header-cell *matHeaderCellDef>#</th>
-    <td mat-cell *matCellDef="let box"> {{box.id}} </td>
+    <td mat-cell *matCellDef="let box" > {{box.id}} </td>
   </ng-container>
 
   <ng-container matColumnDef="title">
@@ -44,9 +45,9 @@
     <td mat-cell *matCellDef="let box"> {{box.title}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="description">
+  <ng-container matColumnDef="description" >
     <th mat-header-cell *matHeaderCellDef>Description</th>
-    <td mat-cell *matCellDef="let box"> {{box.description}} </td>
+    <td mat-cell *matCellDef="let box" [ngClass]="'discription'"> {{box.description}} </td>
   </ng-container>
 
   <ng-container matColumnDef="oldprice">
