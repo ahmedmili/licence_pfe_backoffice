@@ -32,57 +32,57 @@
       <mat-spinner></mat-spinner>
     </div>
   </div>
-  <table mat-table *ngIf="dataSource.data.length >0 && loaded " [dataSource]="dataSource" class="table table-striped table-sm mat-elevation-z8">
+  <table mat-table *ngIf="dataSource.data.length >0 && loaded " [dataSource]="dataSource" class="table table-striped table-sm mat-elevation-z8 custom-table">
   
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef >#</th>
-      <td mat-cell *matCellDef="let partner"> {{partner.id}} </td>
+      <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row"><span style="color: #34425A; font-weight: bold; font-size: 18px;">#</span></th>
+      <td mat-cell *matCellDef="let partner" class="col-md-1 column-cell text-center custom-header-row"> {{partner.id}} </td>
     </ng-container>
   
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
-      <td mat-cell *matCellDef="let partner"> {{partner.name}}</td>
+      <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row"><span style="color: #34425A; font-weight: bold; font-size: 16px;">Name</span></th>
+      <td mat-cell *matCellDef="let partner" class="col-md-1 column-cell text-center custom-header-row"> {{partner.name}}</td>
     </ng-container>
 
     <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef>Description</th>
-        <td mat-cell *matCellDef="let partner"> {{partner.description}}</td>
+        <th mat-header-cell *matHeaderCellDef class="col-md-3 column-cell text-center custom-th custom-header-row"><span style="color: #34425A; font-weight: bold; font-size: 16px;">Description</span></th>
+        <td mat-cell *matCellDef="let partner" class="col-md-3 column-cell text-center custom-header-row"> {{partner.description}}</td>
       </ng-container>
   
     <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef>Email</th>
-      <td mat-cell *matCellDef="let partner"> {{partner.email}} </td>
+      <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row"><span style="color: #34425A; font-weight: bold; font-size: 16px;">Email</span></th>
+      <td mat-cell *matCellDef="let partner" class="col-md-1 column-cell text-center custom-header-row"> {{partner.email}} </td>
     </ng-container>
   
   
     <ng-container matColumnDef="phone">
-      <th mat-header-cell *matHeaderCellDef>Phone</th>
-      <td mat-cell *matCellDef="let partner"> {{partner.phone}} </td>
+      <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Phone</span></th>
+      <td mat-cell *matCellDef="let partner" class="col-md-1 column-cell text-center custom-header-row"> {{partner.phone}} </td>
     </ng-container>
 
     <ng-container matColumnDef="image">
-        <th mat-header-cell *matHeaderCellDef>Image</th>
-        <td mat-cell *matCellDef="let partner"><img [src]="partner.image? imageDirectoryPath+partner.image :'assets/images/noImg'"  height="50"/></td>
+        <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Image</span></th>
+        <td mat-cell *matCellDef="let partner" class="col-md-1 column-cell text-center custom-header-row"><img [src]="partner.image? imageDirectoryPath+partner.image :'assets/images/noImg'"  height="50"/></td>
       </ng-container>
     
       <ng-container matColumnDef="category">
-        <th mat-header-cell *matHeaderCellDef>Category</th>
-        <td mat-cell *matCellDef="let partner"> {{partner.category}} </td>
+        <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Category</span></th>
+        <td mat-cell *matCellDef="let partner" class="col-md-1 column-cell text-center custom-header-row"> {{partner.category}} </td>
       </ng-container>
    
       <ng-container matColumnDef="openingtime">
-        <th mat-header-cell *matHeaderCellDef>Opening Time</th>
-        <td mat-cell *matCellDef="let partner"> {{partner.openingtime}} </td>
+        <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Opening Time</span></th>
+        <td mat-cell *matCellDef="let partner" class="col-md-1 column-cell text-center custom-header-row"> {{partner.openingtime}} </td>
       </ng-container>
 
       <ng-container matColumnDef="closingtime">
-        <th mat-header-cell *matHeaderCellDef>Closing Time</th>
-        <td mat-cell *matCellDef="let partner"> {{partner.closingtime}} </td>
+        <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Closing Time</span></th>
+        <td mat-cell *matCellDef="let partner" class="col-md-1 column-cell text-center custom-header-row"> {{partner.closingtime}} </td>
       </ng-container>
 
       <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef>Status</th>
-        <td mat-cell *matCellDef="let partner">
+        <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Status</span></th>
+        <td mat-cell *matCellDef="let partner" class="col-md-1 column-cell text-center custom-header-row">
           <select [(ngModel)]="partner.status" class="form-select select-width" (change)="toggleStatus(partner)">
             <option value="PENDING">Pending</option>
             <option value="ACTIVE">Active</option>
@@ -94,8 +94,8 @@
       
   
     <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef>Actions</th>
-      <td mat-cell *matCellDef="let partner">
+      <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Actions</span></th>
+      <td mat-cell *matCellDef="let partner" class="col-md-1 column-cell text-center custom-header-row">
           <button mat-icon-button [routerLink]="['/partners',partner.id,'edit']">
             <mat-icon>edit</mat-icon>
           </button>
@@ -106,8 +106,8 @@
     </ng-container>
 
     <ng-container matColumnDef="show details">
-      <th mat-header-cell *matHeaderCellDef>Show Details </th>
-      <td mat-cell *matCellDef="let partner">
+      <th mat-header-cell *matHeaderCellDef class="col-dm-1 column-cell text-center custom-th custom-header-row"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Show Details</span></th>
+      <td mat-cell *matCellDef="let partner" class="col-dm-1 column-cell text-cente custom-header-rowr">
         <button [routerLink]="['/partners',partner.id,'details']" mat-icon-button >
           <mat-icon>find_in_page</mat-icon>
         </button>
