@@ -22,7 +22,7 @@ export class BoxService {
   };
   
     endpoint = `${environment.api}/boxs`;
-    apiUrl=`${environment.api}/searchBox`;
+    apiUrl=`${environment.api}/searchBoxs`;
 
     constructor(private http:HttpClient) { 
       
