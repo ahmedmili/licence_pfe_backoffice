@@ -16,7 +16,7 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 
 export class BoxsComponent implements OnInit, AfterViewInit {
 
-  columns = ['ID','title', 'description','oldprice','newprice','startdate','enddate','quantity','remaining_quantity','image','category','status','actions','show details'];
+  columns = ['ID','title', 'description','oldprice','newprice','startdate','enddate','quantity','remaining_quantity','image','category','status','actions'];
   imageDirectoryPath = "http://localhost:8000/storage/boxs_imgs/";
 
   dataSource = new MatTableDataSource();

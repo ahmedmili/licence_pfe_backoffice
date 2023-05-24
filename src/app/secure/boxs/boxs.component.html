@@ -36,64 +36,64 @@
 <table mat-table *ngIf="dataSource.data.length >0 && loaded" [dataSource]="dataSource" class="table table-striped table-sm mat-elevation-z8 custom-table">
 
   <ng-container matColumnDef="ID">
-    <th mat-header-cell *matHeaderCellDef class="col-md-0.5 column-cell text-center custom-th custom-header-row">#</th>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">ID</span></th>
     <td mat-cell *matCellDef="let box" class="col-md-0.5 column-cell text-center custom-th custom-header-row"> {{box.id}} </td>
   </ng-container>
 
   <ng-container matColumnDef="title">
-    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row">Title</th>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Title</span></th>
     <td mat-cell *matCellDef="let box" class="col-md-1 column-cell text-center custom-th custom-header-row"> {{box.title}} </td>
   </ng-container>
 
   <ng-container matColumnDef="description" >
-    <th mat-header-cell *matHeaderCellDef class="col-md-2 column-cell text-center custom-th custom-header-row">Description</th>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Description</span></th>
     <td mat-cell *matCellDef="let box" [ngClass]="'discription'" class="col-md-2 column-cell text-center custom-th custom-header-row"> {{box.description}} </td>
   </ng-container>
 
   <ng-container matColumnDef="oldprice">
-    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row">Old Price</th>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Old Price</span></th>
     <td mat-cell *matCellDef="let box" class="col-md-1 column-cell text-center custom-th custom-header-row"> {{box.oldprice}} </td>
   </ng-container>
 
   <ng-container matColumnDef="newprice">
-    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row">New Price</th>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">New Price</span></th>
     <td mat-cell *matCellDef="let box" class="col-md-1 column-cell text-center custom-th custom-header-row"> {{box.newprice}} </td>
   </ng-container>
 
   <ng-container matColumnDef="startdate">
-    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row">Start Availability</th>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Start Availability</span></th>
     <td mat-cell *matCellDef="let box" class="col-md-1 column-cell text-center custom-th custom-header-row"> {{box.startdate}} </td>
   </ng-container>
 
   <ng-container matColumnDef="enddate">
-    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row">End Of Availability</th>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">End Of Availability</span></th>
     <td mat-cell *matCellDef="let box" class="col-md-1 column-cell text-center custom-th custom-header-row"> {{box.enddate}} </td>
   </ng-container>
 
   <ng-container matColumnDef="quantity">
-    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row">Quantity</th>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Quantity</span></th>
     <td mat-cell *matCellDef="let box" class="col-md-1 column-cell text-center custom-th custom-header-row"> {{box.quantity}} </td>
   </ng-container>
 
   <ng-container matColumnDef="remaining_quantity">
-    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row">Remaining Quantity</th>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Remaining Quantity</span></th>
     <td mat-cell *matCellDef="let box" class="col-md-1 column-cell text-center custom-th custom-header-row"> {{box.remaining_quantity}} </td>
   </ng-container>
 
   <ng-container matColumnDef="image">
-    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row">Image</th>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Image</span></th>
     <td mat-cell *matCellDef="let box" class="col-md-1 column-cell text-center custom-th custom-header-row">
       <img [src]="box.image? imageDirectoryPath+box.image : 'assets/images/noImg'" height="50" />
     </td>
   </ng-container>
 
   <ng-container matColumnDef="category">
-    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row">Category</th>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Category</span></th>
     <td mat-cell *matCellDef="let box" class="col-md-1 column-cell text-center custom-th custom-header-row"> {{box.category}} </td>
   </ng-container>
 
   <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row">Status</th>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Status</span></th>
     <td mat-cell *matCellDef="let box" class="col-md-1 column-cell text-center custom-th custom-header-row">
       <select [(ngModel)]="box.status" class="form-select select-width" (change)="toggleStatus(box)">
         <option value="PENDING">PENDING</option>
@@ -106,29 +106,25 @@
   </ng-container>
 
 
-
   <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row">Actions</th>
-    <td mat-cell *matCellDef="let box" class="col-md-1 column-cell text-center custom-th custom-header-row">
-   
-      <button mat-icon-button [routerLink]="['/boxs',box.id,'edit']">
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button mat-icon-button (click)="delete(box .id)">
-        <mat-icon>delete</mat-icon>
-      </button>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;">
+      <span style="color: #34425A; font-weight: bold; font-size: 18px; display: flex; justify-content: center; align-items: center;">Actions</span>
+    </th>
+    <td mat-cell *matCellDef="let box" class="col-md-1 column-cell text-center custom-header-row" style="vertical-align: middle; text-align: center;">
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <button mat-button [routerLink]="['/boxs',box.id,'edit']" class="edit-button">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button (click)="delete(box.id)" class="delete-button">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button [routerLink]="['/boxs',box.id,'details']" mat-button class="show-button">
+          <mat-icon>find_in_page</mat-icon>
+        </button>
+      </div>
     </td>
   </ng-container>
 
-  <ng-container matColumnDef="show details">
-    <th mat-header-cell *matHeaderCellDef class="col-md-0.5 column-cell text-center custom-th custom-header-row">Show Details</th>
-    <td mat-cell *matCellDef="let box" class="col-md-0.5 column-cell text-center custom-th custom-header-row">
-      
-    <button [routerLink]="['/boxs',box.id,'details']" mat-icon-button >
-      <mat-icon>find_in_page</mat-icon>
-    </button>
-    </td>
-  </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="columns"></tr>
   <tr mat-row *matRowDef="let row; columns:columns;"></tr>
