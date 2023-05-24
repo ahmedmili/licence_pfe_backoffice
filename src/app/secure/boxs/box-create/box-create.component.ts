@@ -38,7 +38,7 @@ export class BoxCreateComponent implements OnInit {
       image: ["", [Validators.required]],
       category: ["", [Validators.required]],
       status: ["", [Validators.required]],
-      partner_id: ["", [Validators.required]]
+      partner_email: ["", [Validators.required]]
     });
   }
   uploadImage(event: any) {
@@ -60,7 +60,7 @@ export class BoxCreateComponent implements OnInit {
     this.formData.append("quantity", formValue.quantity);
     this.formData.append("category", formValue.category);
     this.formData.append("status", formValue.status);
-    this.formData.append("partner_id", formValue.partner_id);
+    this.formData.append("partner_email", formValue.partner_email);
     this.formData.append("image", this.files, this.files.name);
     this.boxService.create(this.formData)
       .subscribe(
