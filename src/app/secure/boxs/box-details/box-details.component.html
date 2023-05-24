@@ -1,16 +1,16 @@
-<div style="margin-top: 65px;"></div>
-<mat-card >
-    <mat-card-title>The Partner Of This Box</mat-card-title>
-    <mat-card-content>
-      <p>Id: {{ box.id}}</p>
-      <p>Name: {{ box.name}}</p>
-      <p>Description: {{ box.description}}</p>
-      <p>Email: {{ box.email }}</p>
-      <p>Phone: {{ box.phone }}</p>
-      <img [src]="box.image? imageDirectoryPath+box.image : 'assets/images/noImg'" height="50" />
-      <p>Category: {{ box.category }}</p>
-      <p>Opening Time: {{ box.openingtime }}</p>
-      <p>Closing Time: {{ box.closingtime }}</p>
-    </mat-card-content>
-  </mat-card>
-  
+<mat-card style="border: 1px solid #34425A; margin-top: 65px;">
+  <mat-card-title><span style="color: #34425A; font-weight: bold; font-size: 24px;">The Partner Of This Box :</span></mat-card-title>
+  <mat-card-content>
+    <p><span style="color: #34425A; font-size: 16px;font-weight: bold;">ID:</span> {{ box.id}}</p>
+    <p><span style="color: #34425A; font-size: 16px; font-weight: bold;">Name:</span> {{ box.name}}</p>
+    <p><span style="color: #34425A; font-size: 16px; font-weight: bold;">Description:</span> {{ box.description}}</p>
+    <p><span style="color: #34425A; font-size: 16px; font-weight: bold;">Email:</span> {{ box.email }}</p>
+    <p><span style="color: #34425A; font-size: 16px; font-weight: bold;">Phone:</span> {{ box.phone }}</p>
+    <p><span style="color: #34425A; font-size: 16px; font-weight: bold;">Image:</span></p>
+    <img [src]="box.image? imageDirectoryPath+box.image : 'assets/images/noImg'" style="width: 70px; height: 50px; border: 1px solid rgb(158, 158, 160); font-weight: bold;" />
+    <p></p>
+    <p><span style="color: #34425A; font-size: 16px; font-weight: bold;">Category:</span> {{ box.category }}</p>
+    <p><span style="color: #34425A; font-size: 16px; font-weight: bold;">Opening Time: </span>{{ box.openingtime }}</p>
+    <p><span style="color: #34425A; font-size: 16px; font-weight: bold;">Closing Time:</span> {{ box.closingtime }}</p>
+  </mat-card-content>
+</mat-card>
