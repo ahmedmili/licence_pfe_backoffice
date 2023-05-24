@@ -26,7 +26,7 @@
     <mat-spinner></mat-spinner>
   </div>
 </div>
-<table mat-table *ngIf="dataSource.data.length >0 && loaded" [dataSource]="dataSource"  class="table table-striped table-sm mat-elevation-z8">
+<table mat-table *ngIf="dataSource.data.length >0 && loaded" [dataSource]="dataSource"  class="table table-striped table-sm mat-elevation-z8 custom-table">
 
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">ID</span></th>
@@ -59,13 +59,31 @@
     </td>
   </ng-container>
 
-
+  
   <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Actions</span></th>
-    <td mat-cell *matCellDef="let user" class="col-md-1 column-cell text-center custom-header-row">
-        <button mat-icon-button [routerLink]="['/users',user.id,'edit']">
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;">
+      <span style="color: #34425A; font-weight: bold; font-size: 18px; display: flex; justify-content: center; align-items: center;">Actions</span>
+    </th>
+    <td mat-cell *matCellDef="let user" class="col-md-1 column-cell text-center custom-header-row" style="vertical-align: middle; text-align: center;">
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <button mat-button [routerLink]="['/users',user.id,'edit']" class="edit-button">
           <mat-icon>edit</mat-icon>
         </button>
+        <button mat-button (click)="delete(user.id)" class="delete-button">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button [routerLink]="['/users', user.id, 'details']" mat-button class="show-button">
+          <mat-icon>find_in_page</mat-icon>
+        </button>
+      </div>
+    </td>
+  </ng-container>
+
+
+  <!-- 
+        <butt mat-icon-button [routerLink]="['/users',user.id,'edit']">
+        
+        
         <button mat-icon-button (click)="delete(user .id)">
           <mat-icon>delete</mat-icon>
         </button>
@@ -74,13 +92,13 @@
 
 
   <ng-container matColumnDef="show details">
-    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Show Details </span></th>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Show Details</span> </th>
     <td mat-cell *matCellDef="let user">
       <button [routerLink]="['/users',user.id,'details']" mat-icon-button >
         <mat-icon>find_in_page</mat-icon>
       </button>
     </td>
-  </ng-container>
+  </ng-container> -->
  
 
   <tr mat-header-row *matHeaderRowDef="columns"></tr>
