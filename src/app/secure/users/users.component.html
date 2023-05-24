@@ -29,29 +29,29 @@
 <table mat-table *ngIf="dataSource.data.length >0 && loaded" [dataSource]="dataSource"  class="table table-striped table-sm mat-elevation-z8">
 
   <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef>#</th>
-    <td mat-cell *matCellDef="let user"> {{user.id}} </td>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">ID</span></th>
+    <td mat-cell *matCellDef="let user" class="col-md-1 column-cell text-center custom-header-row"> {{user.id}} </td>
   </ng-container>
 
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef>Name</th>
-    <td mat-cell *matCellDef="let user"> {{user.name}}</td>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Name</span></th>
+    <td mat-cell *matCellDef="let user" class="col-md-1 column-cell text-center custom-header-row"> {{user.name}}</td>
   </ng-container>
 
   <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef>Email</th>
-    <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Email</span></th>
+    <td mat-cell *matCellDef="let user" class="col-md-1 column-cell text-center custom-header-row"> {{user.email}} </td>
   </ng-container>
 
 
   <ng-container matColumnDef="phone">
-    <th mat-header-cell *matHeaderCellDef>Phone</th>
-    <td mat-cell *matCellDef="let user"> {{user.phone}} </td>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Phone</span></th>
+    <td mat-cell *matCellDef="let user" class="col-md-1 column-cell text-center custom-header-row"> {{user.phone}} </td>
   </ng-container>
 
   <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef>Status</th>
-    <td mat-cell *matCellDef="let user">
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Status</span></th>
+    <td mat-cell *matCellDef="let user" class="col-md-1 column-cell text-center custom-header-row">
       <label class="switch">
         <input type="checkbox" class="form-check-input" [checked]="user.status === 'ACTIVE'" (change)="toggleStatus(user)">
         <span class="slider round"></span>
@@ -61,8 +61,8 @@
 
 
   <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef>Actions</th>
-    <td mat-cell *matCellDef="let user">
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Actions</span></th>
+    <td mat-cell *matCellDef="let user" class="col-md-1 column-cell text-center custom-header-row">
         <button mat-icon-button [routerLink]="['/users',user.id,'edit']">
           <mat-icon>edit</mat-icon>
         </button>
@@ -74,7 +74,7 @@
 
 
   <ng-container matColumnDef="show details">
-    <th mat-header-cell *matHeaderCellDef>Show Details </th>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Show Details </span></th>
     <td mat-cell *matCellDef="let user">
       <button [routerLink]="['/users',user.id,'details']" mat-icon-button >
         <mat-icon>find_in_page</mat-icon>
