@@ -32,22 +32,22 @@
 
 <div *ngIf="!loaded" class="lds-dual-ring"></div>
 <table mat-table *ngIf="dataSource.data.length >0 && loaded" [dataSource]="dataSource"
-  class="table table-striped table-sm mat-elevation-z8">
+  class="table table-striped table-sm mat-elevation-z8 custom-table">
 
   <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef>#</th>
-    <td mat-cell *matCellDef="let order"> {{order.id}} </td>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">ID</span></th>
+    <td mat-cell *matCellDef="let order" class="col-md-1 column-cell text-center custom-header-row"> {{order.id}} </td>
   </ng-container>
 
   <ng-container matColumnDef="created_at">
-    <th mat-header-cell *matHeaderCellDef>Created at</th>
-    <td mat-cell *matCellDef="let order"> {{ datePipe.transform(order.created_at, 'yyyy-MM-dd HH:mm:ss') }} </td>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Created at</span></th>
+    <td mat-cell *matCellDef="let order" class="col-md-1 column-cell text-center custom-header-row"> {{ datePipe.transform(order.created_at, 'yyyy-MM-dd HH:mm:ss') }} </td>
   </ng-container>
 
   <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef>Status</th>
-    <td mat-cell *matCellDef="let order">
-      <select [(ngModel)]="order.status" class="form-select select-width" (change)="toggleStatus(order)">
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Status</span></th>
+    <td mat-cell *matCellDef="let order" class="col-md-1 column-cell text-center custom-header-row">
+      <select [(ngModel)]="order.status" class="form-select select-width" (change)="toggleStatus(order)" >
         <option value="PENDING">PENDING</option>
         <option value="SUCCESS">SUCCESS</option>
         <option value="CANCEL">CANCEL</option>
@@ -56,39 +56,40 @@
   </ng-container>
 
   <ng-container matColumnDef="price">
-    <th mat-header-cell *matHeaderCellDef>Total Price</th>
-    <td mat-cell *matCellDef="let order"> {{order.price}} </td>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Total Price</span></th>
+    <td mat-cell *matCellDef="let order" class="col-md-1 column-cell text-center custom-header-row"> {{order.price}} </td>
   </ng-container>
 
   <ng-container matColumnDef="user_id">
-    <th mat-header-cell *matHeaderCellDef>User Id</th>
-    <td mat-cell *matCellDef="let order"> {{order.user_id}} </td>
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">User Id</span></th>
+    <td mat-cell *matCellDef="let order" class="col-md-1 column-cell text-center custom-header-row"> {{order.user_id}} </td>
   </ng-container>
 
 
+
   <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef>Actions</th>
-    <td mat-cell *matCellDef="let order">
+    <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;">
+      <span style="color: #34425A; font-weight: bold; font-size: 18px; display: flex; justify-content: center; align-items: center;">Actions</span>
+    </th>
+    <td mat-cell *matCellDef="let order" class="col-md-1 column-cell text-center custom-header-row" style="vertical-align: middle; text-align: center;">
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <button mat-button (click)="delete(order.id)" class="delete-button">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button [routerLink]="['/orders',order.id,'details']" mat-button class="show-button">
+          <mat-icon>find_in_page</mat-icon>
+        </button>
+      </div>
+    </td>
+  </ng-container>
+
+
 
       <!-- <button mat-icon-button [routerLink]="['/orders',order.id,'edit']">
         <mat-icon>edit</mat-icon>
       </button> -->
-      <button mat-icon-button (click)="delete(order.id)">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </td>
-  </ng-container>
+      
 
-  <ng-container matColumnDef="show details">
-    <th mat-header-cell *matHeaderCellDef>Show Details </th>
-    <td mat-cell *matCellDef="let order">
-      <button [routerLink]="['/orders',order.id,'details']" mat-icon-button>
-        <mat-icon>find_in_page</mat-icon>
-      </button>
-    </td>
-
-
-  </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="columns"></tr>
   <tr mat-row *matRowDef="let row; columns:columns;"></tr>
