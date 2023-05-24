@@ -45,10 +45,32 @@
     <td mat-cell *matCellDef="let box" class="col-md-1 column-cell text-center custom-th custom-header-row"> {{box.title}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="description" >
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef class="col-md-3 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;">
+      <span style="color: #34425A; font-weight: bold; font-size: 16px;">Description</span>
+    </th>
+    <td mat-cell *matCellDef="let box" class="col-md-3 column-cell text-center custom-header-row">
+      <div>
+        <div [ngClass]="{'collapsed': !box.isExpanded}">
+          {{ box.description | slice:0:30 }}
+        </div>
+        <div *ngIf="box.description.length > 30 && !box.isExpanded" class="expand-icon" (click)="box.isExpanded = true">
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </div>
+        <div *ngIf="box.isExpanded">
+          {{ box.description }}
+          <div class="collapse-icon" (click)="box.isExpanded = false">
+            <mat-icon>keyboard_arrow_up</mat-icon>
+          </div>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <!-- <ng-container matColumnDef="description" >
     <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Description</span></th>
     <td mat-cell *matCellDef="let box" [ngClass]="'discription'" class="col-md-2 column-cell text-center custom-th custom-header-row"> {{box.description}} </td>
-  </ng-container>
+  </ng-container> -->
 
   <ng-container matColumnDef="oldprice">
     <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Old Price</span></th>
