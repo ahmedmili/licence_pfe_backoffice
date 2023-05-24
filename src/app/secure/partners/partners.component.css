@@ -57,3 +57,7 @@ mat-icon:hover {
 .custom-header-row {
   height: 20px; 
 }
+
+.custom-th {
+  text-align: center;
+}
