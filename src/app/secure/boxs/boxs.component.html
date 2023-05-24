@@ -82,8 +82,8 @@
 
   <ng-container matColumnDef="image">
     <th mat-header-cell *matHeaderCellDef class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;"><span style="color: #34425A; font-weight: bold; font-size: 18px;">Image</span></th>
-    <td mat-cell *matCellDef="let box" class="col-md-1 column-cell text-center custom-th custom-header-row">
-      <img [src]="box.image? imageDirectoryPath+box.image : 'assets/images/noImg'" height="50" />
+    <td mat-cell *matCellDef="let box" class="col-md-1 column-cell text-center custom-th custom-header-row" >
+      <img [src]="box.image? imageDirectoryPath+box.image : 'assets/images/noImg'"  style="width: 50px; height: 50px; border: 1px solid rgb(158, 158, 160);"/>
     </td>
   </ng-container>
 
