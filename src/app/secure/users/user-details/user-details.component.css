@@ -1,0 +1,63 @@
+
+.select-width {
+    width: 150px; /* change this value as per your requirement */
+  }
+  
+  mat-icon {
+    
+    color: rgb(125, 125, 128);
+  }
+  
+  mat-icon:hover {
+    color: rgb(125, 125, 128);
+  }
+  
+  .custom-table {
+    border: 1px solid rgb(158, 158, 160); /* Remplacez #000 par la couleur de bordure de votre choix */
+  }
+  
+  .delete-button mat-icon {
+    color: red !important;
+  }
+  
+  .edit-button mat-icon {
+    color: #34425A !important;
+  }
+  
+  .show-button mat-icon {
+    color: green !important;
+  }
+  
+  
+  .add-icon {
+    color: green;
+    font-size: 2rem;
+    transition: font-size 500ms;
+    transition-timing-function: ease-in-out;
+  }
+  
+  .add-icon:hover {
+    color: rgb(20, 105, 3);
+    font-size: 2.5rem;
+  }
+  
+  
+  .column-cell {
+    border-right: 1px solid rgb(158, 158, 160) !important;
+  }
+  
+  .column-cell:last-child {
+    border-right: none !important; 
+  }
+  
+  .custom-th {
+    height: 20px; 
+  }
+  
+  .custom-header-row {
+    height: 20px; 
+  }
+  
+  .custom-th {
+    text-align: center;
+  }
