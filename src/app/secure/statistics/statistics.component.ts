@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PartnerService } from 'src/app/services/partner.service';
+import { StatService } from 'src/app/services/stat.service';
 
 @Component({
   selector: 'app-statistics',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatisticsComponent implements OnInit {
 
-  constructor() { }
+  partnersCount: number = 0;
+
+  constructor(private statService: StatService) { }
 
   ngOnInit(): void {
+    this.statService.totalPartners().subscribe(
+      (response) => {
+        this.partnersCount = response.partners_count;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
-
 }
