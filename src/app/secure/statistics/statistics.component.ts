@@ -17,6 +17,9 @@ export class StatisticsComponent implements OnInit,AfterViewInit  {
   usersCount: number = 0;
   boxesCount: number = 0;
   ordersCount: number = 0;
+  orderpendingCount: number = 0;
+  ordercancelCount: number = 0;
+  ordersuccessCount: number = 0;
 
   constructor(private statService: StatService,private router: Router) { }
   redirectToPartners() {
@@ -78,6 +81,17 @@ export class StatisticsComponent implements OnInit,AfterViewInit  {
     this.statService.totalBoxes().subscribe(
       (response) => {
         this.boxesCount = response.boxes_count;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    this.statService.getTotalCounts().subscribe(
+      (response) => {
+        this.orderpendingCount= response.pending_count;
+        this.ordersuccessCount= response.success_count;
+        this.ordercancelCount= response.cancel_count;
       },
       (error) => {
         console.log(error);

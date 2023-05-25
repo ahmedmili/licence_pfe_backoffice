@@ -28,4 +28,8 @@ export class StatService {
   totalOrders(): Observable<any> {
     return this.http.get<any>(`${environment.api}/orderstotal`, this.httpOptions);
   }
+
+  getTotalCounts(): Observable<any> {
+    return this.http.get<any>(`${environment.api}/getTotalCounts`, this.httpOptions);
+  }
 }

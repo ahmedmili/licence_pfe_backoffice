@@ -28,7 +28,7 @@ const routes: Routes = [
     component: SecureComponent,
     children: [
     //   redirecte to the first Page
-    //  {path:'',pathMatch:'full',redirectTo:'/users'},
+     {path:'',pathMatch:'full',redirectTo:'/statistics'},
      {path:'profile',component:ProfileComponent},
      {path:'users',component:UsersComponent},
      {path: 'users/create', component: UserCreateComponent},
