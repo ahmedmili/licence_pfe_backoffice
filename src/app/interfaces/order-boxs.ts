@@ -1,3 +1,5 @@
+import { Partner } from "./partner";
+
 export interface OrderBoxs {
     id: number;
     box_id: number;
@@ -6,5 +8,6 @@ export interface OrderBoxs {
     newprice:number;
     partner_id:number;
     pivot : any;
+    partner : Partner;
     title: string
 }

@@ -15,7 +15,7 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit, AfterViewInit {
-  columns = ['id', 'created_at', 'status', 'price', 'user_id', 'actions'];
+  columns = ['id', 'created_at', 'status', 'price', 'user_email', 'actions'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   loaded = false;

@@ -58,7 +58,7 @@ export class PartnerCreateComponent implements OnInit {
 
     this.partnerService.create(this.formData)
       .subscribe((response) => {
-        if (response.status == 200) {
+        if (response.status == 201) {
           this.router.navigate(['/partners']);
           this.snackbarService.openSnackBar("Partner Created Successfully", "Sucess");          
         } else if (response.status == 400) {
