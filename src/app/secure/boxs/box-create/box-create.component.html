@@ -1,38 +1,93 @@
 <div style="margin-top: 62px;"></div>
 <h3 class="mt-4">Add Box :</h3>
 <form [formGroup]="form" (submit)="submit()">
+
+
   <div class="form-group">
     <label for="title">Title</label>
     <input formControlName="title" class="text form-control" type="text" id="title" name="title">
   </div>
+  
+  <div style="color: red;" *ngIf="form.controls['title'].touched && form.controls['title'].invalid "
+  for="title">
+  <span *ngIf="form.controls['title'].errors!['required']">This Field Is Mandatory</span>
+</div>
+
   <div class="form-group">
     <label for="description">Description</label>
     <input formControlName="description" class="text form-control" type="text" id="description" name="description">
   </div>
+  
+  <div style="color: red;" *ngIf="form.controls['description'].touched && form.controls['description'].invalid "
+  for="title">
+  <span *ngIf="form.controls['description'].errors!['required']">This Field Is Mandatory</span>
+</div>
+
+
   <div class="form-group">
     <label for="oldprice">Old Price</label>
     <input formControlName="oldprice" class="text form-control" type="number" id="oldprice" name="oldprice">
   </div>
+
+  <div style="color: red;" *ngIf="form.controls['oldprice'].touched && form.controls['oldprice'].invalid "
+  for="title">
+  <span *ngIf="form.controls['oldprice'].errors!['required']">This Field Is Mandatory</span>
+</div>
+
+
   <div class="form-group">
     <label for="newprice">New Price</label>
     <input formControlName="newprice" class="text form-control" type="number" id="newprice" name="newprice">
   </div>
+
+  <div style="color: red;" *ngIf="form.controls['newprice'].touched && form.controls['newprice'].invalid "
+  for="title">
+  <span *ngIf="form.controls['newprice'].errors!['required']">This Field Is Mandatory</span>
+</div>
+
   <div class="form-group">
     <label for="startdate">Available From</label>
     <input formControlName="startdate" class="text form-control" type="datetime-local" id="startdate" name="startdate">
   </div>
+
+  <div style="color: red;" *ngIf="form.controls['startdate'].touched && form.controls['startdate'].invalid "
+  for="title">
+  <span *ngIf="form.controls['startdate'].errors!['required']">This Field Is Mandatory</span>
+</div>
+
+
   <div class="form-group">
     <label for="enddate">Until</label>
-    <input formControlName="enddate" class="text form-control" type="datetime-local" id="enddate" name="enddate">
+    <input formControlName="enddate" class="text form-control" type="datetime-local" id="enddate" name="enddate" >
   </div>
+
+  <div style="color: red;" *ngIf="form.controls['enddate'].touched && form.controls['enddate'].invalid "
+  for="title">
+  <span *ngIf="form.controls['enddate'].errors!['required']">This Field Is Mandatory</span>
+  <span *ngIf="form.controls['enddate'].errors!['endDateInvalid']">The Final Date Must Be Today !!</span>
+</div>
+
+
   <div class="form-group">
     <label for="quantity">quantity</label>
     <input formControlName="quantity" class="text form-control" type="number" id="quantity" name="quantity">
   </div>
+
+  <div style="color: red;" *ngIf="form.controls['quantity'].touched && form.controls['quantity'].invalid "
+  for="title">
+  <span *ngIf="form.controls['quantity'].errors!['required']">This Field Is Mandatory</span>
+</div>
+
   <div class="form-group">
     <label for="image">Image</label>
     <input formControlName="image" (change)="uploadImage($event)"  class="text form-control" type="file" id="image" name="image">
   </div>
+
+  <div style="color: red;" *ngIf="form.controls['image'].touched && form.controls['image'].invalid "
+  for="title">
+  <span *ngIf="form.controls['image'].errors!['required']">Please Select An Image</span>
+</div>
+
   <div class="form-group">
     <label for="category">Category</label>
     <select formControlName="category" class="text form-control" id="category" name="category">
@@ -47,6 +102,12 @@
       <option value="VEGETARIAN">Vegetarian</option>
     </select>
   </div>
+
+  <div style="color: red;" *ngIf="form.controls['category'].touched && form.controls['category'].invalid "
+  for="title">
+  <span *ngIf="form.controls['category'].errors!['required']">Please Select A Category</span>
+</div>
+
   <div class="form-group">
     <label for="status">Status</label>
     <select formControlName="status" class="text form-control" id="status" name="status">
@@ -56,10 +117,20 @@
     </select>
   </div>
 
+  <div style="color: red;" *ngIf="form.controls['status'].touched && form.controls['status'].invalid "
+  for="title">
+  <span *ngIf="form.controls['status'].errors!['required']">Please Select A Status</span>
+</div>
+
   <div class="form-group">
     <label for="partner_id">partner_id</label>
     <input formControlName="partner_id" class="text form-control" type="partner_id" id="partner_id" name="partner_id">
   </div>
+
+  <div style="color: red;" *ngIf="form.controls['partner_id'].touched && form.controls['partner_id'].invalid "
+  for="title">
+  <span *ngIf="form.controls['partner_id'].errors!['required']">This Field Is Mandatory</span>
+</div>
 
   <button [disabled]="!(form.valid && form.dirty)" class="btn btn-dark btn -sm mt-4">Save</button>
 </form>

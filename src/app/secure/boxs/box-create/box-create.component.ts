@@ -1,11 +1,12 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators ,AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Partner } from 'src/app/interfaces/partner';
 import { BoxService } from 'src/app/services/box.service';
 import { GlobalConstants } from 'src/app/shared/global-constants';
 import { SnackbarService } from '../../../services/snackbar.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-box-create',
@@ -40,6 +41,22 @@ export class BoxCreateComponent implements OnInit {
       status: ["", [Validators.required]],
       partner_id: ["", [Validators.required]]
     });
+    // Add a custom validator for the end date
+this.form.controls['enddate'].setValidators([Validators.required, (control: AbstractControl) => {
+  const selectedEndDate: Date = new Date(control.value);
+  const today: Date = new Date();
+
+  // Set the time portion of both dates to 00:00:00 for comparison
+  selectedEndDate.setHours(0, 0, 0, 0);
+  today.setHours(0, 0, 0, 0);
+
+  if (selectedEndDate.getTime() === today.getTime()) {
+    return null;  // Valid date (end date is today)
+  } else {
+    return { endDateInvalid: true };  // Invalid date (end date is not today)
+  }
+}]);
+
   }
   uploadImage(event: any) {
     this.files = event.target.files[0];
