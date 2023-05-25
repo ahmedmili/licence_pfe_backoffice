@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PartnerService } from 'src/app/services/partner.service';
+import { Router } from '@angular/router';
 import { StatService } from 'src/app/services/stat.service';
 
 @Component({
@@ -8,11 +8,19 @@ import { StatService } from 'src/app/services/stat.service';
   styleUrls: ['./statistics.component.css']
 })
 export class StatisticsComponent implements OnInit {
+  
 
   partnersCount: number = 0;
+  usersCount: number = 0;
+  boxesCount: number = 0;
+  ordersCount: number = 0;
 
-  constructor(private statService: StatService) { }
+  constructor(private statService: StatService,private router: Router) { }
+  redirectToPartners() {
+    this.router.navigate(['/partners']);
+  }
 
+  
   ngOnInit(): void {
     this.statService.totalPartners().subscribe(
       (response) => {
@@ -22,5 +30,33 @@ export class StatisticsComponent implements OnInit {
         console.log(error);
       }
     );
+    this.statService.totalUsers().subscribe(
+      (response) => {
+        this.usersCount = response.users_count;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    this.statService.totalOrders().subscribe(
+      (response) => {
+        this.ordersCount = response.orders_count;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    this.statService.totalBoxes().subscribe(
+      (response) => {
+        this.boxesCount = response.boxes_count;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+   
+    
   }
 }

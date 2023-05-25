@@ -5,11 +5,15 @@
   
   .rectangle {
     flex: 0 0 25%;
-    height: 100px;
+    height: 140px;
     margin-right: 10px;
     color: white; 
     position: relative; 
   }
+
+
+  
+  
 
   .rectangle h3 {
     
@@ -17,7 +21,11 @@
     left: 5px; 
   }
 
- 
+  .no-border {
+    border: none;
+    outline: none;
+  }
+  
   
   #rectangle1 {
     background-color: #AEC6CF; 
