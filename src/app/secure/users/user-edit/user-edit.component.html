@@ -37,3 +37,25 @@
     <button  [disabled]="!(form.valid)" class="btn btn-dark btn -sm mt-4">Save</button>
 </form>
   
+
+
+<!-- update password -->
+
+<div style="margin-top: 62px;"></div>
+<h3 class="mt-4">Edit User Password :</h3>
+ <form [formGroup]="passwordform" (submit)="submitPassword()">
+    <div class="form-group">
+        <label for="password">Password</label>
+       <input formControlName="password"  minlength="6" class="text form-control" type="text" id="password" name="password">
+    </div>
+
+    <div style="color: red;" *ngIf="passwordform.controls['password'].touched && passwordform.controls['password'].invalid "
+    for="name">
+    <span *ngIf="passwordform.controls['password'].errors!['required']">This Field Is Mandatory</span>
+    <span *ngIf="passwordform.controls['password'].errors!['Length']">Password Must Be More Then 6 Characters</span>
+  </div>
+
+    
+    <button  [disabled]="!(passwordform.valid)" class="btn btn-dark btn -sm mt-4">Save</button>
+</form>
+  

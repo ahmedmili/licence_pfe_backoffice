@@ -45,26 +45,6 @@
   </div>
 
     <div class="form-group">
-        <label for="password">Password</label>
-       <input formControlName="password" class="text form-control" type="password" id="password" name="password">
-    </div>
-
-    <div style="color: red;" *ngIf="form.controls['password'].touched && form.controls['password'].invalid "
-    for="password">
-    <span *ngIf="form.controls['password'].errors!['required']">This Field Is Mandatory</span>
-  </div>
-
-    <div class="form-group">
-        <label for="image">Image</label>
-       <input formControlName="image" class="text form-control" type="file" (change)="uploadImage($event)" id="image" name="image">
-    </div>
-
-    <div style="color: red;" *ngIf="form.controls['image'].touched && form.controls['image'].invalid "
-    for="image">
-    <span *ngIf="form.controls['image'].errors!['required']">This Field Is Mandatory</span>
-  </div>
-
-    <div class="form-group">
         <label for="category">Category</label>
         <select formControlName="category" class="text form-control" id="category" name="category">
             <option value="SUPERMARKET">Supermarket</option>
@@ -106,3 +86,44 @@
     <button  [disabled]="!(form.valid)" class="btn btn-dark btn -sm mt-4">Save</button>
 </form>
   
+
+<!-- update image form -->
+<div style="margin-top: 62px;"></div>
+<h3 class="mt-4">Edit Partner Image :</h3>
+ <form [formGroup]="Imageform" (submit)="changeImage()">
+
+
+
+    <div class="form-group">
+        <label for="image">Image</label>
+       <input formControlName="image" class="text form-control" type="file" (change)="uploadImage($event)" id="image" name="image">
+    </div>
+
+    <div style="color: red;" *ngIf="Imageform.controls['image'].touched && Imageform.controls['image'].invalid "
+    for="image">
+    <span *ngIf="Imageform.controls['image'].errors!['required']">This Field Is Mandatory</span>
+  </div>
+
+    <button  [disabled]="!(Imageform.valid)" class="btn btn-dark btn -sm mt-4">Save</button>
+</form>
+
+
+<!-- update password form -->
+<div style="margin-top: 62px;"></div>
+<h3 class="mt-4">Edit Partner Password :</h3>
+ <form [formGroup]="Passwordform" (submit)="changePassword()">
+
+  <div class="form-group">
+      <label for="password">Password</label>
+     <input formControlName="password" class="text form-control" type="password" id="password" name="password">
+  </div>
+
+  <div style="color: red;" *ngIf="Passwordform.controls['password'].touched && Passwordform.controls['password'].invalid "
+  for="password">
+  <span *ngIf="Passwordform.controls['password'].errors!['required']">This Field Is Mandatory</span>
+</div>
+
+
+  <button  [disabled]="!(Passwordform.valid)" class="btn btn-dark btn -sm mt-4">Save</button>
+</form>
+
