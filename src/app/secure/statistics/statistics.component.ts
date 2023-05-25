@@ -19,6 +19,15 @@ export class StatisticsComponent implements OnInit {
   redirectToPartners() {
     this.router.navigate(['/partners']);
   }
+  redirectToUsers() {
+    this.router.navigate(['/users']);
+  }
+  redirectToBoxes() {
+    this.router.navigate(['/boxs']);
+  }
+  redirectToOrders() {
+    this.router.navigate(['/orders']);
+  }
 
   
   ngOnInit(): void {
@@ -41,7 +50,7 @@ export class StatisticsComponent implements OnInit {
 
     this.statService.totalOrders().subscribe(
       (response) => {
-        this.ordersCount = response.orders_count;
+        this.ordersCount = response.commands_count;
       },
       (error) => {
         console.log(error);
