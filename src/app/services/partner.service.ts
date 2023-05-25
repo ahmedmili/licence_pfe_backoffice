@@ -73,6 +73,6 @@ export class PartnerService {
     const url = `${environment.api}/filter?category=${category}`;
     return this.http.get<Partner[]>(url, this.httpOptions);
   }
-
+  
 
 }

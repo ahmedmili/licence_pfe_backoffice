@@ -1,0 +1,37 @@
+.container {
+    margin-top: 90px;
+    display: flex;
+  }
+  
+  .rectangle {
+    flex: 0 0 25%;
+    height: 100px;
+    margin-right: 10px;
+    color: white; 
+    position: relative; 
+  }
+
+  .rectangle h3 {
+    
+    bottom: 5px; 
+    left: 5px; 
+  }
+
+ 
+  
+  #rectangle1 {
+    background-color: #AEC6CF; 
+  }
+  
+  #rectangle2 {
+    background-color: #FFDAB9; 
+  }
+  
+  #rectangle3 {
+    background-color: #B2D8B2; 
+  }
+  
+  #rectangle4 {
+    background-color: #FFC0CB; 
+  }
+  

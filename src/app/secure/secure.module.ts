@@ -32,6 +32,7 @@ import { BoxDetailsComponent } from './boxs/box-details/box-details.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import {MatIconModule} from '@angular/material/icon';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 
 
@@ -58,6 +59,7 @@ import {MatIconModule} from '@angular/material/icon';
     PartnerDetailsComponent,
     BoxDetailsComponent,
     UserDetailsComponent,
+    StatisticsComponent,
     
   ],
   imports: [
