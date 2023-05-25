@@ -43,6 +43,23 @@ export class PartnerService {
       })
     });
   }
+  
+  updateImage(id: number, data: any): Observable<any> {
+    return this.http.post<Partner>(`${environment.api}/updateImage/${id}`, data, {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    });
+  }
+  
+  updatePassword(id: number, data: any): Observable<any> {
+    return this.http.post<Partner>(`${environment.api}/updatePassword/${id}`, data, {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    });
+  }
+
 
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.endpoint}/${id}`, this.httpOptions);
