@@ -40,7 +40,7 @@ export class BoxEditComponent implements OnInit {
     });
 
     this.id = this.route.snapshot.params['id'];
-
+    // console.log(this.id)
     this.boxService.get(this.id).subscribe(
       box => this.form.patchValue(box)
     );

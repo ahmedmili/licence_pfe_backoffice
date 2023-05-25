@@ -5,14 +5,34 @@
         <label for="name">Name</label>
        <input formControlName="name" class="text form-control" type="text" id="name" name="name">
     </div>
+
+    <div style="color: red;" *ngIf="form.controls['name'].touched && form.controls['name'].invalid "
+    for="name">
+    <span *ngIf="form.controls['name'].errors!['required']">This Field Is Mandatory</span>
+    <span *ngIf="form.controls['name'].errors!['pattern']">This Field Is Invalid</span>
+  </div>
+
     <div class="form-group">
         <label for="email">Email</label>
        <input formControlName="email" class="text form-control" type="email" id="email" name="email" >
     </div>
+
+    <div style="color: red;" *ngIf="form.controls['email'].touched && form.controls['email'].invalid "
+    for="email">
+    <span *ngIf="form.controls['email'].errors!['required']">This Field Is Mandatory</span>
+    <span *ngIf="form.controls['email'].errors!['pattern']">This Field Is Invalid</span>
+  </div>
+
     <div class="form-group">
         <label for="phone">Phone</label>
        <input formControlName="phone" class="text form-control" type="number" id="phone" name="phone">
     </div>
+
+    <div style="color: red;" *ngIf="form.controls['phone'].touched && form.controls['phone'].invalid "
+    for="phone">
+    <span *ngIf="form.controls['phone'].errors!['required']">This Field Is Mandatory</span>
+    <span *ngIf="form.controls['phone'].errors!['pattern']">This Field Is Invalid</span>
+  </div>
     
     <button  [disabled]="!(form.valid)" class="btn btn-dark btn -sm mt-4">Save</button>
 </form>
