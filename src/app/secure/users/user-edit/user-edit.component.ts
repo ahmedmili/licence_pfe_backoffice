@@ -12,6 +12,7 @@ import { GlobalConstants } from 'src/app/shared/global-constants';
 })
 export class UserEditComponent implements OnInit {
   form!: FormGroup;
+  passwordform!: FormGroup;
   id!: number;
   responseMessage!: string;
   constructor(
@@ -23,10 +24,15 @@ export class UserEditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    //info validator
     this.form = this.formBuilder.group({
       name: ["", [Validators.required, Validators.pattern(GlobalConstants.nameRegex)]],
       email: ["", [Validators.required, Validators.pattern(GlobalConstants.emailRegex)]],
       phone: ["", [Validators.required, Validators.pattern(GlobalConstants.contactRegex)]],
+    });
+    //password validator
+    this.passwordform = this.formBuilder.group({
+      password: ["", [Validators.required,Validators.minLength],]
     });
 
     this.id = this.route.snapshot.params['id'];
@@ -65,4 +71,30 @@ export class UserEditComponent implements OnInit {
       console.log(error)
     }
   }
+  
+  submitPassword(): void {
+    try {
+      this.userService.updatePassword(this.id, this.passwordform.getRawValue())
+        .subscribe((response) => {
+          console.log(response.status)
+          if (response.status == 200) {
+            this.router.navigate(['/users']);
+            this.snackbarService.openSnackBar("Edit with Success", "Sucess");
+          } else if (response.status == 400) {
+            if (response[0].password) {
+              this.responseMessage = response[0].password;
+            } 
+            this.snackbarService.openSnackBar(this.responseMessage, GlobalConstants.err);
+          } else if (response.status == 500) {
+            this.snackbarService.openSnackBar(GlobalConstants.genericError, GlobalConstants.err);
+          }else if (response.status == 404) {
+            this.snackbarService.openSnackBar(response.message, GlobalConstants.err);
+          }
+        }
+        );
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 }

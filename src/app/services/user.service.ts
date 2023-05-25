@@ -40,6 +40,9 @@ export class UserService {
   update(id: number, data: any): Observable<any> {
     return this.http.put<User>(`${this.endpoint}/${id}`, data, this.httpOptions);
   }
+  updatePassword(id: number, data: any): Observable<any> {
+    return this.http.put<User>(`${this.endpoint}/password/${id}`, data, this.httpOptions);
+  }
 
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.endpoint}/${id}`, this.httpOptions);
