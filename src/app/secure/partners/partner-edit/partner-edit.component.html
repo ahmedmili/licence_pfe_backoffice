@@ -6,29 +6,63 @@
        <input formControlName="name" class="text form-control" type="text" id="name" name="name">
     </div>
 
+    <div style="color: red;" *ngIf="form.controls['name'].touched && form.controls['name'].invalid "
+    for="name">
+    <span *ngIf="form.controls['name'].errors!['required']">This Field Is Mandatory</span>
+    <span *ngIf="form.controls['name'].errors!['pattern']">This Field Is Invalid</span>
+  </div>
+
     <div class="form-group">
         <label for="description">Description</label>
        <input formControlName="description" class="text form-control" type="text" id="description" name="description" >
     </div> 
 
+    <div style="color: red;" *ngIf="form.controls['description'].touched && form.controls['description'].invalid "
+    for="description">
+    <span *ngIf="form.controls['description'].errors!['required']">This Field Is Mandatory</span>
+  </div>
+
     <div class="form-group">
         <label for="email">Email</label>
        <input formControlName="email" class="text form-control" type="email" id="email" name="email" >
     </div>
+
+    <div style="color: red;" *ngIf="form.controls['email'].touched && form.controls['email'].invalid "
+    for="email">
+    <span *ngIf="form.controls['email'].errors!['required']">This Field Is Mandatory</span>
+    <span *ngIf="form.controls['email'].errors!['pattern']">This Field Is Invalid</span>
+  </div>
+
     <div class="form-group">
         <label for="phone">Phone</label>
        <input formControlName="phone" class="text form-control" type="number" id="phone" name="phone">
     </div>
+
+    <div style="color: red;" *ngIf="form.controls['phone'].touched && form.controls['phone'].invalid "
+    for="phone">
+    <span *ngIf="form.controls['phone'].errors!['required']">This Field Is Mandatory</span>
+    <span *ngIf="form.controls['phone'].errors!['pattern']">This Field Is Invalid</span>
+  </div>
 
     <div class="form-group">
         <label for="password">Password</label>
        <input formControlName="password" class="text form-control" type="password" id="password" name="password">
     </div>
 
+    <div style="color: red;" *ngIf="form.controls['password'].touched && form.controls['password'].invalid "
+    for="password">
+    <span *ngIf="form.controls['password'].errors!['required']">This Field Is Mandatory</span>
+  </div>
+
     <div class="form-group">
         <label for="image">Image</label>
        <input formControlName="image" class="text form-control" type="file" (change)="uploadImage($event)" id="image" name="image">
     </div>
+
+    <div style="color: red;" *ngIf="form.controls['image'].touched && form.controls['image'].invalid "
+    for="image">
+    <span *ngIf="form.controls['image'].errors!['required']">This Field Is Mandatory</span>
+  </div>
 
     <div class="form-group">
         <label for="category">Category</label>
@@ -44,16 +78,30 @@
           </select>
     </div>
 
+    <div style="color: red;" *ngIf="form.controls['category'].touched && form.controls['category'].invalid "
+    for="category">
+    <span *ngIf="form.controls['category'].errors!['required']">This Field Is Mandatory</span>
+  </div>
+
     <div class="form-group">
         <label for="openingtime">Opening Time</label>
         <input formControlName="openingtime" class="form-control" type="time" id="openingtime" name="openingtime">
       </div>
+
+      <div style="color: red;" *ngIf="form.controls['openingtime'].touched && form.controls['openingtime'].invalid "
+      for="openingtime">
+      <span *ngIf="form.controls['openingtime'].errors!['required']">This Field Is Mandatory</span>
+    </div>
 
       <div class="form-group">
         <label for="closingtime">Closing Time</label>
         <input formControlName="closingtime" class="form-control" type="time" id="closingtime" name="closingtime">
       </div>
 
+      <div style="color: red;" *ngIf="form.controls['closingtime'].touched && form.controls['closingtime'].invalid "
+      for="closingtime">
+      <span *ngIf="form.controls['closingtime'].errors!['required']">This Field Is Mandatory</span>
+    </div>
 
     <button  [disabled]="!(form.valid)" class="btn btn-dark btn -sm mt-4">Save</button>
 </form>
