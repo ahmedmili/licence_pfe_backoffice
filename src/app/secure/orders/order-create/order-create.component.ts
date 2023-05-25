@@ -22,7 +22,7 @@ export class OrderCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      user_id: ['', [Validators.required]],
+      user_email: ['', [Validators.required]],
       box_id: ['', [Validators.required]],
       quantity: ['', [Validators.required]],
       status: ['', [Validators.required]],
@@ -31,7 +31,7 @@ export class OrderCreateComponent implements OnInit {
   submit(): void {
     this.orderService.create(this.form.getRawValue())
       .subscribe((response) => {
-        if (response.status == 200) {
+        if (response.status == 201) {
           this.router.navigate(['/orders']);
           console.log(response);
           this.responseMessage = response.message;
@@ -42,8 +42,8 @@ export class OrderCreateComponent implements OnInit {
             this.responseMessage = response.message.quantity;
           else if (response.message.status)
             this.responseMessage = response.message.status;
-          else if (response.message.user_id)
-            this.responseMessage = response.message.user_id;
+          else if (response.message.user_email)
+            this.responseMessage = response.message.user_email;
           else this.responseMessage = GlobalConstants.genericError;
           console.log(response);
         }
