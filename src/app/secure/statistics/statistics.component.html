@@ -1,20 +1,51 @@
 <div class="container">
-    <div class="rectangle" id="rectangle1">
-      <img src="assets/images/partners.png" alt="Image 1" style="width: 50px; height: 50px; display: inline-block; vertical-align: middle;margin-left: 10px;">
-      <h3 style="display: inline-block; vertical-align: middle;margin-top: 30px;margin-left: 10px;">Total Partners</h3>
-      <h2>{{ partnersCount }}</h2>
-    </div> 
+  <div class="rectangle" id="rectangle1">
+    <img src="assets/images/partners.png" alt="Image 1" style="width: 50px; height: 50px; display: inline-block; vertical-align: middle; margin-left: 10px;">
+    <h3 style="display: inline-block; vertical-align: middle; margin-top: 30px; margin-left: 10px;">Total Partners :</h3>
+    <h2 style="margin-top: -10px; margin-left: 120px;">{{ partnersCount }}</h2>
+  
+    <button class="no-border" style="background: none; border: none;" (click)="redirectToPartners()">
+      <h6 style="margin-left: 20px; text-decoration: underline; color: white;">
+        View Details
+        <i class="fas fa-chevron-right" style="margin-left: 130px; color: white;"></i>
+      </h6>
+    </button>
+  </div>
+  
+
+
     <div class="rectangle" id="rectangle2">
         <img src="assets/images/user.png" alt="Image 1" style="width: 50px; height: 50px; display: inline-block; vertical-align: middle;margin-left: 10px;">
         <h3 style="display: inline-block; vertical-align: middle;margin-top: 30px;margin-left: 10px;">Total Users</h3>
+        <h2 style="margin-top: -10px; margin-left: 120px;">{{ usersCount }}</h2>
+        <button class="no-border" style="background: none; border: none;" (click)="redirectToUsers()">
+          <h6 style="margin-left: 20px; text-decoration: underline; color: white;">
+            View Details
+            <i class="fas fa-chevron-right" style="margin-left: 130px; color: white;"></i>
+          </h6>
+        </button>
       </div> 
       <div class="rectangle" id="rectangle3">
         <img src="assets/images/box.png" alt="Image 1" style="width: 50px; height: 50px; display: inline-block; vertical-align: middle;margin-left: 10px;">
         <h3 style="display: inline-block; vertical-align: middle;margin-top: 30px;margin-left: 10px;">Total Boxes</h3>
+        <h2 style="margin-top: -10px; margin-left: 120px;">{{ boxesCount }}</h2>
+        <button class="no-border" style="background: none; border: none;" (click)="redirectToBoxes()">
+          <h6 style="margin-left: 20px; text-decoration: underline; color: white;">
+            View Details
+            <i class="fas fa-chevron-right" style="margin-left: 130px; color: white;"></i>
+          </h6>
+        </button>
       </div> 
       <div class="rectangle" id="rectangle4">
         <img src="assets/images/order.png" alt="Image 1" style="width: 50px; height: 50px; display: inline-block; vertical-align: middle;margin-left: 10px;">
         <h3 style="display: inline-block; vertical-align: middle;margin-top: 30px;margin-left: 10px;">Total Orders</h3>
+        <h2 style="margin-top: -10px; margin-left: 120px;">{{ ordersCount }}</h2>
+        <button class="no-border" style="background: none; border: none;" (click)="redirectToOrders()">
+          <h6 style="margin-left: 20px; text-decoration: underline; color: white;">
+            View Details
+            <i class="fas fa-chevron-right" style="margin-left: 130px; color: white;"></i>
+          </h6>
+        </button>
       </div> 
   </div>
   
