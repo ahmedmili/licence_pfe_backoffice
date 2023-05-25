@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import {  AfterViewInit, ViewChild, ElementRef   } from '@angular/core';
 import { Router } from '@angular/router';
+// import { Chart } from 'chart.js';
 import { StatService } from 'src/app/services/stat.service';
-
+import Chart from 'chart.js/auto';
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
   styleUrls: ['./statistics.component.css']
 })
-export class StatisticsComponent implements OnInit {
+export class StatisticsComponent implements OnInit,AfterViewInit  {
   
-
+  @ViewChild('chartCanvas') chartCanvas!: ElementRef<HTMLCanvasElement>;
+  chart!: Chart;
   partnersCount: number = 0;
   usersCount: number = 0;
   boxesCount: number = 0;
@@ -28,7 +31,22 @@ export class StatisticsComponent implements OnInit {
   redirectToOrders() {
     this.router.navigate(['/orders']);
   }
-
+  ngAfterViewInit() {
+    const canvas = this.chartCanvas.nativeElement;
+    const ctx = canvas.getContext('2d');
+    if (ctx) {
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+          label: 'My Dataset',
+          data: [65, 59, 80, 81, 56, 55, 40]
+        }]
+      }
+    });
+  }
+  }
   
   ngOnInit(): void {
     this.statService.totalPartners().subscribe(

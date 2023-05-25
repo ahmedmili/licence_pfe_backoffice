@@ -13,8 +13,6 @@ import { CommonModule, DatePipe } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +27,7 @@ import {MatIconModule} from '@angular/material/icon';
     BrowserAnimationsModule,
     MatSnackBarModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
