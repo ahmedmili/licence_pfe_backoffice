@@ -32,7 +32,7 @@ export class PartnerEditComponent implements OnInit {
       email: ["", [Validators.required, Validators.pattern(GlobalConstants.emailRegex)]],
       phone: ["", [Validators.required, Validators.pattern(GlobalConstants.contactRegex)]],
       password: ["", [Validators.required]],
-      image: ["null", [Validators.required]],
+      // image: ["null", [Validators.required]],
       category: ["", [Validators.required]],
       openingtime: ["", [Validators.required]],
       closingtime: ["", [Validators.required]]
@@ -62,7 +62,7 @@ export class PartnerEditComponent implements OnInit {
     this.formData.append("category", formValue.category);
     this.formData.append("openingtime", formValue.openingtime);
     this.formData.append("closingtime", formValue.closingtime);
-    this.formData.append("image", this.files, this.files.name);
+    // this.formData.append("image", this.files, this.files.name);
     // console.log(formValue);
     this.partnerService.update(this.id, this.formData)
       .subscribe((response) => {
@@ -79,13 +79,16 @@ export class PartnerEditComponent implements OnInit {
             this.responseMessage = response.errors.email;
           } else if (response.errors.phone) {
             this.responseMessage = response.errors.phone;
-          } else if (response.errors.password) {
-            this.responseMessage = response.errors.password;
-          } else if (response.errors.category) {
+          } 
+          // else if (response.errors.password) {
+          //   this.responseMessage = response.errors.password;
+          // }
+           else if (response.errors.category) {
             this.responseMessage = response.errors.category;
-          } else if (response.errors.image) {
-            this.responseMessage = response.errors.image;
           }
+          //  else if (response.errors.image) {
+          //   this.responseMessage = response.errors.image;
+          // }
         }else if(response.status == 500){
           this.responseMessage = GlobalConstants.genericError;
         }
