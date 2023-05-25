@@ -18,6 +18,14 @@
             <th class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;">Price</th>
 
             <th class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;">Partner Id</th>
+
+            <th class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;">Partner Name</th>
+
+            <th class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;">Partner Email</th>
+
+            <th class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;">Partner Phone</th>
+
+            <th class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;">Partner Category</th>
           </tr>
         </thead>
         <tbody>
@@ -27,6 +35,10 @@
             <td class="col-md-1 column-cell text-center custom-header-row"> {{box.pivot.quantity}} </td>
             <td class="col-md-1 column-cell text-center custom-header-row"> {{box.newprice}} </td>
             <td class="col-md-1 column-cell text-center custom-header-row"> {{box.partner_id}} </td>
+            <td class="col-md-1 column-cell text-center custom-header-row"> {{box.partner.name}} </td>
+            <td class="col-md-1 column-cell text-center custom-header-row"> {{box.partner.email}} </td>
+            <td class="col-md-1 column-cell text-center custom-header-row"> {{box.partner.phone}} </td>
+            <td class="col-md-1 column-cell text-center custom-header-row"> {{box.partner.category}} </td>
           </tr>
         </tbody>
       </table>
