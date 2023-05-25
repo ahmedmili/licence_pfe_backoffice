@@ -12,7 +12,15 @@
   }
 
 
-  
+  .statrectangle {
+    flex: 0 0 25%;
+    height: 450px;
+    margin-top: 20px;
+    margin-left: 25px;
+    width: 545px;
+    color: white; 
+    position: relative; 
+  }
   
 
   .rectangle h3 {
