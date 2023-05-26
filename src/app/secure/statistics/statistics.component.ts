@@ -13,8 +13,10 @@ import { BarController } from 'chart.js/auto';
 export class StatisticsComponent implements OnInit, AfterViewInit {
   @ViewChild('chartCanvas') chartCanvas!: ElementRef<HTMLCanvasElement>;
   @ViewChild('barChartCanvas') barChartCanvas!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('doughnutChartCanvas') doughnutChartCanvas!: ElementRef<HTMLCanvasElement>;
   chart!: Chart;
   barChart!: Chart;
+  doughnutChart!: Chart;
   partnersCount: number = 0;
   usersCount: number = 0;
   boxesCount: number = 0;
@@ -27,7 +29,8 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
   boxrejectedCount: number = 0;
   boxfinishedCount: number = 0;
   boxexpiredCount: number = 0;
-
+  useractiveCount: number = 0;
+  userinactiveCount: number = 0;
   constructor(private statService: StatService, private router: Router) { }
 
   redirectToPartners() {
@@ -85,6 +88,23 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
       }
     });
   }
+  const doughnutCanvas = this.doughnutChartCanvas.nativeElement;
+  const doughnutCtx = doughnutCanvas.getContext('2d');
+  if (doughnutCtx) {
+    this.doughnutChart = new Chart(doughnutCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['ACTIVE', 'INACTIVE'],
+        datasets: [{
+          label: 'Users Status',
+          data: [
+            this.useractiveCount,
+            this.userinactiveCount,
+          ],
+        }]
+      }
+    });
+  }
 }
 
   ngOnInit(): void {
@@ -94,9 +114,10 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
       this.statService.totalOrders(),
       this.statService.totalBoxes(),
       this.statService.getTotalCounts(),
-      this.statService.getTotalBoxCounts()
+      this.statService.getTotalBoxCounts(),
+      this.statService.getTotalUserCounts()
     ]).subscribe(
-      ([partnersResponse, usersResponse, ordersResponse, boxesResponse, countsResponse,boxcountsResponse]) => {
+      ([partnersResponse, usersResponse, ordersResponse, boxesResponse, countsResponse,boxcountsResponse,usercountsResponse]) => {
         this.partnersCount = partnersResponse.partners_count;
         this.usersCount = usersResponse.users_count;
         this.ordersCount = ordersResponse.commands_count;
@@ -109,13 +130,17 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
         this.boxrejectedCount = boxcountsResponse.rejected_count;
         this.boxfinishedCount = boxcountsResponse.finished_count;
         this.boxexpiredCount = boxcountsResponse.expired_count;
+        this.useractiveCount = usercountsResponse.active_count;
+        this.userinactiveCount = usercountsResponse.inactive_count;
         this.updateChartData();
         this.updatebarChartData();
+        this.updatedoughnutChartData();
       },
       (error) => {
         console.log(error);
         this.updateChartData();
         this.updatebarChartData();
+        this.updatedoughnutChartData();
       }
     );
   }
@@ -140,6 +165,17 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
         this.boxexpiredCount,
       ]; 
       this.barChart.update();
+    }
+  }
+
+  updatedoughnutChartData() {
+    if (this.doughnutChart && this.doughnutChart.data && this.doughnutChart.data.datasets && this.doughnutChart.data.datasets.length > 0) {
+      this.doughnutChart.data.datasets[0].data = [
+        this.useractiveCount,
+        this.userinactiveCount,
+       
+      ]; 
+      this.doughnutChart.update();
     }
   }
   
