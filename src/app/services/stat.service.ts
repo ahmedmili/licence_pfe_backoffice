@@ -32,4 +32,8 @@ export class StatService {
   getTotalCounts(): Observable<any> {
     return this.http.get<any>(`${environment.api}/getTotalCounts`, this.httpOptions);
   }
+
+  getTotalBoxCounts(): Observable<any> {
+    return this.http.get<any>(`${environment.api}/getTotalBoxCounts`, this.httpOptions);
+  }
 }

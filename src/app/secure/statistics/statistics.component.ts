@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { StatService } from 'src/app/services/stat.service';
 import Chart from 'chart.js/auto';
 import { forkJoin } from 'rxjs';
+import { BarController } from 'chart.js/auto';
 
 @Component({
   selector: 'app-statistics',
@@ -11,7 +12,9 @@ import { forkJoin } from 'rxjs';
 })
 export class StatisticsComponent implements OnInit, AfterViewInit {
   @ViewChild('chartCanvas') chartCanvas!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('barChartCanvas') barChartCanvas!: ElementRef<HTMLCanvasElement>;
   chart!: Chart;
+  barChart!: Chart;
   partnersCount: number = 0;
   usersCount: number = 0;
   boxesCount: number = 0;
@@ -19,6 +22,11 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
   orderpendingCount: number = 0;
   ordercancelCount: number = 0;
   ordersuccessCount: number = 0;
+  boxpendingCount: number = 0;
+  boxacceptedCount: number = 0;
+  boxrejectedCount: number = 0;
+  boxfinishedCount: number = 0;
+  boxexpiredCount: number = 0;
 
   constructor(private statService: StatService, private router: Router) { }
 
@@ -47,7 +55,7 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
         data: {
           labels: ['Pending', 'Success', 'Cancel'],
           datasets: [{
-            label: 'Order Status',
+            label: 'Orders Status',
             data: [
               this.orderpendingCount,
               this.ordersuccessCount,
@@ -57,7 +65,27 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
         }
       });
     }
+    const barCanvas = this.barChartCanvas.nativeElement;
+  const barCtx = barCanvas.getContext('2d');
+  if (barCtx) {
+    this.barChart = new Chart(barCtx, {
+      type: 'bar',
+      data: {
+        labels: ['PENDING', 'ACCEPTED', 'REJECTED','FINISHED','EXPIRED'],
+        datasets: [{
+          label: 'Boxes Status',
+          data: [
+            this.boxpendingCount,
+            this.boxacceptedCount,
+            this.boxrejectedCount,
+            this.boxfinishedCount,
+            this.boxexpiredCount,
+          ],
+        }]
+      }
+    });
   }
+}
 
   ngOnInit(): void {
     forkJoin([
@@ -65,9 +93,10 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
       this.statService.totalUsers(),
       this.statService.totalOrders(),
       this.statService.totalBoxes(),
-      this.statService.getTotalCounts()
+      this.statService.getTotalCounts(),
+      this.statService.getTotalBoxCounts()
     ]).subscribe(
-      ([partnersResponse, usersResponse, ordersResponse, boxesResponse, countsResponse]) => {
+      ([partnersResponse, usersResponse, ordersResponse, boxesResponse, countsResponse,boxcountsResponse]) => {
         this.partnersCount = partnersResponse.partners_count;
         this.usersCount = usersResponse.users_count;
         this.ordersCount = ordersResponse.commands_count;
@@ -75,11 +104,18 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
         this.orderpendingCount = countsResponse.pending_count;
         this.ordersuccessCount = countsResponse.success_count;
         this.ordercancelCount = countsResponse.cancel_count;
+        this.boxpendingCount = boxcountsResponse.pending_count;
+        this.boxacceptedCount = boxcountsResponse.accepted_count;
+        this.boxrejectedCount = boxcountsResponse.rejected_count;
+        this.boxfinishedCount = boxcountsResponse.finished_count;
+        this.boxexpiredCount = boxcountsResponse.expired_count;
         this.updateChartData();
+        this.updatebarChartData();
       },
       (error) => {
         console.log(error);
-        this.updateChartData(); // Appeler updateChartData() même en cas d'erreur
+        this.updateChartData();
+        this.updatebarChartData();
       }
     );
   }
@@ -94,4 +130,17 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
       this.chart.update();
     }
   }
+  updatebarChartData() {
+    if (this.barChart && this.barChart.data && this.barChart.data.datasets && this.barChart.data.datasets.length > 0) {
+      this.barChart.data.datasets[0].data = [
+        this.boxpendingCount,
+        this.boxacceptedCount,
+        this.boxrejectedCount,
+        this.boxfinishedCount,
+        this.boxexpiredCount,
+      ]; 
+      this.barChart.update();
+    }
+  }
+  
 }
