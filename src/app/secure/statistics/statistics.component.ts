@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import {  AfterViewInit, ViewChild, ElementRef   } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-// import { Chart } from 'chart.js';
 import { StatService } from 'src/app/services/stat.service';
 import Chart from 'chart.js/auto';
+import { forkJoin } from 'rxjs';
+
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
   styleUrls: ['./statistics.component.css']
 })
-export class StatisticsComponent implements OnInit,AfterViewInit  {
-  
+export class StatisticsComponent implements OnInit, AfterViewInit {
   @ViewChild('chartCanvas') chartCanvas!: ElementRef<HTMLCanvasElement>;
   chart!: Chart;
   partnersCount: number = 0;
@@ -21,83 +20,78 @@ export class StatisticsComponent implements OnInit,AfterViewInit  {
   ordercancelCount: number = 0;
   ordersuccessCount: number = 0;
 
-  constructor(private statService: StatService,private router: Router) { }
+  constructor(private statService: StatService, private router: Router) { }
+
   redirectToPartners() {
     this.router.navigate(['/partners']);
   }
+
   redirectToUsers() {
     this.router.navigate(['/users']);
   }
+
   redirectToBoxes() {
     this.router.navigate(['/boxs']);
   }
+
   redirectToOrders() {
     this.router.navigate(['/orders']);
   }
+
   ngAfterViewInit() {
     const canvas = this.chartCanvas.nativeElement;
     const ctx = canvas.getContext('2d');
     if (ctx) {
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-          label: 'My Dataset',
-          data: [65, 59, 80, 81, 56, 55, 40]
-        }]
-      }
-    });
+      this.chart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ['Pending', 'Success', 'Cancel'],
+          datasets: [{
+            label: 'Order Status',
+            data: [
+              this.orderpendingCount,
+              this.ordersuccessCount,
+              this.ordercancelCount,
+            ],
+          }]
+        }
+      });
+    }
   }
-  }
-  
+
   ngOnInit(): void {
-    this.statService.totalPartners().subscribe(
-      (response) => {
-        this.partnersCount = response.partners_count;
+    forkJoin([
+      this.statService.totalPartners(),
+      this.statService.totalUsers(),
+      this.statService.totalOrders(),
+      this.statService.totalBoxes(),
+      this.statService.getTotalCounts()
+    ]).subscribe(
+      ([partnersResponse, usersResponse, ordersResponse, boxesResponse, countsResponse]) => {
+        this.partnersCount = partnersResponse.partners_count;
+        this.usersCount = usersResponse.users_count;
+        this.ordersCount = ordersResponse.commands_count;
+        this.boxesCount = boxesResponse.boxes_count;
+        this.orderpendingCount = countsResponse.pending_count;
+        this.ordersuccessCount = countsResponse.success_count;
+        this.ordercancelCount = countsResponse.cancel_count;
+        this.updateChartData();
       },
       (error) => {
         console.log(error);
+        this.updateChartData(); // Appeler updateChartData() même en cas d'erreur
       }
     );
-    this.statService.totalUsers().subscribe(
-      (response) => {
-        this.usersCount = response.users_count;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+  }
 
-    this.statService.totalOrders().subscribe(
-      (response) => {
-        this.ordersCount = response.commands_count;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-
-    this.statService.totalBoxes().subscribe(
-      (response) => {
-        this.boxesCount = response.boxes_count;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-
-    this.statService.getTotalCounts().subscribe(
-      (response) => {
-        this.orderpendingCount= response.pending_count;
-        this.ordersuccessCount= response.success_count;
-        this.ordercancelCount= response.cancel_count;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-   
-    
+  updateChartData() {
+    if (this.chart && this.chart.data && this.chart.data.datasets && this.chart.data.datasets.length > 0) {
+      this.chart.data.datasets[0].data = [
+        this.orderpendingCount,
+        this.ordersuccessCount,
+        this.ordercancelCount,
+      ];
+      this.chart.update();
+    }
   }
 }

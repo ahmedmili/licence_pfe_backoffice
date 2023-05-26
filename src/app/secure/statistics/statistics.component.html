@@ -48,19 +48,11 @@
         </button>
       </div> 
   </div>
-  <div class="statrectangle" id="rectangle5" style="background-color: white; border: 2px solid #FFC0CB;">
-    <h3 style="display: inline-block; vertical-align: middle;margin-top: 10px;margin-left: 10px;color: #FFC0CB;">Total Orders</h3>
-    <h2 style="margin-top: -10px; margin-left: 120px; color: black;">{{ orderpendingCount }}</h2>
-    <h2 style="margin-top: -10px; margin-left: 120px;color: black;">{{ ordersuccessCount }}</h2>
-    <h2 style="margin-top: -10px; margin-left: 120px;color: black;">{{ ordercancelCount }}</h2>
+  <div class="statrectangle" id="rectangle5" style="background-color: white; border: 2px solid #e98494;">
+    <h3 style="display: inline-block; vertical-align: middle;margin-top: 10px;margin-left: 10px;color: #e98494;">Orders Status :</h3>
+    <div>
+      <canvas #chartCanvas></canvas>
+    </div>
+    
   </div>
-<!-- 
-  <canvas baseChart
-      [data]="barChartData"
-      [options]="barChartOptions"
-      [type]="'bar'">
-</canvas> -->
 
-<div>
-  <canvas #chartCanvas></canvas>
-</div>
