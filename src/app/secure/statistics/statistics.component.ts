@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { StatService } from 'src/app/services/stat.service';
 import Chart from 'chart.js/auto';
 import { forkJoin } from 'rxjs';
-import { BarController } from 'chart.js/auto';
 
 @Component({
   selector: 'app-statistics',
@@ -14,9 +13,11 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
   @ViewChild('chartCanvas') chartCanvas!: ElementRef<HTMLCanvasElement>;
   @ViewChild('barChartCanvas') barChartCanvas!: ElementRef<HTMLCanvasElement>;
   @ViewChild('doughnutChartCanvas') doughnutChartCanvas!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('polarAreaChartCanvas') polarAreaChartCanvas!: ElementRef<HTMLCanvasElement>;
   chart!: Chart;
   barChart!: Chart;
   doughnutChart!: Chart;
+  polarAreaChart!: Chart;
   partnersCount: number = 0;
   usersCount: number = 0;
   boxesCount: number = 0;
@@ -31,6 +32,9 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
   boxexpiredCount: number = 0;
   useractiveCount: number = 0;
   userinactiveCount: number = 0;
+  partnerpendingCount: number = 0;
+  partneractiveCount: number = 0;
+  partnerinactiveCount: number = 0;
   constructor(private statService: StatService, private router: Router) { }
 
   redirectToPartners() {
@@ -105,6 +109,24 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
       }
     });
   }
+  const polarAreaCanvas = this.polarAreaChartCanvas.nativeElement;
+  const polarAreaCtx = polarAreaCanvas.getContext('2d');
+  if (polarAreaCtx) {
+    this.polarAreaChart = new Chart(polarAreaCtx, {
+      type: 'polarArea',
+      data: {
+        labels: ['PENDING','ACTIVE', 'INACTIVE'],
+        datasets: [{
+          label: 'Partners Status',
+          data: [
+            this.partnerpendingCount,
+            this.partneractiveCount,
+            this.partnerinactiveCount,
+          ],
+        }]
+      }
+    });
+  }
 }
 
   ngOnInit(): void {
@@ -115,9 +137,10 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
       this.statService.totalBoxes(),
       this.statService.getTotalCounts(),
       this.statService.getTotalBoxCounts(),
-      this.statService.getTotalUserCounts()
+      this.statService.getTotalUserCounts(),
+      this.statService.getTotalPartnerCounts()
     ]).subscribe(
-      ([partnersResponse, usersResponse, ordersResponse, boxesResponse, countsResponse,boxcountsResponse,usercountsResponse]) => {
+      ([partnersResponse, usersResponse, ordersResponse, boxesResponse, countsResponse,boxcountsResponse,usercountsResponse,partnercountsResponse]) => {
         this.partnersCount = partnersResponse.partners_count;
         this.usersCount = usersResponse.users_count;
         this.ordersCount = ordersResponse.commands_count;
@@ -132,15 +155,20 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
         this.boxexpiredCount = boxcountsResponse.expired_count;
         this.useractiveCount = usercountsResponse.active_count;
         this.userinactiveCount = usercountsResponse.inactive_count;
+        this.partnerpendingCount = partnercountsResponse.pending_count;
+        this.partneractiveCount = partnercountsResponse.active_count;
+        this.partnerinactiveCount = partnercountsResponse.inactive_count;
         this.updateChartData();
         this.updatebarChartData();
         this.updatedoughnutChartData();
+        this.updatepolarAreaChartData();
       },
       (error) => {
         console.log(error);
         this.updateChartData();
         this.updatebarChartData();
         this.updatedoughnutChartData();
+        this.updatepolarAreaChartData();
       }
     );
   }
@@ -176,6 +204,18 @@ export class StatisticsComponent implements OnInit, AfterViewInit {
        
       ]; 
       this.doughnutChart.update();
+    }
+  }
+
+  updatepolarAreaChartData() {
+    if (this.polarAreaChart && this.polarAreaChart.data && this.polarAreaChart.data.datasets && this.polarAreaChart.data.datasets.length > 0) {
+      this.polarAreaChart.data.datasets[0].data = [
+        this.partnerpendingCount,
+        this.partneractiveCount,
+        this.partnerinactiveCount,
+       
+      ]; 
+      this.polarAreaChart.update();
     }
   }
   

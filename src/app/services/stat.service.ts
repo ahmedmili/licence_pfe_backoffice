@@ -40,4 +40,8 @@ export class StatService {
   getTotalUserCounts(): Observable<any> {
     return this.http.get<any>(`${environment.api}/getTotalUserCounts`, this.httpOptions);
   }
+
+  getTotalPartnerCounts(): Observable<any> {
+    return this.http.get<any>(`${environment.api}/getTotalPartnerCounts`, this.httpOptions);
+  }
 }
