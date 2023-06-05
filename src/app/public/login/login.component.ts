@@ -34,10 +34,11 @@ export class LoginComponent implements OnInit {
         }else if(response.body.status == 200){
           localStorage.setItem('token',response.body!.token!);
           this.router.navigate(['/']);
+          this.responseMessage = response.body.message;
         }else if(response.body.status == 401){
- 
           this.responseMessage = response.body.message;
         }
+        console.log(response.body.message);
         this.sneackbarService.openSnackBar(this.responseMessage,GlobalConstants.err)
       }
       ,(error:any)=>{
@@ -49,6 +50,6 @@ export class LoginComponent implements OnInit {
         this.sneackbarService.openSnackBar(this.responseMessage,GlobalConstants.err)
       }
       );
-
+      
 
 }}
