@@ -10,7 +10,7 @@
             
             <th class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;">Title</th>
 
-            <th class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;">Description</th>
+            <th class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center; width: 500px;">Description</th>
 
             <th class="col-md-1 column-cell text-center custom-th custom-header-row" style="vertical-align: middle; text-align: center;">Old Price</th>
 
@@ -35,14 +35,18 @@
           <tr *ngFor="let Boxs of partner.boxs">
             <td class="col-md-1 column-cell text-center custom-header-row">{{ Boxs.id }}</td>
             <td class="col-md-1 column-cell text-center custom-header-row">{{ Boxs.title}}</td>
-            <td class="col-md-1 column-cell text-center custom-header-row">{{ Boxs.description}}</td>
+            <td class="col-md-1 column-cell text-center custom-header-row" >{{ Boxs.description}}</td>
             <td class="col-md-1 column-cell text-center custom-header-row">{{ Boxs.oldprice}}</td>
             <td class="col-md-1 column-cell text-center custom-header-row">{{ Boxs.newprice}}</td>
             <td class="col-md-1 column-cell text-center custom-header-row">{{ Boxs.startdate}}</td>
             <td class="col-md-1 column-cell text-center custom-header-row">{{ Boxs.enddate}}</td>
             <td class="col-md-1 column-cell text-center custom-header-row">{{ Boxs.quantity}}</td>
-            <td class="col-md-1 column-cell text-center custom-header-row">{{ Boxs.remaining_quantity}}</td>
-            <img style="width: 100px; height: 50px; border: 1px solid rgb(158, 158, 160);" [src]="Boxs.image? imageDirectoryPath+Boxs.image : 'assets/images/noImg'"  />
+            <td class="col-md-1 column-cell text-center custom-header-row ">{{ Boxs.remaining_quantity}}</td>
+            <td class="col-md-1 column-cell text-center custom-header-row imageCell">
+
+
+              <img style="width: 100px; height: 50px; border: 1px solid rgb(158, 158, 160);" [src]="Boxs.image? imageDirectoryPath+Boxs.image : 'assets/images/noImg'"  />
+            </td>
             <td class="col-md-1 column-cell text-center custom-header-row">{{ Boxs.category}}</td>
             <td class="col-md-1 column-cell text-center custom-header-row">{{ Boxs.status}}</td>
       

@@ -61,3 +61,7 @@
   .custom-th {
     text-align: center;
   }
+
+  .imageCell{
+    align-items: center;
+  }
