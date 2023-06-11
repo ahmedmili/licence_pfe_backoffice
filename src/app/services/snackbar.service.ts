@@ -15,7 +15,7 @@ export class SnackbarService {
         horizontalPosition: 'center',
         verticalPosition: "bottom",
         duration: 2000,
-        panelClass: ['black-snackbar']
+        panelClass: ['red-snackbar']
       })
     } else {
       this.snackbar.open(msg, "", {

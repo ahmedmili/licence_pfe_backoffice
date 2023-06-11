@@ -1,9 +1,12 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
+// general components
 import {SecureComponent} from './secure/secure.component';
 import {PublicComponent} from './public/public.component';
+// public components
 import { LoginComponent } from './public/login/login.component';
 import { RegisterComponent } from './public/register/register.component';
+// private component
 import { ProfileComponent } from './secure/profile/profile.component';
 import { UsersComponent } from './secure/users/users.component';
 import { UserCreateComponent } from './secure/users/user-create/user-create.component';
@@ -22,9 +25,15 @@ import { PartnerDetailsComponent } from './secure/partners/partner-details/partn
 import { BoxDetailsComponent } from './secure/boxs/box-details/box-details.component';
 import { UserDetailsComponent } from './secure/users/user-details/user-details.component';
 import { StatisticsComponent } from './secure/statistics/statistics.component';
+ // middlewares
+ import { AuthGuard } from '../app/middlewares/AuthGuard';
+import { AdminGuard } from '../app/middlewares/AdminGuard';
+import { ConfirmDeactivateGuard } from '..//app/middlewares/CanDesactivate';
+// routes config 
 const routes: Routes = [
   {
     path: '',
+    canActivate: [AuthGuard],
     component: SecureComponent,
     children: [
     //   redirecte to the first Page
