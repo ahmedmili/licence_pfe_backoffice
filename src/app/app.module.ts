@@ -11,6 +11,7 @@ import { SecureModule } from './secure/secure.module';
 import { CommonModule, DatePipe } from '@angular/common';
 
 import {MatIconModule} from '@angular/material/icon';
+import { CredentialInterceptor } from './interceptors/credential.interceptor';
 
 
 @NgModule({
@@ -29,7 +30,14 @@ import {MatIconModule} from '@angular/material/icon';
     MatIconModule,
     ReactiveFormsModule,
   ],
-  providers: [DatePipe],
+  providers: [
+    DatePipe,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CredentialInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

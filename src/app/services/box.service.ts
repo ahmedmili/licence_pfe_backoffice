@@ -9,9 +9,9 @@ import { Box } from '../interfaces/Box';
   providedIn: 'root'
 })
 export class BoxService {
-  private httpOptions = {
-    headers : new HttpHeaders({'Content-Type': 'application/json', 'Authorization':'Bearer ' + localStorage.getItem('token')})
-  };
+  // private httpOptions = {
+  //   headers : new HttpHeaders({'Content-Type': 'application/json', 'Authorization':'Bearer ' + localStorage.getItem('token')})
+  // };
   private httpOptions2 = {
     headers : new HttpHeaders(
       {
@@ -29,7 +29,7 @@ export class BoxService {
     }
 
     all(): Observable<Box[]>{
-      return this.http.get<Box[]>(this.endpoint,this.httpOptions);
+      return this.http.get<Box[]>(this.endpoint);
     }
 
     create(data:any):Observable<any>{
@@ -41,7 +41,7 @@ export class BoxService {
     }
 
     get(id: number): Observable<Box>{
-      return this.http.get<Box>(`${this.endpoint}/${id}`,this.httpOptions);
+      return this.http.get<Box>(`${this.endpoint}/${id}`);
     }
   
     update(id: number,data: any): Observable<any>{
@@ -56,33 +56,33 @@ export class BoxService {
     }
   
     delete(id: number): Observable<void>{
-      return this.http.delete<void>(`${this.endpoint}/${id}`,this.httpOptions);
+      return this.http.delete<void>(`${this.endpoint}/${id}`);
     }
 
 
     getdetails(id: number): Observable<Box>{
-      return this.http.get<Box>(`${this.endpoint}/boxdetails/${id}`,this.httpOptions);
+      return this.http.get<Box>(`${this.endpoint}/boxdetails/${id}`);
     }
 
     updateBoxStatus(id: number, newStatus: string) {
-      return this.http.put<Box>(`${this.endpoint}/status/${id}`, { status: newStatus }, this.httpOptions);
+      return this.http.put<Box>(`${this.endpoint}/status/${id}`, { status: newStatus });
     }
 
   //Search function
   getBoxs(search: string = "", status:string = ""): Observable<Box[]> {
     let apiUrl = this.apiUrl;
-    let httpOptions = this.httpOptions;
+    // let httpOptions = this.httpOptions;
   
       apiUrl += `?search=${search}&status=${status}`;
     
-    return this.http.get<Box[]>(apiUrl, httpOptions); 
+    return this.http.get<Box[]>(apiUrl); 
   }
 
 
 
   getFilteredBoxs(status: string): Observable<Box[]> {
     const url = `${environment.api}/filter?status=${status}`;
-    return this.http.get<Box[]>(url,this.httpOptions);
+    return this.http.get<Box[]>(url);
   }
 
 

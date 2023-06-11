@@ -10,9 +10,9 @@ import {User} from '../interfaces/user';
 export class AuthService {
  
 
-  private httpOptions = {
-    headers : new HttpHeaders({'Content-Type': 'application/json', 'Authorization':'Bearer ' + localStorage.getItem('token')})
-  };
+  // private httpOptions = {
+  //   headers : new HttpHeaders({'Content-Type': 'application/json', 'Authorization':'Bearer ' + localStorage.getItem('token')})
+  // };
 
    
 
@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   user(): Observable<User> {
-    return this.http.get<User>(`${environment.api}/user`, this.httpOptions);
+    return this.http.get<User>(`${environment.api}/user`);
   }
 
   logout() {
@@ -36,10 +36,10 @@ export class AuthService {
   }
 
   updateInfo(data:any): Observable<User> {
-    return this.http.put<User>(`${environment.api}/users/info`, data,this.httpOptions);
+    return this.http.put<User>(`${environment.api}/users/info`, data);
   }
 
   updatePassword(data:any): Observable<User> {
-    return this.http.put<User>(`${environment.api}/users/password`, data,this.httpOptions);
+    return this.http.put<User>(`${environment.api}/users/password`, data);
   }
 }
