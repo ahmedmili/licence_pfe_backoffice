@@ -29,6 +29,8 @@ export class UserCreateComponent implements OnInit {
       phone:["", [Validators.required,Validators.pattern(GlobalConstants.contactRegex)]],
       password:["", [Validators.required,Validators.minLength(8)]],
       status:["", [Validators.required]],
+      birthday:["", [Validators.required]],
+      sexe:["", [Validators.required]],
     });
   }
   submit(): void {
@@ -38,6 +40,8 @@ export class UserCreateComponent implements OnInit {
     this.formData.append("phone", formValue.phone);
     this.formData.append("password", formValue.password);
     this.formData.append("status", formValue.status);
+    this.formData.append("birthday", formValue.birthday);
+    this.formData.append("sexe", formValue.sexe);
     this.formData.append("roleId", "2");
 
     this.userService.create(this.formData)
@@ -49,6 +53,8 @@ export class UserCreateComponent implements OnInit {
         else if (response[0].email) this.responseMessage = response[0].email
         else if (response[0].phone) this.responseMessage = response[0].phone
         else if (response[0].status) this.responseMessage = response[0].status
+        else if (response[0].birthday) this.responseMessage = response[0].birthday
+        else if (response[0].sexe) this.responseMessage = response[0].sexe
         else if (response[0].password) this.responseMessage = response[0].password
         else if (response[0].roleId) this.responseMessage = response[0].roleId
         this.snackbarService.openSnackBar(this.responseMessage,"error")

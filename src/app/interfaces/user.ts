@@ -4,5 +4,7 @@ export interface User{
     email: string;
     phone:number;
     status:string;
+    birthday: Date;
+    sexe: 'male'|'female'
 }
 

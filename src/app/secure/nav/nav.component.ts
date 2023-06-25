@@ -15,6 +15,8 @@ export class NavComponent implements OnInit {
     name: "user",
     email: "user@use.user",
     phone:10000,
+    birthday: new Date('1999-03-19'),
+    sexe: 'female',
     status: "ACTIVE"
   };
   constructor(
