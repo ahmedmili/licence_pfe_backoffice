@@ -12,7 +12,7 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 })
 export class UsersComponent implements OnInit, AfterViewInit {
   users: User[] = [];
-  columns = ['id', 'name', 'email', 'phone', 'status', 'actions'];
+  columns = ['id', 'name', 'email', 'phone','birthday','sexe', 'status', 'actions'];
   dataSource = new MatTableDataSource();
   loaded = false;
   search: string = '';
