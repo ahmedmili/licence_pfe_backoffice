@@ -69,7 +69,7 @@ for="sexe">
 <span *ngIf="form.controls['sexe'].errors!['pattern']">This Field Is Invalid</span>
 </div>
 
-    <button  [disabled]="!(form.valid)" class="btn btn-dark btn -sm mt-4">Save</button>
+    <button  [disabled]="(form.valid)" class="btn btn-dark btn -sm mt-4">Save</button>
 </form>
   
 
