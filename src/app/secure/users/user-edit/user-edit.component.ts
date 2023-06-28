@@ -29,6 +29,8 @@ export class UserEditComponent implements OnInit {
       name: ["", [Validators.required, Validators.pattern(GlobalConstants.nameRegex)]],
       email: ["", [Validators.required, Validators.pattern(GlobalConstants.emailRegex)]],
       phone: ["", [Validators.required, Validators.pattern(GlobalConstants.contactRegex)]],
+      birthday: ["", [Validators.required]],
+      sexe: ["", [Validators.required]],
     });
     //password validator
     this.passwordform = this.formBuilder.group({
@@ -57,6 +59,12 @@ export class UserEditComponent implements OnInit {
               this.responseMessage = response[0].email;
             } else if (response[0].phone) {
               this.responseMessage = response[0].phone;
+            }
+            else if (response[0].birthday) {
+              this.responseMessage = response[0].birthday;
+            }
+            else if (response[0].sexe) {
+              this.responseMessage = response[0].sexe;
             }
             console.log(response[0])
             this.snackbarService.openSnackBar(this.responseMessage, GlobalConstants.err);
