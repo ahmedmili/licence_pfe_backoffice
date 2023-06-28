@@ -45,10 +45,24 @@ for="birthday">
 <span *ngIf="form.controls['birthday'].errors!['pattern']">This Field Is Invalid</span>
 </div>
 
-<div class="form-group">
+<!-- <div class="form-group">
   <label for="sexe">Sexe</label>
  <input formControlName="sexe" class="text form-control" type="text" id="sexe" name="sexe">
+</div> -->
+
+
+<div class="form-group">
+  <label for="sexe">Sexe</label>
+  <div>
+    <input formControlName="sexe" type="radio" id="sexe-male" name="sexe" value="male">
+    <label for="sexe-male">Male</label>
+  </div>
+  <div>
+    <input formControlName="sexe" type="radio" id="sexe-female" name="sexe" value="female">
+    <label for="sexe-female">Female</label>
+  </div>
 </div>
+
 
 <div style="color: red;" *ngIf="form.controls['sexe'].touched && form.controls['sexe'].invalid "
 for="sexe">
