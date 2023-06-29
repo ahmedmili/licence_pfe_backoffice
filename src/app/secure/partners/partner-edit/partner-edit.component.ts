@@ -31,7 +31,7 @@ export class PartnerEditComponent implements OnInit {
 
     //info form
     this.form = this.formBuilder.group({
-      name: ["", [Validators.required, Validators.pattern(GlobalConstants.nameRegex)]],
+      name: ["", [Validators.required,]],
       description: ["", [Validators.required]],
       email: ["", [Validators.required, Validators.pattern(GlobalConstants.emailRegex)]],
       phone: ["", [Validators.required, Validators.pattern(GlobalConstants.contactRegex)]],
