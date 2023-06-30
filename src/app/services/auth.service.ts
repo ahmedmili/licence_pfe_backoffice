@@ -33,6 +33,8 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem("token");
+    let res =  this.http.post<any>(`${environment.api}/logout`,[]);
+// console.log(res.subscribe);
   }
 
   updateInfo(data:any): Observable<User> {
