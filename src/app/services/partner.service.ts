@@ -8,9 +8,8 @@ import { Partner } from '../interfaces/partner';
   providedIn: 'root'
 })
 export class PartnerService {
-  // private httpOptions = {
-  //   headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') })
-  // };
+    //  MultiPartHeaders = new HttpHeaders({ 'Content-Type': 'multipart/form-data', 'Authorization': 'Bearer ' + localStorage.getItem('token') })
+  
   endpoint = `${environment.api}/partners`;
   apiUrl = `${environment.api}/searchPartner`;
 
@@ -33,7 +32,9 @@ export class PartnerService {
   }
   
   updateImage(id: number, data: any): Observable<any> {
-    return this.http.post<Partner>(`${environment.api}/updateImage/${id}`, data);
+    const headers = new HttpHeaders().set('Multipart-Interceptor', 'true');
+
+      return this.http.post<Partner>(`${environment.api}/updateImage/${id}`, data, { headers });
   }
   
   updatePassword(id: number, data: any): Observable<any> {
