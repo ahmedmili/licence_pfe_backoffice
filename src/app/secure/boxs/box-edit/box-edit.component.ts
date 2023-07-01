@@ -42,7 +42,13 @@ export class BoxEditComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     // console.log(this.id)
     this.boxService.get(this.id).subscribe(
-      box => this.form.patchValue(box)
+      box =>{
+         this.form.patchValue(box['box'][0])
+        //  this.form.patchValue({
+        //   title: box.title
+        //  })
+         console.log(box['box'][0])
+        }
     );
   }
   uploadImage(event: any) {

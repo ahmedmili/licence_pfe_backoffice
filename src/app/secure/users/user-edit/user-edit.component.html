@@ -42,7 +42,6 @@
 <div style="color: red;" *ngIf="form.controls['birthday'].touched && form.controls['birthday'].invalid "
 for="birthday">
 <span *ngIf="form.controls['birthday'].errors!['required']">This Field Is Mandatory</span>
-<span *ngIf="form.controls['birthday'].errors!['pattern']">This Field Is Invalid</span>
 </div>
 
 <!-- <div class="form-group">
@@ -62,14 +61,12 @@ for="birthday">
   </div>
 </div>
 
-
 <div style="color: red;" *ngIf="form.controls['sexe'].touched && form.controls['sexe'].invalid "
 for="sexe">
 <span *ngIf="form.controls['sexe'].errors!['required']">This Field Is Mandatory</span>
-<span *ngIf="form.controls['sexe'].errors!['pattern']">This Field Is Invalid</span>
 </div>
 
-    <button  [disabled]="(form.valid)" class="btn btn-dark btn -sm mt-4">Save</button>
+    <button  [disabled]="!(form.valid)" class="btn btn-dark btn -sm mt-4">Save</button>
 </form>
   
 

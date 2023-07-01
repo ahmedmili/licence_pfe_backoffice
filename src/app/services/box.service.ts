@@ -40,7 +40,7 @@ export class BoxService {
       
     }
 
-    get(id: number): Observable<Box>{
+    get(id: number): Observable<any>{
       return this.http.get<Box>(`${this.endpoint}/${id}`);
     }
   
