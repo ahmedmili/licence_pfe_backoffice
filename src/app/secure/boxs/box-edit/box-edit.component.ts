@@ -32,7 +32,7 @@ export class BoxEditComponent implements OnInit {
       startdate: ["", [Validators.required]],
       enddate: ["", [Validators.required]],
       quantity: ["", [Validators.required]],
-      image: ["", [Validators.required]],
+      // image: ["", [Validators.required]],
       category: ["", [Validators.required]],
       status: ["", [Validators.required]],
       partner_id: ["", [Validators.required]]
@@ -66,7 +66,8 @@ export class BoxEditComponent implements OnInit {
     this.formData.append("category", formValue.category);
     this.formData.append("status", formValue.status);
     this.formData.append("partner_id", formValue.partner_id);
-    this.formData.append("image", this.files, this.files.name);
+
+    // this.formData.append("image", this.files, this.files.name);
 
     this.boxService.update(this.id, this.formData)
       .subscribe((response) => {
@@ -95,7 +96,7 @@ export class BoxEditComponent implements OnInit {
             this.responseMessage = response.errors.status;
           } else if (response.errors.partner_id) {
             this.responseMessage = response.errors.partner_id;
-          } if (response.errors.image) {
+          }else if (response.errors.image) {
             this.responseMessage = response.errors.image;
           }
         } else if (response.status == 500) {

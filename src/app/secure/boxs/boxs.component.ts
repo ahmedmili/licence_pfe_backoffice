@@ -25,6 +25,7 @@ export class BoxsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   search: string = '';
   status!: string;
+  imageUrl! : string;
   constructor(
     private boxService: BoxService,
     private router: Router,

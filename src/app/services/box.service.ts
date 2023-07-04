@@ -45,13 +45,12 @@ export class BoxService {
     }
   
     update(id: number,data: any): Observable<any>{
+      const headers = new HttpHeaders().set('Multipart-Interceptor', 'true');
+
       return this.http.post<Box>(`${environment.api}/updateBox/${id}`,data,
-      {
-        headers : new HttpHeaders({
-          'Authorization':'Bearer ' + localStorage.getItem('token'),
-          // 'Content-Type': 'multipart/form-data' 
-      })
-    });
+   
+      { headers }
+    );
      
     }
   
